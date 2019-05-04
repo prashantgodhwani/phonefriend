@@ -403,7 +403,7 @@ class AdminController extends Controller
     public function updatePhone(Request $request,$id){
         //$phone->delete();
         //echo "<pre>"; print_r($_POST); die;
-        $phoneupdate = Phone::where('id',$id)->update(['rating'=>$request->ratingPhone,'mostselling'=>$request->mostselling]);
+        $phoneupdate = Phone::where('id',$id)->update(['rating'=>$request->ratingPhone,'type'=>$request->type]);
         \request()->session()->flash('status', 'Rating Updated!');
         $phones=Phone::latest()->paginate(8);
         return redirect()->back()->with('phones');

@@ -96,10 +96,12 @@
                                             <div class="form-group"> <input type="text" name="ratingPhone" id="ratingPhone" value="{{$phone->rating}}">
                                             </div>
 											<div class="form-group">
-											<label>Top Selling?</label>
-											 <input type="radio" name="mostselling" value="Yes" <?php if($phone->mostselling == 'Yes')
-											{ echo "checked"; }?>> Yes<br>
-  <input type="radio" name="mostselling" value="No"> No<br>
+											<label>TYPE</label>
+                                                <select name="type">
+                                                    <option value="null"></option>
+                                                    <option value="DEAL_OF_THE_DAY">DEAL_OF_THE_DAY</option>
+                                                    <option value="BEST_SELLING">BEST_SELLING</option>
+                                                </select>
 											</div>
                                             <button type="submit"> update</button>
                                         </form>
