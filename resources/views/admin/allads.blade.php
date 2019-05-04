@@ -98,7 +98,7 @@
 											<div class="form-group">
 											<label>TYPE</label>
                                                 <select name="type">
-                                                    <option value="null"></option>
+                                                    <option value="null">{{$phone->type}}</option>
                                                     <option value="DEAL_OF_THE_DAY">DEAL_OF_THE_DAY</option>
                                                     <option value="BEST_SELLING">BEST_SELLING</option>
                                                 </select>
