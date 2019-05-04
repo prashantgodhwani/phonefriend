@@ -1,0 +1,162 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Laravel\Scout\Searchable;
+
+class Phone extends Model
+{
+
+    use Searchable;
+
+    protected $fillable=['data_id','storage','imei1','imei2','age','price','physical_condition','remarks','dp','sold','visibility','units','units_rem'];
+
+    public function conditions()
+    {
+        return $this->belongsToMany(Condition::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function accessories()
+    {
+        return $this->belongsToMany(Accessory::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
+    public function bids()
+    {
+        return $this->hasMany(Bid::class);
+    }
+
+    public function data(){
+        return $this->belongsTo(Data::class);
+    }
+
+
+    public function getUrlAttribute()
+    {
+        return action('StoreController@show', [$this->id, $this->data->slug]);
+    }
+
+    public static function companies(){
+        return static::select('company',DB::raw("COUNT(*) as count_row"))
+            ->leftJoin('data', 'phones.data_id', '=', 'data.id')->groupby('company')
+            ->get();
+    }
+
+    public static function storages(){
+        return static::select('storage',DB::raw("COUNT(*) as count_row"))
+            ->leftJoin('data', 'phones.data_id', '=', 'data.id')->groupby('storage')
+            ->get();
+    }
+
+    public function scopeCompany($query,$companies)
+    {
+        return $query->whereIn('company',$companies);
+    }
+
+    public function scopeStorage($query,$storage)
+    {
+        return $query->whereIn('storage',$storage);
+    }
+
+    public function toSearchableArray()
+    {
+        $record = $this->toArray();
+
+        $record['price'] = (float)$this->price;
+
+        $record['company'] = ucwords($this->data->company);
+
+        $record['model'] = $this->data->model;
+
+        $record['url'] = 'https://phonefriend.in/store/show/'.$this->id.'/'.str_slug($this->data->company." ".$this->data->model." ".$this->data->storage." GB", '-');
+
+        $record['buy_url'] = 'https://www.phonefriend.in/phone/purchase/'.$this->id.'/'.str_slug($this->data->company." ".$this->data->model." ".$this->data->storage." GB", '-');
+
+        $record['storage'] = $this->data->storage;
+
+        $record['original_price'] = $this->data->price;
+
+        $record['discount'] = round((($this->data->price - $this->price) / $this->data->price )*100);
+
+        $record['photo']='https://www.phonefriend.in/storage'.str_replace("public", "", $this->dp);
+
+        
+            $record['units']=$this->units;
+            $record['units_rem']=$this->units_rem;
+
+
+        unset($record['imei1'], $record['created_at'], $record['updated_at'],$record['imei2'],$record['remarks']);
+
+        return $record;
+    }
+
+    public function getAgeAttribute($value)
+    {
+        if($value=="newest")
+        {
+            return "0 - 1 Month";
+        }
+        else if($value=="newer")
+        {
+            return "1 - 2 Months";
+        }
+        else if($value=="newerer")
+        {
+            return "2 - 3 Months";
+        }
+        else if($value=="new")
+        {
+            return "3 - 4 Months";
+        }
+        else if($value=="seminew")
+        {
+            return "4 - 5 Months";
+        }
+        else if($value=="moderatenew")
+        {
+            return "5 - 6 Months";
+        }
+
+        else if($value=="moderatenormal")
+        {
+            return "6 - 7 Months";
+        }
+        else if($value=="normal")
+        {
+            return "7 - 8 Months";
+        }
+        else if($value=="moderateold")
+        {
+            return "8 - 9 Months";
+        }
+        else if($value=="semiold")
+        {
+            return "9 - 10 Months";
+        }
+        else if($value=="old")
+        {
+            return "10 - 11 Months";
+        }
+        else if($value=="older")
+        {
+            return "11 - 12 Months";
+        }
+        else if($value=="oldest")
+        {
+            return "12+ Months";
+        }
+        
+    }
+}

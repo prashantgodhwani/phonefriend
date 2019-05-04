@@ -1,0 +1,164 @@
+@extends('layouts.other')
+
+@section('content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" media="all" />
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <div id="content" class="site-content" tabindex="-1">
+        <div class="container">
+
+            <nav class="woocommerce-breadcrumb" ><a href="https://phonefriend.in">Home</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>My Phones</nav>
+
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <section>
+                        <div class="text-center mt-4 mb-4 widget woocommerce widget_product_categories electro_widget_product_categories">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6">
+                                    <div class="card-box widget-flat border-success bg-success text-white">
+                                        <i class="fi-help"></i>
+                                        <h3 class="m-b-10">@if(isset($totals))₹ {{number_format($totals->total_settled,2)}} @else NO SETTLEMENT  @endif</h3>
+                                        <p class="text-uppercase m-b-5 font-13 font-600">TOTAL SETTLED</p>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <div class="card-box bg-danger widget-flat border-danger text-white">
+                                        <i class="fi-server"></i>
+                                        <h3 class="m-b-10">@if(isset($totals))₹ {{number_format($dt->total_sales - $totals->total_settled,2)}} @elseif(isset($dt->total_sales)) ₹ {{number_format($dt->total_sales,2)}} @else N.A. @endif</h3>
+                                        <p class="text-uppercase m-b-5 font-13 font-600">TOTAL OUTSTANDING</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <header>
+                            <h2 class="h1">My Phones</h2>
+                        </header>
+                        <div class="woocommerce columns-6">
+                            <div class="tab-pane active panel entry-content wc-tab" id="tab-specification">
+@include('layouts.success')
+                                @if(isset($phones))
+                                <table class="table" id="example">
+                                    
+                                    <thead>
+                                    <tr>
+                                        <th>Phone ID</th>
+                                        <th>Image</th>
+                                        <th>Phone</th>
+                                        <th>Price</th>
+                                        <th>Quantity Available</th>
+                                        <th>Status</th>
+                                        <th>Operations</th>
+
+                                    </tr>
+                                    </thead>
+									<tbody>
+                                    @foreach($phones as $phone)
+                                    <tr>
+                                        <td style="padding-top: 7px;">#TT-0A{{$phone->id}}</td>
+                                        <td style="padding-top: 7px;"><img src="https://www.phonefriend.in/storage/{{str_replace("public", "", $phone->dp)}}" width="50px"></td>
+                                        <td  style="padding-top: 7px;">{{ucwords($phone->data->company)}}<br>{{$phone->data->model}} - {{$phone->data->storage}} GB</td>
+                                        <td style="padding-top: 7px;">₹{{number_format($phone->price,2)}}</td>
+                                        <td style="padding-top: 7px;">{{$phone->units_rem}} <b>/ {{$phone->units}}</b></td>
+                                        <td>@if($phone->units_rem == 0 && $phone->sold!=2)<span style="color: green;font-size: 18px;"><b>SOLD</b></span>@elseif($phone->sold==2)<span style="color: darkred;font-size: 18px;"><b>REMOVED</b></span>@else<span style="color: orange;font-size: 16px;"><b>POSTED</b></span>@endif</td>
+                                        <td style="padding-top: 7px;">
+                                            @if($phone->units_rem == $phone->units && $phone->sold == 2)
+                                                <a href="javascrit:void(0)" style="color: darkred"><i class="fa fa-cross" style="font-size: 1.30em; color: #5cb85c;"></i>N.A.</a>
+                                            @elseif($phone->units_rem < $phone->units && $phone->sold !=2 && $phone->units_rem !=0)
+                                                <a href="{{url('/account/phones/'.$phone->id.'/edit')}}"><i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true" style="font-size: 1.30em"></i></a>
+                                            <a href="{{route('phone.show',$phone->id)}}"><i class="fa fa-eye" style="font-size: 1.30em; color: #5cb85c;"></i></a>&nbsp;
+
+                                            @elseif($phone->units_rem == $phone->units && $phone->sold !=2)
+                                                <a href="{{route('phone.remove',$phone->id)}}"><i class="fa fa-trash" style="font-size: 1.30em; color: darkred;"></i></a>&nbsp;
+                                            <a href="{{url('/account/phones/'.$phone->id.'/edit')}}"><i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true" style="font-size: 1.30em"></i></a>
+                                                <a href="{{route('phone.show',$phone->id)}}"><i class="fa fa-eye" style="font-size: 1.30em; color: #5cb85c;"></i></a>
+                                            @else
+                                                <a href="{{route('phone.show',$phone->id)}}"><span class="btn btn-success"> <i class="fa fa-eye" style="font-size: 1.30em; color: #5cb85c;"></i><br> View Sales</span></a>
+                                            @endif
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+
+
+                                    </tbody>
+                                </table>
+                                    @else
+                                    No Advertisements yet.
+                                    @endif
+                            </div><!-- /.panel -->
+
+                        </div>
+                    </section>
+                    <div class="pull-right">
+                    
+                    </div>
+
+
+
+                </main><!-- #main -->
+            </div><!-- #primary -->
+
+            <div id="sidebar" class="sidebar" role="complementary">
+                <aside class="widget woocommerce widget_product_categories electro_widget_product_categories">
+                    <ul class="product-categories category-single">
+                        <li class="product_cat">
+
+                            <ul>
+                                <li class="cat-item current-cat"><a href="{{route('account')}}">Manage Your Account</a> <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+
+                                    <ul class='children'>
+                                        <li class="cat-item"><a href="{{route('phone.add')}}">Sell a Phone</a> </li>
+                                        <li class="cat-item"><a href="{{route('phones.show')}}"><b>My Phones</b></a> </li>
+                                        <li class="cat-item"><a href="{{route('account.settlements')}}">Settlements</a> </li>
+
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+
+
+            </div>
+
+        </div><!-- .container -->
+    </div><!-- #content -->
+@endsection
+
+
+@section('scripts')
+    <script type="text/javascript" src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/tether.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/bootstrap-hover-dropdown.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/echo.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/wow.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/jquery.easing.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/electro.js')}}"></script>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.js"
+    ></script>
+    <script>
+        $( document ).ready(function() {
+			
+			$("td").css("color","#000");
+			$("th").css("color","#000");
+            $('#aa-search-input').on('keydown', function (e) {
+                if (e.which == 13) {
+                    window.location = 'https://phonefriend.in/store/'+document.getElementById('aa-search-input').value.split(' ').join('-');
+                }
+
+            });
+			
+        });
+    </script>
+	<script>$(document).ready(function () {
+    $.noConflict();
+    var table = $('#example').DataTable();
+});</script>
+@endsection
+
+

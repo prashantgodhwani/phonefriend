@@ -1,0 +1,97 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use Illuminate\Http\Request;
+use App\Phone;
+use App\Repair;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+use Ixudra\Curl\Facades\Curl;
+
+class HomeController extends Controller
+{
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function __construct()
+    {
+        $this->middleware(['isBanned']);
+
+    }
+    public function index()
+    {
+            $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(15)->orderBy('price', 'asc')->get();
+            $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(5)->orderBy('price', 'asc')->get();
+        return view('home',compact('phones','certified'));
+    }
+
+    public function storeContact(Request $request){
+        $this->validate($request,[
+           'fname'=>'required',
+            'lname'=>'required',
+            'subject'=>'required',
+            'message'=>'required',
+            'phone'=>'required|numeric|digits_between:10,10'
+        ]);
+
+        DB::insert('insert into contact (fname,lname,subject,phone,message) values (?,?,?,?,?)', [$request->fname, $request->lname,$request->subject,$request->phone,$request->message]);
+        \request()->session()->flash('status',
+            'Successfully contacted Phone Friend');
+        return redirect()->back();
+
+    }
+
+public function testsms()
+{
+	 $response = Curl::to('http://103.8.127.46/vendorsms/pushsms.aspx')
+            ->withData( array( 'user' => 'PHFRN', 'password' => 'Sandeep@5051', 'msisdn' => '7985762872','sid' => 'PHNFRN' , 'msg' => 'is the one-time password (OTP) for your online registration at Phone Friend. This is usable once. PLEASE DO NOT SHARE WITH ANYONE.','fl'=>'0','gwid'=>'2') )
+            ->asJson()
+            ->get();
+			print_r($response);
+	
+	
+	
+}
+    public function merchant(Request $request){
+        $this->validate($request,[
+            'mname'=>'required',
+            'email'=>'required|email',
+            'phone'=>'required'
+        ]);
+        DB::table('merchant')->insert(
+            ['mname' => $request->mname,
+                'email'=> $request->email,
+                'phone'=> $request->phone
+            ]
+        );
+        \request()->session()->flash('status', 'Ola ! We will contact you soon ! ');
+        return redirect()->route('merchant');
+    }
+
+    public function repair()
+	{
+		$rep = new Repair;
+		$rep->name=$_POST['name'];
+		$rep->email=$_POST['email'];
+		$rep->mobile=$_POST['mobile'];
+		$rep->city=$_POST['city'];
+	
+		$rep->description=$_POST['description'];
+		$rep = $rep->save();
+		 return redirect()->route('home');
+		
+		
+	}
+}

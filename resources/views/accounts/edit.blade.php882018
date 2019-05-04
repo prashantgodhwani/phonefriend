@@ -1,0 +1,186 @@
+@extends('layouts.other')
+
+@section('content')
+    <div id="content" class="site-content" tabindex="-1">
+        <div class="container">
+
+            <nav class="woocommerce-breadcrumb" ><a href="home.html">Home</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>Laptops &amp; Computers</nav>
+
+             <div id="primary" class="content-area">
+
+
+                <div >
+                    <main id="main" class="site-main">
+                        <article class="page type-page status-publish hentry">
+
+
+                            {!! Form::open(['route' => ['phone.store',$phone->id], 'method' => 'patch']) !!}
+
+                                <div id="customer_details" class="col2-set">
+                                    <div class="yup col-md-12">
+                                        <div class="woocommerce-billing-fields">
+
+                                            <h3>Edit Phone Details</h3>
+                                            @include('layouts.error')
+
+                                            <p id="billing_first_name_field" class="form-row form-row form-row-first validate-required"><label class="" for="billing_first_name">Company<abbr title="required" class="required">*</abbr></label>
+                                                <select name="company" id="company" class="input-text company" name="company">
+                                                    <option value="{{$phone->data->company}}" disabled="true" selected="true">{{ucwords($phone->data->company)}}</option>
+                                                    <option value="apple">Apple</option>
+                                                    <option value="nokia">Nokia</option>
+                                                    <option value="micromax">Micromax</option>
+                                                    <option value="samsung">Samsung</option>
+                                                    <option value="motorola">Motorola</option>
+                                                    <option value="vivo">Vivo</option>
+
+<option value="oppo">Oppo</option>
+<option value="sony">Sony</option>
+<option value="oneplus">One Plus</option>
+<option value="mi">Mi</option>
+<option value="panasonic">Panasonic</option>
+<option value="blackberry">Blackberry</option>                                               
+<option value="honour">Honour</option>
+<option value="google">Google</option>
+<option value="lenovo">Lenovo</option>
+<option value="gionee">Gionee</option>
+<option value="xolo">Xolo</option>
+ </select>
+                                            </p>
+
+
+                                            <p id="billing_last_name_field" class="form-row form-row form-row-last validate-required"><label class="" for="billing_last_name">Model<abbr title="required" class="required">*</abbr></label>
+                                                <select class="input-text modd" id="modd" name="model">
+                                                    <option value="{{$phone->data->id}}"  selected="true">{{$phone->data->model." - ".$phone->data->storage}} GB</option>
+                                                </select>
+                                            </p>
+                                            @if($phone->imei1)
+                                                <p id="billing_email_field" class="form-row  form-row form-row-wide  validate-required"><label class="" for="billing_email">IMEI-1<abbr title="required" class="required">*</abbr></label>{!!Form::text('imei1', $phone->imei1, ['class'=>'input-text','maxlength'=>'15']) !!}</p>
+                                                @else
+                                                <p id="billing_email_field" class="form-row  form-row form-row-wide  validate-required"><label class="" for="billing_email">Units of Product<abbr title="required" class="required">*</abbr></label><input type="number" value="{{$phone->units}}" disabled="disabled" class="input-text"> </p>
+                                            @endif
+                                            
+                                            <p id="billing_country_field" class="form-row form-row form-row-wide validate-required validate-email"><label class="" for="billing_country">Device Age<abbr title="required" class="required">*</abbr></label>
+                                                {!!Form::select('age', ["newest"=>'0 - 1 Month','newer'=>'1 - 2 Months','newerer'=>'2 - 3 Months','new'=>'3 - 4 Months','seminew'=>'4 - 5 Months','moderatenew'=>'5 - 6 Months','moderatenormal'=>'6 - 7 Months','normal'=>'7 - 8 Months','moderateold'=>'8 - 9 Months','semiold'=>'9 - 10 Months','old'=>'10 - 11 Months','older'=>'11 - 12 Months','oldest'=>'12+ Months'], null,['class' => 'input-text','placeholder'=>$phone->age])!!}
+                                               </p><div class="clear"></div>
+
+                                            <p id="billing_address_1_field" class="form-row form-row form-row-wide address-field validate-required"><label class="" for="billing_address_1">Price <abbr title="required" class="required">*</abbr></label><input type="text" value="{{$phone->price}}" placeholder="Price"  name="price" class="input-text "></p>
+
+                                            <p id="billing_city_field" class="form-row form-row form-row-wide address-field validate-required" data-o_class="form-row form-row form-row-wide address-field validate-required"><label class="" for="billing_city">Mobile Condition <abbr title="required" class="required">*</abbr></label>
+                                                {!!Form::select('conditions[]', $conditions, $phone->conditions->pluck('id')->toArray(), ['id'=>'conditions_list','class' => 'form-control','selectt','input-text','multiple'])!!}
+
+
+                                            </p>
+
+                                            <p id="billing_state_field" class="form-row form-row form-row-first validate-required validate-email"><label class="" for="billing_state">Accessories <abbr title="required" class="required">*</abbr></label>
+                                                {!!Form::select('accessories[]', $accessories, $phone->accessories->pluck('id')->toArray(), ['id'=>'accessory_list','class' => 'form-control','selectt','input-text','multiple'])!!}
+                                            </p>
+
+                                            <p id="billing_postcode_field" class="form-row form-row form-row-last address-field validate-postcode validate-required" data-o_class="form-row form-row form-row-last address-field validate-required validate-postcode"><label class="" for="billing_postcode">Physical Condition<abbr title="required" class="required">*</abbr></label>
+                                                {!!Form::select('condition', ['good'=>'Good','average'=>'Average','belowavg'=>'Below Average'], null, ['class' => 'input-text'])!!}
+
+                                            </p>
+
+                                           
+
+                                            <div class="clear"></div>
+
+
+                                            <input type="submit" name="submit" value="Save Changes" class="btn btn-success">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </form>
+                        </article>
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+            </div>
+
+            <div id="sidebar" class="sidebar" role="complementary">
+                <aside class="widget woocommerce widget_product_categories electro_widget_product_categories">
+                    <ul class="product-categories category-single">
+                        <li class="product_cat">
+
+                            <ul>
+                                <li class="cat-item current-cat"><a href="{{route('account')}}">Manage Your Account</a> <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+
+                                    <ul class='children'>
+                                        <li class="cat-item"><a href="{{route('phone.add')}}">Sell a Phone</a> </li>
+                                        <li class="cat-item"><a href="{{route('phones.show')}}"><b>My Phones</b></a> </li>
+
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </aside>
+
+
+            </div>
+
+        </div><!-- .container -->
+    </div><!-- #content -->
+@endsection
+
+
+@section('scripts')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $(document).on('change','.company',function(){
+                var company=$(this).val();
+                var div=$(this).parent().parent();
+
+                var op=" ";
+
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('/apis/getmodel')!!}',
+                    data:{'company':company},
+                    success:function(data){
+                        console.log(data.length);
+                        op+='<option value="0" selected disabled>Choose Model</option>';
+                        for(var i=0;i<data.length;i++){
+                            op+='<option value="'+data[i].id+'">'+data[i].model+'  -  '+data[i].storage+'GB'+'</option>';
+                        }
+
+                        div.find('#modd').html(" ");
+                        div.find('#modd').append(op);
+                    },
+                    error:function(){
+
+                    }
+                });
+            });
+
+ $("#conditions_list").select2({
+                theme: "classic",
+                width: 'resolve',
+                allowClear: true
+            });
+            $("#accessory_list").select2({
+                theme: "classic",
+                width: 'resolve',
+                allowClear: true
+            });
+
+        });
+    </script>
+    <script type="text/javascript" src="{{asset('assets/js/tether.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/bootstrap-hover-dropdown.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/echo.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/wow.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/jquery.easing.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/electro.js')}}"></script>
+@endsection
+
+

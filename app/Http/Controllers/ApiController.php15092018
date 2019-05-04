@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Data;
+use App\Phone;
+use App\Order;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+use Ixudra\Curl\Facades\Curl;
+
+class ApiController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware(['auth','isBanned']);
+        $this->middleware('isMerchant', ['only' => ['getModel']]);
+        $this->middleware('isUser', ['only' => ['addToCart','deleteFromCart','updateCart','updateTotal']]);
+    }
+
+    public function getModel(Request $request){
+       $models=Data::select("model","id","storage")->where('company',$request->company)->take(100)->get();
+       return response()->json($models);
+   }
+
+    public function addToCart(Request $request){
+       $phone=Phone::find($request->phone);
+       $flag=0;
+       foreach (Cart::content() as $prod){
+           if($prod->id === $phone->id){
+                $flag=1;
+                break;
+           }
+       }
+       if($flag==0) {
+           $cart =  Cart::add(['id' => $phone->id, 'name' => (ucfirst($phone->data->company) . " " . $phone->data->model), 'qty' => 1, 'price' => $phone->price]);
+       }else{
+           $cart="Already Added to cart.";
+       }
+        return response()->json($cart);
+    }
+
+    public function buyNow(Request $request){
+        $phone=Phone::find($request->phone);
+        $flag=0;
+        foreach (Cart::content() as $prod){
+            if($prod->id === $phone->id){
+                $flag=1;
+                break;
+            }
+        }
+        if($flag==0) {
+            $cart = Cart::add(['id' => $phone->id, 'name' => (ucfirst($phone->data->company) . " " . $phone->data->model), 'qty' => 1, 'price' => $phone->price]);
+            return redirect()->route('cart');
+        }else {
+            return redirect()->route('cart');
+        }
+    }
+
+    public function deleteFromCart(Request $request){
+        Cart::remove($request->cartid);
+        return response()->json($request->cartid);
+    }
+
+    public function updateCart(Request $request){
+        $cart=Cart::update($request->cartid,$request->value);
+        return response()->json($cart);
+    }
+
+    public function updateTotal(Request $request){
+        return response()->json(Cart::subtotal());
+    }
+
+    public function getState(Request $request){
+        $state = DB::table('statelist')->select('state')
+            ->where('city_id', '=', $request->city)
+            ->get();
+        return response()->json($state);
+    }
+
+
+
+}

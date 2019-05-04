@@ -1,0 +1,385 @@
+﻿@extends('layouts.other')
+
+@section('content')
+    <div id="content" class="site-content" tabindex="-1">
+        <div class="container">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="home-v2-slider" >
+                        <!-- ========================================== SECTION – HERO : END========================================= -->
+                        <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+                            <div class="item" style="background-image: url(assets/images/slider/banner-2.jpg); background-size: cover;">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-5">
+                                            <div class="caption vertical-center text-left">
+                                                <h1 class="hero-2 fadeInDown-2">
+                                                    Enjoy Faster surfing <br> on the <b> PhoneFriend</b><br>  Mobile Application
+                                                </h1>
+
+                                                <div class="hero-subtitle fadeInDown-2" style="font-size: 1.3em; padding-bottom: 1%">
+                                                    POWERED FOR SEAMLESS EXPERIENCE.
+                                                </div>
+                                                <div class="fadeInDown-4">
+                                                    <a href="https://play.google.com/store/apps/details?id=com.phonefriend" target="_blank"> <img src="{{asset('images/android-store.png')}}" style="width:45%"></a>
+                                                </div>
+                                            </div><!-- /.caption -->
+                                        </div>
+                                    </div>
+                                </div><!-- /.container -->
+                            </div><!-- /.item -->
+							
+                            <div class="item" style="background-image: url(assets/images/slider/banner-1.jpg); background-size: cover;">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-5">
+                                            <div class="caption vertical-center text-left">
+
+                                                <div class="hero-2 fadeInDown-2">
+                                                    EMI's now available on <B>preowned smartphones</B>
+                                                </div>
+                                                <div class="hero-subtitle fadeInDown-2" style="font-size: 1.3em; padding-bottom: 1%">
+                                                    CRAFTED FOR YOU WITH &nbsp;<i class="fa fa-heart"></i>
+                                                </div>
+
+                                                <div class="hero-action-btn fadeInDown-3">
+                                                    <a href="https://www.phonefriend.in/store" class="big le-button ">Start Buying</a>
+                                                </div>
+                                            </div><!-- /.caption -->
+                                        </div>
+                                    </div>
+                                </div><!-- /.container -->
+                            </div><!-- /.item -->
+
+                            <div class="item" style="background-image: url(assets/images/slider/banner-3.jpg); width: 100%;">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-5">
+                                            <div class="caption vertical-center text-left">
+                                                <div class="hero-subtitle-v2 fadeInLeft-1">
+                                                    RECEIVING MADE EASIER.
+                                                </div>
+
+                                                <div class="hero-2 fadeInRight-1">
+                                                    Pay on Delivery with<BR><strong style="    FONT-SIZE: 35PX;"> 48 hours Replacement Guarantee ! </strong>
+                                                </div>
+
+                                                <div class="hero-action-btn fadeInLeft-2">
+                                                    <a href="https://www.phonefriend.in/store/samsung" class="big le-button ">Start Buying</a>
+                                                </div>
+                                            </div><!-- /.caption -->
+                                        </div>
+                                    </div>
+                                </div><!-- /.container -->
+                            </div><!-- /.item -->
+
+
+                        </div><!-- /.owl-carousel -->
+
+                        <!-- ========================================= SECTION – HERO : END ========================================= -->
+
+                    </div><!-- /.home-v1-slider -->
+                </main></div>
+            <div class="col-md-12" data-animation=" animated fadeIn">
+                <div class="ads-block row">
+                    <div class="ad col-xs-12 col-sm-4">
+                        <div class="media">
+                            <div class="media-left media-middle"><img src="assets/images/ad-block/1.jpg" alt="second hand smartphones at phonefriend" /></div>
+                            <div class="media-body media-middle">
+                                <div class="ad-text">
+                                    <strong>Apple </strong><br> Smartphones
+                                </div>
+                                <div class="ad-action">
+                                    <a href="https://www.phonefriend.in/store/apple">Shop now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ad col-xs-12 col-sm-4">
+                        <div class="media">
+                            <div class="media-left media-middle"><img src="assets/images/ad-block/2.png" alt="second hand smartphones at phonefriend" /></div>
+                            <div class="media-body media-middle">
+                                <div class="ad-text">
+                                    <strong>Samsung </strong><br> Smartphones
+                                </div>
+                                <div class="ad-action">
+                                    <a href="https://www.phonefriend.in/store/samsung">Shop now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ad col-xs-12 col-sm-4">
+                        <div class="media">
+                            <div class="media-left media-middle"><img src="assets/images/ad-block/3.jpg" alt="second hand smartphones at phonefriend" /></div>
+                            <div class="media-body media-middle">
+                                <div class="ad-text">
+                                    <strong> All Premium</strong><br> Smartphones<br>
+                                </div>
+                                <div class="ad-action">
+                                    <a href="https://www.phonefriend.in/store/">Shop now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <section class="products-carousel-tabs animate-in-view fadeIn animated" data-animation="fadeIn">
+                        <h2 class="sr-only">Product Carousel Tabs</h2>
+
+                        <div class="tab-content">
+
+
+                            <div role="tabpanel" class="tab-pane active" id="grid-extended" aria-expanded="true">
+
+                                <ul class="products columns-3">
+                                    @foreach($phones as $phone)
+                                        <li class="product col-md-4 ">
+                                            <div class="product-outer">
+                                                <div class="product-inner highlight">
+                                                    @if(Jenssegers\Agent\Facades\Agent::isMobile())
+                                                    @if($phone->age == '11 - 12 Months' || $phone->age == '12+ Months')
+                                                        <span class="loop-product-categories onsale" style="background: #e24c4c; color:white; height: 1.35em;">REFURBISHED <i class="icon-check-sign"></i></span>
+                                                    @else
+                                                        <span class="loop-product-categories onsale" style="background: #ab10b6; color:white; height: 1.35em;">OPEN-BOXED  <i class="icon-check-sign"></i></span>
+                                                    @endif
+                                                    @endif
+
+
+                                                    <a href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}'>
+
+                                                        <h3 class="content-placeholder">{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB</h3>
+                                                        <div class="product-thumbnail content-placeholder" style="margin-bottom: 0px">
+
+                                                            <img class="img img-responsive" src="https://www.phonefriend.in/storage/{{str_replace("public", "", $phone->dp)}}" alt="{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB second hand phone at phonefriend" title="{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB" >
+                                                            <span class="sale pad" style="display: none" data-toggle="tooltip" title="Price Marked Down"><b>{{round((($phone->data->price - $phone->price) / $phone->data->price )*100)}} %</b><br><span style="    font-size: 10px;">OFF</span></span><br>
+                                                        </div>
+                                                    </a>
+                                                    <h3 class="content-placeholder">{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB</h3>
+
+
+
+
+                                                    <div class="price-add-to-cart" style="padding-top: 5%; padding-bottom: 5%; margin-bottom: 1%">
+                                                        <span class="price">
+                                                            <span class="electro-price">
+                                                                <ins><span class="amount content-placeholder"><i class="fa fa-inr"></i> {{number_format($phone->price, 2) }}</span></ins>&nbsp;
+<del class="content-placeholder"><span class="amount content-placeholder"><i class="fa fa-inr"></i>{{number_format($phone->data->price,2)}}</span></del><br>
+
+                                                            </span>
+                                                        </span>
+                                                       <!--  <a rel="nofollow" href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}' class="button add_to_cart_button pull-right">Add to cart</a>-->
+                                                    </div><!-- /.price-add-to-cart -->
+
+                                                    <div class="hover-area" style=" display: block !important;
+  padding-top: 0.214em !important;
+  border-top: 1px solid #eaeaea !important;">
+                                                        <div class="action-buttons">
+@if(Auth::check())
+    @if(Auth::user()->role == 2)
+                                                            <a href="{{route('phone.buyNow',[$phone->id,str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")])}}" ><b class="buynow"><i class="fa fa-bolt" aria-hidden="true"></i>
+                                                                    &nbsp; Buy Now</b></a>
+    @endif
+    @else
+                                                                <a href="{{route('phone.buyNow',[$phone->id,str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")])}}" ><b class="buynow"><i class="fa fa-bolt" aria-hidden="true"></i>
+                                                                        &nbsp; Buy Now</b></a>
+    @endif
+
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.product-inner -->
+                                            </div><!-- /.product-outer -->
+                                        </li>
+                                    @endforeach
+
+                                </ul>
+                                <a href="{{route('store.all')}}">
+                                    <div class="col-md-4 col-offset-4" style="float: right; padding-bottom: 5%;">
+                                        <a href="{{route('store.all')}}" rel="nofollow" class="btn btn-success" style="    color: #fff;
+    background-color: #a3d133;
+    border-color: #5cb85c;">
+                                            See More Products &nbsp; &nbsp;<i class="fa fa-angle-right" style="font-size:1.2em"></i> </a>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </section><!-- /.products-carousel-tabs -->
+
+
+                    <div class="home-v2-banner-block animate-in-view fadeIn animated" data-animation=" animated fadeIn">
+                        <div class="home-v2-fullbanner-ad fullbanner-ad" style="margin-bottom: 70px;">
+                            <a href="{{route('store.all')}}">
+                                <img src="images/banner.jpg" class="img-fluid" alt="second hand smartphones at phonefriend">
+                            </a>
+                        </div>
+                    </div>
+
+                </main><!-- #main -->
+            </div><!-- #primary -->
+            @if(!Jenssegers\Agent\Facades\Agent::isMobile())
+            <div id="sidebar" class="sidebar" role="complementary" >
+                <aside class="widget widget_text">
+                    <div class="textwidget">
+                        <a href="https://phonefriend.in/store/apple-iphone-x">
+                            <img class="img img-responsive" src="{{asset('assets/images/banner/ad-banner-sidebar.jpg')}}" alt="iphone x second hand at phonefriend"></a>
+                    </div>
+                </aside><br>
+                <aside class="widget widget_products">
+                    <h3 class="widget-title">Recent Products</h3>
+                    <ul class="product_list_widget">
+                        @foreach($certified as $certi)
+                            <li>
+                                <a href="store/show/{{$certi->id}}/{{str_slug($certi->data->company." ".$certi->data->model." ".$certi->data->storage." GB", "-")}}" title="{{ucwords($certi->data->company)}} {{$certi->data->model}} - {{$certi->data->storage}} GB">
+                                    <div class=" product-thumbnail content-placeholder">
+                                    <img width="180" height="180" src="https://www.phonefriend.in/storage/{{str_replace("public", "", $certi->dp)}}" alt="{{ucwords($certi->data->company)}} {{$certi->data->model}} - {{$certi->data->storage}} GB second hand phone at phonefriend"  title="{{ucwords($certi->data->company)}} {{$certi->data->model}} - {{$certi->data->storage}} GB" class="wp-post-image"/>
+                                    </div>
+                                    <span class="product-title content-placeholder">{{ucwords($certi->data->company)}} {{$certi->data->model}} - {{$certi->data->storage}} GB</span>
+                                </a>
+                                <del class=" content-placeholder"><span class="amount  content-placeholder"><i class="fa fa-inr"></i> {{number_format($certi->data->price,2)}}</span></del>
+                                <div class="price-add-to-cart">
+                                    <span class="onsale" style="background: #a3d133;"><i class="icon-check-sign"></i>{{round((($certi->data->price - $certi->price) / $certi->data->price )*100)}} % OFF</span>
+                                    <span class="price">
+                            <span class="electro-price">
+                                <ins><span class="amount  content-placeholder"><i class="fa fa-inr"></i> {{ number_format($certi->price, 2) }}</span></ins>
+
+                            </span>
+                                </span>
+                                </div>
+
+                            </li>
+                        @endforeach
+                    </ul>
+                </aside>
+
+                <aside id="electro_features_block_widget-2" class="widget widget_electro_features_block_widget">
+                    <div class="features-list columns-1">
+                        <div class="feature">
+                            <div class="media">
+                                <div class="media-left media-middle feature-icon">
+                                    <i class="ec ec-transport"></i>
+                                </div>
+                                <div class="media-body media-middle feature-text">
+                                    <strong>Free </strong> Delivery
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="media">
+                                <div class="media-left media-middle feature-icon">
+                                    <i class="ec ec-customers"></i>
+                                </div>
+                                <div class="media-body media-middle feature-text">
+                                    <strong>99% Positive</strong> Feedbacks
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="media">
+                                <div class="media-left media-middle feature-icon">
+                                    <i class="ec ec-returning"></i>
+                                </div>
+                                <div class="media-body media-middle feature-text">
+                                    <strong>48 Hours</strong> replacement gurranty
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="media">
+                                <div class="media-left media-middle feature-icon">
+                                    <i class="ec ec-payment"></i>
+                                </div>
+                                <div class="media-body media-middle feature-text">
+                                    <strong>Payment</strong> Secure System
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="media">
+                                <div class="media-left media-middle feature-icon">
+                                    <i class="ec ec-tag"></i>
+                                </div>
+                                <div class="media-body media-middle feature-text">
+                                    <strong>Only Best</strong> Brands
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+            @endif
+        </div><!-- .container -->
+    </div><!-- #content -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      
+      </div>
+      <div class="modal-body">
+       <img src="assets/images/slider/welcome.JPG">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+@endsection
+
+
+@section('scripts')
+
+    <script type="text/javascript" src="assets/js/tether.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.js"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip({'placement': 'bottom'});
+        });
+    </script>
+
+    <script type="text/javascript" src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="assets/js/echo.min.js"></script>
+    <script type="text/javascript" src="assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="assets/js/electro.js"></script>
+    <script>
+        $( document ).ready(function() {
+			$('#myModal').modal('show');
+            $('#aa-search-input').on('keydown', function (e) {
+                if (e.which == 13) {
+                    window.location = 'https://phonefriend.in/store/'+document.getElementById('aa-search-input').value.split(' ').join('-');
+                }
+
+            });
+        });
+    </script>
+    <script>
+        setTimeout(function(){
+            $('.content-placeholder').removeClass('content-placeholder');
+
+            var elems = document.getElementsByClassName('buy');
+            for (var i=0;i<elems.length;i+=1){
+                elems[i].style.display = 'block';
+            }
+
+            var elems = document.getElementsByClassName('pad');
+            for (var i=0;i<elems.length;i+=1){
+                elems[i].style.display = 'inline-block';
+            }
+        },3000);
+    </script>
+@endsection

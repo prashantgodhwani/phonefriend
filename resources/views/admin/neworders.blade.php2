@@ -1,0 +1,139 @@
+@extends('layouts.dashboard')
+
+@section('content')
+
+
+
+<div class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
+                    <h4 class="header-title">Orders</h4>
+
+                    <!-- <table class="table-responsive" cellspacing="0" width="100%" id="datatable"> -->
+                        <table class="table-responsive" cellspacing="0" width="100%" id="multifilterDataTable">
+                            <thead class="card-box table-responsive" >
+                                <tr>
+                                    <th> ID </th>
+                                    <th>Ordered By</th>
+                                    <th>NOP</th>
+                                    <th>Amount</th>
+                                    <th>Payment Mode</th>
+                                    <th>Status</th>
+                                    <th>Ordered On</th>
+                                    <th class="hidden-sm">Action</th>
+                                </tr>
+                                <tr>
+                                    <th class="searchable"> ID </th>
+                                    <th class="searchable">Ordered By</th>
+                                    <th class="searchable">NOP</th>
+                                    <th class="searchable">Amount</th>
+                                    <th class="searchable">Payment Mode</th>
+                                    <th class="searchable">Status</th>
+                                    <th>Ordered On</th>
+                                    <th class="hidden-sm">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody style="display:table; width:100%;">
+                                @foreach($orders as $order)
+                                <tr>
+                                    <td><b>#{{$order->id}}</b></td>
+
+                                    <td>
+                                        <a href="javascript: void(0);">
+                                            <span class="ml-2">{{ucwords($order->deliver_fname." ".$order->deliver_lname)}}</span>
+                                        </a>
+                                    </td>
+                                    <td><b>{{$order->nop}} items</b></td>
+                                    <td>
+                                        ₹ {{number_format($order->amount,2)}}
+                                    </td>
+
+                                    <td>
+                                        <a href="javascript: void(0);">
+                                            {{strtoupper($order->payment_mode)}}
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                        @if($order->order_status=="Success")
+                                        <span class="badge badge-success">Success</span>
+                                        @elseif($order->order_status=="Failure")
+                                        <span class="badge badge-danger">Failure</span>
+                                        @else
+                                        <span class="badge badge-secondary">Under Process</span>
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        {{$order->created_at->toDayDateTimeString()}}
+                                    </td>
+
+                                    <td>
+                                        <div class="btn-group dropdown">
+                                            <a href="javascript: void(0);" class="table-action-btn dropdown-toggle arrow-none btn btn-light btn-sm" data-toggle="dropdown" aria-expanded="false"><i class="mdi mdi-dots-horizontal"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="{{route('orders.order',$order->id)}}"><i class="mdi mdi-pencil mr-2 text-muted font-18 vertical-middle"></i>View Order</a>
+												
+												
+												<a class="dropdown-item tracklink" href="javascript:void(0)" data-toggle="modal" data-target="#trackModal" id="<?php echo $order->id?>"><i class="fa fa-eye vertical-middle"></i> &nbsp; &nbsp;        Send Tracking Link</a>
+												
+												
+												
+                                                <a class="dropdown-item" href="{{route('orders.order',$order->id)}}"><i class="mdi mdi-check-all mr-2 text-muted font-18 vertical-middle"></i>Schedule Shipment</a>
+                                                <a class="dropdown-item" href="{{route('orders.order',$order->id)}}"><i class="mdi mdi-delete mr-2 text-muted font-18 vertical-middle"></i>Update Status</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        {{-- $orders->links('pagination.paginate2') --}}
+                    </div>
+                </div><!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+<div id="trackModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Send Tracking Link</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    @endsection
+	
+<script>
+$(document).ready(function(){
+	
+	$(".tracklink").click(function()
+	{
+		alert($(this).attr("id"));
+		
+		
+		
+	});
+	
+});
+
+</script>
