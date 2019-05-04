@@ -795,10 +795,10 @@
 								<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1627px;"><div class="owl-item active" style="width: 813.012px;"><div class="onsale-product">
 												<div class="onsale-product-thumbnails">
 
-													<div class="images"><a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView" itemprop="image" class="woocommerce-main-image" title=""><img width="600" height="600" src="https://www.phonefriend.in/storage/{{str_replace("public", "", $deal->dp)}}" class="wp-post-image" alt="GamePad" title="GamePad"></a>
+													<div class="images"><a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView" itemprop="image" class="woocommerce-main-image" title=""><img width="600" height="600" src="https://www.phonefriend.in/storage/{{str_replace("public", "", $deal->dp)}}" class="wp-post-image" alt="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB" title="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB"></a>
 														<div class="thumbnails columns-3">
 															@foreach($deal->photos as $photo)
-															<a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView" title=""><img width="180" height="180" src="https://www.phonefriend.in/storage{{str_replace("public", "", $photo->filename)}}" class="attachment-shop_thumbnail size-shop_thumbnail" alt="GamePad" title="GamePad"></a>
+															<a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView" title=""><img width="180" height="180" src="https://www.phonefriend.in/storage{{str_replace("public", "", $photo->filename)}}" class="attachment-shop_thumbnail size-shop_thumbnail" alt="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB" title="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB"></a>
 															@endforeach
 														</div>
 													</div>
