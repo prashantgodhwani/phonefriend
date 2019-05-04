@@ -44,7 +44,7 @@ class HomeController extends Controller
 
             $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
             $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
-            $bestseller = Phone::where('units_rem', '!=', 0)->where('type','BEST_SELLER')->where('sold', '==' , 0)->orderBy('price', 'asc')->get();
+            $bestseller = Phone::where('units_rem', '!=', 0)->where('type','BEST_SELLING')->where('sold', '==' , 0)->orderBy('price', 'asc')->get();
             $brands = DB::select( DB::raw("SELECT data.company , COUNT(phones.id) as total FROM data INNER JOIN phones ON data.id = phones.data_id WHERE SOLD = 0 and phones.units_rem != 0 GROUP BY data.company ORDER BY total desc LIMIT 10"));
             $deal =  Phone::where('units_rem', '!=', 0)->where('type','DEAL_OF_THE_DAY')->where('sold', '==' , 0)->first();
         return view('home',compact('phones','certified','bestseller', 'brands', 'deal'));
