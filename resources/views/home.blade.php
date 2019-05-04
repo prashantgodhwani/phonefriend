@@ -803,8 +803,8 @@
 														</div>
 													</div>
 												</div>
-												<div class="onsale-product-content">
-
+												<div class="onsale-product-content" style="margin-top: 0.429em;">
+													<span class="onsale" style="margin-bottom:1.4em">DEAL OF THE DAY<i class="icon-check-sign"></i></span>
 													<a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView">
 														<h3>{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB</h3></a>
 													<span class="price"><span class="electro-price"><ins><span class="amount"><i class="fa fa-inr"></i> {{number_format($deal->price, 0) }}</span></ins> <del><span class="amount"><i class="fa fa-inr"></i> {{number_format($deal->data->price, 0) }}</span></del></span></span>
