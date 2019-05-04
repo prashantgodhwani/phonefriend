@@ -255,7 +255,7 @@
 
 		<section class="products-with-category-image container"  style="margin-top: 4%; margin-bottom: 0;">
 			<header class="show-nav" style="margin-bottom: 0">
-				<h2 class="h1">Best Selling Smartphones</h2>
+				<h2 class="h1">Best Selling +Smartphones</h2>
 
 			</header>
 		</section>
