@@ -29,7 +29,7 @@ class SendOrderNotific implements ShouldQueue
      */
     public function handle(OrderConfirmed $event)
     {
-        $admin=User::find(73);
+        $admin=User::find(10);
         $user=User::find($event->order->user_id);
         $order=Order::find($event->order->id);
         $admin->notify((new PaymentProcessedNot($user,$order)));

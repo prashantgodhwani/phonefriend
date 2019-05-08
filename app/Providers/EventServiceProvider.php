@@ -15,8 +15,8 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\OrderConfirmed' => [
             'App\Listeners\SendOrderConfirmationEmail',
-            'App\Listeners\SendOrderConfirmationMessage',
-            'App\Listeners\SendOrderNotific'
+            'App\Listeners\SendOrderConfirmationMessage'
+//            'App\Listeners\SendOrderNotific'
         ],
     ];
 
