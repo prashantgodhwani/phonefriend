@@ -561,15 +561,6 @@
 				</div>
 			</div>
 
-
-
-
-
-
-
-
-
-
 			@if(!Jenssegers\Agent\Facades\Agent::isMobile() || 1==1)
 				<div id="sidebar" class="sidebar" role="complementary" >
 
@@ -780,14 +771,6 @@
 			@endif
 
 
-
-
-
-
-
-
-
-
 			<div class="mobile-filter-open">
 				<img src="{{URL('assets/images/filter.png')}}" />
 			</div>
@@ -796,9 +779,202 @@
 			</div>
 
 
-
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main ">
+					@if(!Jenssegers\Agent\Facades\Agent::isMobile())
+					<section class=" section-onsale-product-carousel" data-animation="fadeIn">
+
+						<header>
+							<h1 class="h1">Deal of the Day</h1>
+						</header>
+
+						<div id="onsale-products-carousel-57176fb23fad9">
+							<div class="onsale-product-carousel owl-carousel owl-loaded owl-drag">
+
+
+								<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1627px;"><div class="owl-item active" style="width: 813.012px;"><div class="onsale-product">
+												<div class="onsale-product-thumbnails">
+
+													<div class="images"><a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView" itemprop="image" class="woocommerce-main-image" title=""><img width="600" height="600" src="https://www.phonefriend.in/storage/{{str_replace("public", "", $deal->dp)}}" class="wp-post-image" alt="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB" title="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB"></a>
+														<div class="thumbnails columns-3">
+															@foreach($deal->photos as $photo)
+															<a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView" title=""><img width="180" height="180" src="https://www.phonefriend.in/storage{{str_replace("public", "", $photo->filename)}}" class="attachment-shop_thumbnail size-shop_thumbnail" alt="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB" title="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB"></a>
+															@endforeach
+														</div>
+													</div>
+												</div>
+												<div class="onsale-product-content" style="margin-top: 0.429em;">
+													<span class="onsale" style="margin-bottom:1.4em">DEAL OF THE DAY<i class="icon-check-sign"></i></span>
+													<a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView">
+														<h3>{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB</h3></a>
+													<span class="price"><span class="electro-price"><ins><span class="amount"><i class="fa fa-inr"></i> {{number_format($deal->price, 0) }}</span></ins> <del><span class="amount"><i class="fa fa-inr"></i> {{number_format($deal->data->price, 0) }}</span></del></span></span>
+													<div class="deal-progress">
+														<div class="deal-stock">
+															<span class="stock-sold" style="color:black">Already Sold: <strong>{{$deal->units}}</strong></span>
+															<span class="stock-available" style="color:black">Available: <strong>{{$deal->units + 10}}</strong></span>
+														</div>
+														<div class="progress">
+															<span class="progress-bar" style="width:{{$deal->units / ($deal->units + 10) * 100}}%">{{$deal->units / ($deal->units + 10) * 100}}</span>
+														</div>
+													</div>
+													<div class="deal-countdown-timer">
+														<div class="marketing-text text-xs-center">Hurry Up! Offer ends in:</div>
+														<span class="deal-end-date" style="display:none;">{{date('Y-m-d', strtotime("+1 days"))}}</span>
+														<div id="deal-countdown" class="countdown"><span class="hours"><span class="value">00</span><b>Hours</b></span><span class="minutes"><span class="value">00</span><b>Mins</b></span><span class="seconds"><span class="value">00</span><b>Secs</b></span></div>
+														<script>
+															// set the date we're counting down to
+															var deal_end_date = document.querySelector(".deal-end-date").textContent;
+															var target_date = new Date( deal_end_date ).getTime();
+
+															// variables for time units
+															var days, hours, minutes, seconds;
+
+															// get tag element
+															var countdown = document.getElementById( 'deal-countdown' );
+
+															// update the tag with id "countdown" every 1 second
+															setInterval( function () {
+
+																// find the amount of "seconds" between now and target
+																var current_date = new Date().getTime();
+																var seconds_left = (target_date - current_date) / 1000;
+
+																// do some time calculations
+																seconds_left = seconds_left % 86400;
+
+																hours = parseInt(seconds_left / 3600);
+																seconds_left = seconds_left % 3600;
+
+																minutes = parseInt(seconds_left / 60);
+																seconds = parseInt(seconds_left % 60);
+
+																// format countdown string + set tag value
+																countdown.innerHTML = '<span class="hours"><span class="value">' + hours + '</span><b>Hours</b></span><span class="minutes"><span class="value">'
+																		+ minutes + '</span><b>Mins</b></span><span class="seconds"><span class="value">' + seconds + '</span><b>Secs</b></span>';
+
+															}, 1000 );
+														</script>
+													</div>
+												</div>
+											</div></div>
+										</div></div></div>
+						</div>
+					</section>
+						@else
+					<section class="section-onsale-product" style="margin-top: 10px">
+							<header class="onsale-product" style="margin-bottom:0em">
+								<h2 class="h1">Deal Of the Day </h2>
+								<div class="deal-countdown-timer" style="padding-top:1em">
+									<div id="deal-countdown" class="countdown"><span class="hours"><span class="value">00</span><b>Hours</b></span><span class="minutes"><span class="value">00</span><b>Mins</b></span><span class="seconds"><span class="value">00</span><b>Secs</b></span></div>
+									<span class="deal-end-date" style="display:none;">{{date('Y-m-d', strtotime("+1 days"))}}</span>
+									<script>
+										// set the date we're counting down to
+										var deal_end_date = document.querySelector(".deal-end-date").textContent;
+										var target_date = new Date( deal_end_date ).getTime();
+
+										// variables for time units
+										var days, hours, minutes, seconds;
+
+										// get tag element
+										var countdown = document.getElementById( 'deal-countdown' );
+
+										// update the tag with id "countdown" every 1 second
+										setInterval( function () {
+
+											// find the amount of "seconds" between now and target
+											var current_date = new Date().getTime();
+											var seconds_left = (target_date - current_date) / 1000;
+
+											// do some time calculations
+											days = parseInt(seconds_left / 86400);
+											seconds_left = seconds_left % 86400;
+
+											hours = parseInt(seconds_left / 3600);
+											seconds_left = seconds_left % 3600;
+
+											minutes = parseInt(seconds_left / 60);
+											seconds = parseInt(seconds_left % 60);
+
+											// format countdown string + set tag value
+											countdown.innerHTML = '<span class="hours"><span class="value">' + hours + '</span><b>Hours</b></span><span class="minutes"><span class="value">'
+													+ minutes + '</span><b>Mins</b></span><span class="seconds"><span class="value">' + seconds + '</span><b>Secs</b></span>';
+
+										}, 1000 );
+									</script>
+								</div>
+							</header><!-- /header -->
+
+							<div class="onsale-products products-with-category-image-inner">
+								<ul data-view="grid" data-toggle="regular-products" class="products columns-3 columns__wide--4">
+								<li class="product product-card bestselling-card" style="width:100%">
+
+									<div class="product-outer" >
+										<div class="media product-inner" style="    padding: 0.786em 1.429em;">
+
+											<a class="media-left" style="vertical-align: middle;" href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView" title="Pendrive USB 3.0 Flash 64 GB">
+												<img class="media-object wp-post-image img-responsive" src="https://www.phonefriend.in/storage/{{str_replace("public", "", $deal->dp)}}" alt="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB second hand phone at phonefriend" title="{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB" >
+											</a>
+
+											<div class="media-body">
+														 <span class="loop-product-categories">
+                                                            <a href="/store" rel="tag">Deal of the Day</a>
+                                                         </span>
+
+												<a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView">
+													<h3>{{ucwords($deal->data->company)}} {{$deal->data->model}} - {{$deal->data->storage}} GB</h3>
+												</a>
+
+												<div class="price-add-to-cart">
+													<div style="margin-bottom: -3px;font-size: 16px;">
+
+														@if($deal->rating > 0)
+
+															<div class="rating col-md-5" title="{{($deal->rating / 5) * 100}}%">
+																<div class="back-stars">
+																	<span class="fa fa-star" aria-hidden="true"></span>
+																	<span class="fa fa-star" aria-hidden="true"></span>
+																	<span class="fa fa-star" aria-hidden="true"></span>
+																	<span class="fa fa-star" aria-hidden="true"></span>
+																	<span class="fa fa-star" aria-hidden="true"></span>
+
+																	<div class="front-stars" style="width: {{($deal->rating / 5) * 100}}%">
+																		<span class="fa fa-star" aria-hidden="true"></span>
+																		<span class="fa fa-star" aria-hidden="true"></span>
+																		<span class="fa fa-star" aria-hidden="true"></span>
+																		<span class="fa fa-star" aria-hidden="true"></span>
+																		<span class="fa fa-star"></span>
+																	</div>
+																</div>
+															</div>
+
+
+														@else
+															<div class="product_disc"><b class="font">NEW ARRIVAL</b></div>
+														@endif
+													</div>
+													<span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span class="woocommerce-Price-amount amount"><i class="fa fa-inr"></i> {{number_format($deal->price, 0) }}</span></ins>&nbsp;
+                                                                            </span>
+                                                                        </span>
+
+													<a href="https://phonefriend.in/store/show/{{$deal->id}}/{{str_slug($deal->data->company." ".$deal->data->model." ".$deal->data->storage." GB", "-")}}#mobileView" class="button add_to_cart_button">Add to cart</a>
+												</div><!-- /.price-add-to-cart -->
+
+											</div>
+
+										</div><!-- /.product-inner -->
+									</div><!-- /.product-outer -->
+
+								</li><!-- /.products -->
+								</ul>
+							</div>
+					</section>
+
+					@endif
+
+
+
 					<section class="products-carousel-tabs animate-in-view fadeIn animated" data-animation="fadeIn">
 						<h2 class="sr-only">Product Carousel Tabs</h2>
 
