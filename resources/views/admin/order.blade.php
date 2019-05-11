@@ -157,6 +157,7 @@
                     <div style="margin-top: 5%">
                         <hr>
                         <h4><b>DELIVER DETAILS  </b></h4><br>
+                        <div class="row">
                         <div class="col-md-6">
                             <b>{{$order->deliver_fname." ".$order->deliver_lname}},</b><br>
                             {{$user->email}}<br>
@@ -172,7 +173,7 @@
                             <br>
                             {{$order->state}}
                         </div>
-
+                        </div>
                     </div>
                 </div>
             </div><!-- end col -->
