@@ -7,11 +7,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 
-class PaymentProcessedNot extends Notification implements ShouldQueue
+class PaymentProcessedNot extends Notification
 {
-    use Queueable;
     public $user;
     public $order;
 
