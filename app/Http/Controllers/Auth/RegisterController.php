@@ -173,6 +173,7 @@ class RegisterController extends Controller
             try {
                 $user = Socialite::driver($provider)->user();
             }catch(\Exception $e){
+                \Log::warning($provider. 'error. Account could not be authorized');
                 return redirect('/login')->with('warning', "<b>Sorry ! </b> Your OAuth account couldn't be authorized.");
             }
             $authUser = $this->findOrCreateUser($user, $provider);

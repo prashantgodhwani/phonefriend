@@ -22,6 +22,7 @@
         "pragmarx/google2fa-laravel": "^0.2.0",
         "predis/predis": "^1.1",
         "rdanusha/laravel-elastic-email": "^1.1",
+        "rollbar/rollbar-laravel": "^4.0",
         "softon/indipay": "^1.1"
     },
     "require-dev": {
