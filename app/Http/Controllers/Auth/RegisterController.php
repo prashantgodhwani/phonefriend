@@ -173,7 +173,6 @@ class RegisterController extends Controller
             try {
                 $user = Socialite::driver($provider)->user();
             }catch(\Exception $e){
-                Rollbar::log(Level::ERROR, $e, array("my" => "extra", "data" => 42));
                 \Log::warning(ucwords($provider). ' Error. Account could not be authorized', [$e]);
                 return redirect('/login')->with('warning', "Sorry ! Your OAuth account couldn't be authorized.");
             }
