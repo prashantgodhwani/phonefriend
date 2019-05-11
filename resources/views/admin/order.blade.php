@@ -156,20 +156,23 @@
                     </table>
                     <div style="margin-top: 5%">
                         <hr>
-                        {{-- dd($order) --}}
                         <h4><b>DELIVER DETAILS  </b></h4><br>
-                        <b>{{$order->deliver_fname." ".$order->deliver_lname}},</b><br>
-                        {{$user->email}}<br>
-                        +91-{{$order->deliver_phone}}<br><br>
+                        <div class="col-md-6">
+                            <b>{{$order->deliver_fname." ".$order->deliver_lname}},</b><br>
+                            {{$user->email}}<br>
+                            +91-{{$order->deliver_phone}}<br><br>
+                            <b>Number Of Products : {{$order->nop}}</b><br><br>
+                        </div>
+                        <div class="col-md-6">
+                            <b>Address</b><br>
+                            {{$order->deliver_add1.", ".$order->deliver_add2}}<br>
+                            {{$order->postcode}}
 
-                        <b>Number Of Products : {{$order->nop}}</b><br><br>
-                        <b>Address</b><br>
-                        {{$order->deliver_add1.", ".$order->deliver_add2}}<br>
-                        {{$order->postcode}}
+                            {{$order->district}}
+                            <br>
+                            {{$order->state}}
+                        </div>
 
-                        {{$order->district}}
-                        <br>
-                        {{$order->state}}
                     </div>
                 </div>
             </div><!-- end col -->
