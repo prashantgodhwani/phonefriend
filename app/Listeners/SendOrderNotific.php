@@ -9,7 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Notifications\PaymentProcessedNot;
 
-class SendOrderNotific implements ShouldQueue
+class SendOrderNotific
 {
     /**
      * Create the event listener.
