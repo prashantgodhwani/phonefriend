@@ -86,12 +86,12 @@ class RegisterController extends Controller
 
     	$otp = rand(100000,999999);
 
-    	Mail::to($user->email)->send(new VerifyMail($user));
-    	session(['phone' => $data['phone']]);
-    	session(['onthep' => $otp]);
-    	session(['newreg' => 'Yes']);
-    	
-    	session(['userveri' => $user->id]);
+//    	Mail::to($user->email)->send(new VerifyMail($user));
+//    	session(['phone' => $data['phone']]);
+//    	session(['onthep' => $otp]);
+//    	session(['newreg' => 'Yes']);
+//
+//    	session(['userveri' => $user->id]);
     	/* $response = Curl::to('http://103.8.127.46/vendorsms/pushsms.aspx')
     	->withData( array( 'user' => 'PHFRN', 'password' => 'Sandeep@5051', 'msisdn' => $data['phone'],'sid' => 'PHNFRN' , 'msg' => $otp.' is the one-time password (OTP) for your online registration at Phone Friend. This is usable once. PLEASE DO NOT SHARE WITH ANYONE.','fl'=>'0','gwid'=>'2') )
     	->asJson()
