@@ -17,6 +17,7 @@ class AllAvailable
      */
     public function handle($request, Closure $next)
     {
+        $flag = 0;
         foreach(Cart::content() as $product) {
             if (Phone::find($product->id)->units_rem > 0) {
                 $flag = 0;
