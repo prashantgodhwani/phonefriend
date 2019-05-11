@@ -7,6 +7,7 @@ use App\Order;
 use App\User;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Notifications\PaymentProcessedNot;
 
 class SendOrderNotific implements ShouldQueue
 {
@@ -28,10 +29,11 @@ class SendOrderNotific implements ShouldQueue
      */
     public function handle(OrderConfirmed $event)
     {
-        $admin=User::find(73);
+        $admin=User::find(10);
         $user=User::find($event->order->user_id);
         $order=Order::find($event->order->id);
-        Notification::send(User::find(73),(new \App\Notifications\PaymentProcessedNot($user,$order)));
+        $admin->notify((new PaymentProcessedNot($user,$order)));
+//        \Notification::send(User::find(73),(new \App\Notifications\PaymentProcessedNot($user,$order)));
 
     }
 }
