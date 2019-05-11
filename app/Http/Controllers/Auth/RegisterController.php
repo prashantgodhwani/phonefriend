@@ -169,12 +169,16 @@ class RegisterController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-    	$user = Socialite::driver($provider)->user();
 
-    	$authUser = $this->findOrCreateUser($user, $provider);
-    	Auth::login($authUser, true);
-    	// return redirect($this->redirectTo);
-    	return redirect()->intended($this->redirectTo);
+            try {
+                $user = Socialite::driver($provider)->user();
+            }catch(\Exception $e){
+                return redirect('/login')->with('warning', "Sorry your OAuth account couldn't be authorized.");
+            }
+            $authUser = $this->findOrCreateUser($user, $provider);
+            Auth::login($authUser, true);
+            // return redirect($this->redirectTo);
+            return redirect()->intended($this->redirectTo);
     }
 
     /**
