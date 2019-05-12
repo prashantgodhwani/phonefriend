@@ -45,8 +45,8 @@ class OrderController extends Controller
             event(new \App\Events\OrderConfirmed(\App\Order::where('order_id',$order_id)->first()));
             return view('cart.success',compact('order_id'));
         }
-        else if($response['order_status']=="Failure"){
-            $request->session()->put('order', 'Failure');
+        else{
+            $request->session()->put('order', $response['order_status']);
             $request->session()->flash('status', 'Items have been re-stored to your cart for your convenience');
             return view('cart.failed',compact('order_id'));
         }
