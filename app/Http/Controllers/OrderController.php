@@ -55,6 +55,7 @@ class OrderController extends Controller
 
 
     public function storeOrder(Request $request){
+
         $val = Cart::subtotal();
         function number_unformat($number, $force_number = true, $dec_point = '.', $thousands_sep = ',') {
             if ($force_number) {
@@ -67,20 +68,10 @@ class OrderController extends Controller
             settype($number, $type);
             return $number;
         }
-        if(number_unformat($val) >= 25000) {
-            $this->validate($request, [
-                'deliver_phone' => 'required|digits_between:10,10',
-                'deliver_fname' => 'required',
-                'deliver_lname' => 'required',
-                'deliver_add1' => 'required',
-                    // 'deliver_cityid' => 'required',
-                'payment_method' => [
-                    'required',
-                    Rule::in(['ccdc']),
-                ],
-                'postcode' => 'required'
-            ]);
-        }else{
+        if(number_unformat($val) <= 0 || Cart::count() <= 0) {
+            $request->session()->flash('alert', 'No items in cart or Order value less than permitted. Please add some items and try again.');
+            return redirect()->route('cart');
+        }
             $this->validate($request, [
                 'deliver_phone' => 'required|digits_between:10,10',
                 'deliver_fname' => 'required',
@@ -93,7 +84,6 @@ class OrderController extends Controller
                 ],
                 'postcode' => 'required'
             ]);
-        }
         $request['user_id']=Auth::user()->id;
         $id = strtoupper(str_random(5));
         $now=Carbon::now();
