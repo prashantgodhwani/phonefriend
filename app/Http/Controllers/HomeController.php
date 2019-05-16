@@ -42,7 +42,7 @@ class HomeController extends Controller
      //        $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(5)->orderBy('price', 'asc')->get();
 
 
-            $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
+            $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderByRaw('RAND()')->get();
             $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
             $bestseller = Phone::where('units_rem', '!=', 0)->where('type','BEST_SELLING')->where('sold', '==' , 0)->orderBy('price', 'asc')->get();
             $brands = DB::select( DB::raw("SELECT data.company , COUNT(phones.id) as total FROM data INNER JOIN phones ON data.id = phones.data_id WHERE SOLD = 0 and phones.units_rem != 0 GROUP BY data.company ORDER BY total desc LIMIT 10"));
