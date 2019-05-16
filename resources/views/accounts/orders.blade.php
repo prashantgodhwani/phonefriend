@@ -60,7 +60,7 @@
                                                         </b>
                                                     </div>
                                                         <div class="col-md-3">
-                                                            <b> ₹ {{ number_format(App\Phone::find($device->phone_id)->price)}} + {{ number_format(App\Phone::find($device->phone_id)->price*$month/100)}}</b><br>
+                                                            <b> ₹ {{ number_format(App\Phone::find($device->phone_id)->price)}} + {{ number_unformat($order->amount) - number_unformat(App\Phone::find($device->phone_id)->price)}}</b><br>
                                                             <!--<span style="color:darkred">NO OFFERS</span>-->
                                                         </div>
 
