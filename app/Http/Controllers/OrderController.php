@@ -59,8 +59,6 @@ class OrderController extends Controller
             foreach (Cart::content() as $content) {
                 $phone = Phone::find($content->id);
                 $phone->units_rem = $phone->units_rem - 1;
-                $phone->units = $phone->units - 1;
-                $phone->units = $phone->units - 1;
                 $phone->save();
             }
 
