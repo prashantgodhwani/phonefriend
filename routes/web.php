@@ -268,11 +268,7 @@ Route::get('/customer/dashboard','ApiController@getModel')->name('customer.dashb
 
 Route::get('/accounts/phone/{phone}/orders','AccountController@showPhoneOrders')->name('phone.show');
 
-Route::post('/checkout/dashboard','OrderController@storeOrder')->name('order.create')->middleware('AllAvailable');
-
-Route::get('/checkout/successfull',function (){
-    return view('cart.success');
-})->name('order.success');
+Route::post('/checkout/dashboard','OrderController@storeOrder')->name('order.create')->middleware(['AllAvailable', 'CartHasItems']);
 
 Route::get('/merchant/dashboard','ApiController@getModel')->name('merchant.dashboard');
 

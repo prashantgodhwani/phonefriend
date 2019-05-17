@@ -24,7 +24,7 @@ class OrderController extends Controller
     }
 
     public function returnCart(){
-        $amt = (int)str_replace(",", "", Cart::subtotal()); $shipping = 0;
+        $amt = (int)str_replace(",", "", Cart::subtotal());
         if($amt <= 10000 && $amt > 0 )
             $shipping = 106;
         elseif($amt > 10000 && $amt <= 20000)
@@ -36,12 +36,20 @@ class OrderController extends Controller
         return view('cart.index',compact('shipping'));
     }
 
-
     public function response(Request $request)
     {
         // For Otherthan Default Gateway
         $response = Indipay::gateway('CCAvenue')->response($request);
 
+        $amt = (int)str_replace(",", "", Cart::subtotal());
+        if($amt <= 10000 && $amt > 0 )
+            $shipping = 106;
+        elseif($amt > 10000 && $amt <= 20000)
+            $shipping = 165;
+        elseif($amt > 20000)
+            $shipping = 234;
+        else
+            $shipping = 0;
 
         Order::where('order_id', $response['order_id'])
             ->update(['tracking_id' => $response['order_id'],'bank_ref_no'=>$response['bank_ref_no'],'order_status'=>$response['order_status'],'payment_mode'=>$response['payment_mode'],'card_name'=>$response['card_name']]);
@@ -57,13 +65,14 @@ class OrderController extends Controller
             }
 
             $request->session()->put('order', 'Success');
+            $request->session()->put('order_id', $order_id);
             event(new \App\Events\OrderConfirmed(\App\Order::where('order_id',$order_id)->first()));
-            return view('cart.success',compact('order_id'));
+            return view('cart.success',compact('order_id','shipping'));
         }
         else{
             $request->session()->put('order', $response['order_status']);
             $request->session()->flash('status', 'Items have been re-stored to your cart for your convenience');
-            return view('cart.failed',compact('order_id'));
+            return view('cart.failed',compact('order_id','shipping'));
         }
 
     }
@@ -195,7 +204,7 @@ class OrderController extends Controller
             $request->session()->put('order', 'Success');
 
             event(new \App\Events\OrderConfirmed($order));
-            return view('cart.success',compact('order_id'));
+            return view('cart.success',compact('order_id', 'shipping'));
         }  else {
             $finalAmount = $order->amount - (($order->amount * 1.5)/100);
             if($request->session()->has('coupon')){

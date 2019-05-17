@@ -47,12 +47,12 @@
 
                                <tr class="shipping">
                                    <th>Shipping</th>
-                                   <td data-title="Shipping">Flat Rate: <span class="amount">$300.00</span> <input type="hidden" class="shipping_method" value="international_delivery" id="shipping_method_0" data-index="0" name="shipping_method[0]"></td>
+                                   <td data-title="Shipping"><span class="amount"><i class="fa fa-inr"></i>  {{number_format($shipping,2) }}</span> <input type="hidden" class="shipping_method" value="international_delivery" id="shipping_method_0" data-index="0" name="shipping_method[0]"></td>
                                </tr>
 
                                <tr class="order-total">
                                    <th>Total</th>
-                                   <td><strong><span class="amount">{{Cart::subtotal()}}</span></strong> </td>
+                                   <td><strong><span class="amount"><i class="fa fa-inr"></i> &nbsp;{{number_format((int)str_replace(",", "", Cart::subtotal()) + $shipping, 2)}}</span></strong> </td>
                                </tr>
                                </tfoot>
                            </table>
