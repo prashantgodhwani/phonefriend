@@ -33,7 +33,7 @@
                                            {{$product->name}}&nbsp;
                                            <strong class="product-quantity">× {{$product->qty}}</strong>													</td>
                                        <td class="product-total">
-                                           <span class="amount">{{$product->subtotal}}</span>
+                                           <span class="amount">{{number_format($product->subtotal, 2)}}</span>
                                        </td>
                                    </tr>
                                @endforeach
