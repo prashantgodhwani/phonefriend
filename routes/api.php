@@ -29,7 +29,7 @@ Route::get('/get-city-state/{pincode}', function ($pincode){
 		'Accept: application/json',
 		'Content-Type: application/json',
 	);
-	curl_setopt($ch, CURLOPT_URL, 'http://postalpincode.in/api/pincode/'.$pincode);
+	curl_setopt($ch, CURLOPT_URL, 'http://www.postalpincode.in/api/pincode/'.$pincode);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
