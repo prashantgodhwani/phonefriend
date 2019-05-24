@@ -283,10 +283,12 @@ To extend warranty on your product please write us at support@phonefeiend.in or 
                     success:function(data){
                         $('.loading-bg').hide();
                         var data = JSON.parse(data);
-                        if(data.Status == "Error"){
+                        if(data.length == 0){
                             alert('Invalid Pin code');
                             $('#billing_postcode').val('');
                             $('#billing_postcode').focus();
+                            $('#billing_state').val('');
+                            $('#city1').val('');
                         }else{
                             var postdata = data[0];
                             $('#billing_state').val(postdata.circle);
