@@ -288,9 +288,9 @@ To extend warranty on your product please write us at support@phonefeiend.in or 
                             $('#billing_postcode').val('');
                             $('#billing_postcode').focus();
                         }else{
-                            var postdata = data.PostOffice[0];
-                            $('#billing_state').val(postdata.State);
-                            $('#city1').val(postdata.District);
+                            var postdata = data[0];
+                            $('#billing_state').val(postdata.circle);
+                            $('#city1').val(postdata.division);
                             // $.ajax({
                             // 	type: 'post',
                             // 	headers: {
