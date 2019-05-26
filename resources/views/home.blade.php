@@ -720,7 +720,7 @@
 										<i class="ec ec-transport"></i>
 									</div>
 									<div class="media-body media-middle feature-text">
-										<strong>Free </strong> Delivery
+										<strong>Low cost </strong> Delivery
 									</div>
 								</div>
 							</div>
