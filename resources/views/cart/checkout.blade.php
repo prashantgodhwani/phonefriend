@@ -123,7 +123,7 @@
 
                                         <p id="billing_city_field1" class="form-row form-row form-row-last address-field validate-required" data-o_class="form-row form-row form-row-wide address-field validate-required" id="loadcity"><label class="" for="billing_city">Town / City <abbr title="required" class="required">*</abbr></label>
                                             <input type="text" name="deliver_cityid" id="city1" style="width: 100%" value="" >
-                                            <br/>NOTE:- if you are unable to get your city then you can edit or enter it manually.
+                                            <br/>NOTE:- if you are unable to find your city then you can edit or enter it manually.
                                         </p>
 
 
