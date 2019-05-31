@@ -254,7 +254,7 @@ Route::get('/admin/user/{user}/ban','AdminController@banUser')->name('user.ban')
 
 Route::get('/admin/user/{user}/unban','AdminController@unBanUser')->name('user.unban');
 
-Route::get('/cart','OrderController@returnCart')->middleware('isUser')->name('cart');
+Route::get('/cart','OrderController@returnCart')->name('cart');
 
 Route::post('/apply-coupon','HomeController@applyCoupon');
 
