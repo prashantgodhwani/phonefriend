@@ -102,13 +102,14 @@ class OrderController extends Controller
         return view('cart.checkout',compact('cities','states', 'shipping'));
     }
 
-    public function validateAndCheckout(){
+    public function validateAndCheckout(Request $request){
         if(Auth::check()){
             return redirect()->route('checkout');
-        }else if(\request()->is('cart/*')){
-            return "hello";
+        }else {
+            return view('auth/guestLogin');
         }
     }
+
 
 
     public function storeOrder(Request $request){
@@ -126,8 +127,11 @@ class OrderController extends Controller
             $request->session()->flash('alert', 'No items in cart or Order value less than permitted. Please add some items and try again.');
             return redirect()->route('cart');
         }
+
+        $emailValidation = auth()->user() ? 'required|email' : 'required|email|unique:users';
         $this->validate($request, [
             'deliver_phone' => 'required|digits_between:10,10',
+            'deliver_email' => $emailValidation,
             'deliver_fname' => 'required',
             'deliver_lname' => 'required',
             'deliver_add1' => 'required',
@@ -137,8 +141,15 @@ class OrderController extends Controller
                 Rule::in(['ccdc', 'cod']),
             ],
             'postcode' => 'required'
-        ]);
-        $request['user_id']=Auth::user()->id;
+        ],
+            [
+                'deliver_email.unique' => 'You already have an account with this email. Please <a href="/login">Login</a> to continue.'
+            ]);
+        if(Auth::check()) {
+            $request['user_id'] = Auth::user()->id;
+        }else{
+            $request['user_id'] = '4344'; //Guest Account
+        }
         $id = strtoupper(str_random(5));
         $now=Carbon::now();
         $id = substr($id.'-'.$now->format('mdHisu'),0,20);
@@ -230,7 +241,7 @@ class OrderController extends Controller
 
                 'billing_tel' => $order->deliver_phone,
 
-                'billing_email' => Auth::user()->email
+                'billing_email' => $request->deliver_email
 
             ];
 

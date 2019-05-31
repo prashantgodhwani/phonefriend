@@ -40,12 +40,11 @@
                         <div class="entry-content">
                             <div class="woocommerce">
                                 <div class="customer-login-form">
-
+                                    <span class="or-text">or</span>
 
                                     <div class="col2-set" id="customer_login">
 
-                                        <div class="col-md-6 col-xs-12" style="margin: 0px auto;
-    float: none;">
+                                        <div class="col-1">
 
 
                                             <h2>Login</h2>
@@ -125,11 +124,6 @@
                                                             <a class="btn btn-primary logsign" href="{{route('register')}}" >New User! Signup</a>
 
                                                         </div>
-                                                        <div class="col-md-12 col-xs-6">
-
-                                                            <a class="btn btn-danger logsign" href="{{route('register')}}" >Continue as a Guest</a>
-
-                                                        </div>
                                                     </div>
                                                     <?php }
                                                     else
@@ -159,14 +153,33 @@
                                         </div>
 
 
+                                        <div class="col-2">
 
 
-                                        <!-- .col-2 -->
+                                            <h2>Checkout as a Guest</h2>
 
-                                    </div><!-- .col2-set -->
+                                            <div class="register-benefits">
+                                                <h3>Sign up today and you will be able to :</h3>
+                                                <ul>
+                                                    <li>Speed your way through checkout</li>
+                                                    <li>Track your orders easily</li>
+                                                    <li>Keep a record of all your purchases</li>
+                                                </ul>
+                                            </div>
 
-                                </div><!-- /.customer-login-form -->
-                            </div><!-- .woocommerce -->
+
+                                            <div class="col-md-12 col-xs-12" style="padding-top:3%">
+
+                                                <a class="btn col-md-12" style="background-color: #333e48;" href="{{route('checkout')}}" >Checkout as a Guest</a>
+
+                                            </div>
+                                            <!-- .col-2 -->
+
+                                        </div><!-- .col2-set -->
+
+                                    </div><!-- /.customer-login-form -->
+                                </div><!-- .woocommerce -->
+                            </div>
                         </div><!-- .entry-content -->
 
                     </article><!-- #post-## -->
