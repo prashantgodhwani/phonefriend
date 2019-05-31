@@ -128,7 +128,7 @@ class OrderController extends Controller
             return redirect()->route('cart');
         }
 
-        $emailValidation = auth()->user() ? 'required|email' : 'required|email|unique:users';
+        $emailValidation = auth()->user() ? 'required|email' : 'required|email|unique:users,email';
         $this->validate($request, [
             'deliver_phone' => 'required|digits_between:10,10',
             'deliver_email' => $emailValidation,
