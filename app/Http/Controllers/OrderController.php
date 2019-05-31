@@ -20,7 +20,7 @@ class OrderController extends Controller
     public function __construct()
     {
         $this->middleware(['ShowResponse'], ['only' => ['response']]);
-        $this->middleware(['auth','isUser','isBanned']);
+       // $this->middleware(['auth','isUser','isBanned']);
     }
 
     public function returnCart(){
