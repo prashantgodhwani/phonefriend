@@ -76,7 +76,7 @@
                             <span class="media-left call-us-icon media-middle"><i class="ec ec-support"></i></span>
                             <div class="media-body">
                                 <span class="call-us-text">Got Questions ? Call us 24/7!</span>
-                                <span class="call-us-number">+91-8574763333</span>
+                                <span class="call-us-number">+91-8448444313</span>
                             </div>
                         </div>
                     </div><!-- /.footer-call-us -->
@@ -87,7 +87,7 @@
                            Shop No.6, Himgiri Enclave Chander Vihar, Near Tilak Nagar Metro Station, Nilothi Ext., New delhi - 110041<br>
                           India | CIN : U74999UR2018PTC008664<BR>
                             PAN : ABACS2219K | TAN : MRTS15190A<BR>
-                           +91-8574763333 , +91 1204318432 | help@phonefriend.in
+                           +91-8448444313 , +91 1204318432 | help@phonefriend.in
                         </address>
                     </div><!-- /.footer-address -->
 

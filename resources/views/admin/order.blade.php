@@ -63,7 +63,19 @@
                             <?php $orderdevices=$order->orderdevices()->get(); ?>
                             @foreach($orderdevices as $orderd)
                             <tr>
-								<?php if (strpos($orderd->phone_color, 'Warranty') !== false) { 
+								<?php
+                                $amt = $orderd->amount;
+                                $warranty = 0;
+                                if($amt <= 10000 && $amt > 0 )
+                                    $shipping = 106;
+                                elseif($amt > 10000 && $amt <= 20000)
+                                    $shipping = 165;
+                                elseif($amt > 20000)
+                                    $shipping = 234;
+                                else
+                                    $shipping = 0;
+
+                                if (strpos($orderd->phone_color, 'Warranty') !== false) {
 													$exp = explode(' ',$orderd->phone_color);
 													$month = $exp[1];
                                                     //dd($month);
@@ -79,7 +91,7 @@
                                     {{$orderd->phone_color}}
                                 </td>
                                 <td>
-                                    ₹{{number_format(\App\Phone::find($orderd->phone_id)->price,2)}} + {{number_format(\App\Phone::find($orderd->phone_id)->price*$month/100,2)}}
+                                    ₹{{number_format(\App\Phone::find($orderd->phone_id)->price,2)}} + {{number_format($amt,2)}}
                                 </td>
 
                                 <td>

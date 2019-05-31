@@ -212,7 +212,7 @@
                                 <div style="padding-top: 2%">
                                 <span style="color:red; font-weight:bold; margin-top: 2%">Note:</span>  Due to huge stock shifts we provide colour availability on call confirmation.<br>
                                     Call confirmation is done within 24 hours after the order has been placed<br>
-                                For more info or assistance : <br><i class="fa fa-phone-square" aria-hidden="true"></i> or <i class="fa fa-whatsapp" aria-hidden="true"></i>  on +91-8574763333  (Between Mon-Sat, 10:30-6:30)
+                                For more info or assistance : <br><i class="fa fa-phone-square" aria-hidden="true"></i> or <i class="fa fa-whatsapp" aria-hidden="true"></i>  on +91-8448444313  (Between Mon-Sat, 10:30-6:30)
                                 <br>
                                 </div>
                             </div>

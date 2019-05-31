@@ -2,7 +2,7 @@
 
 @section('meta')
     <title>About Us | Phone Friend</title>
-    <meta name="description" content="Phone Friend has a collection of refurbished, box opened and certified pre owned mobile phones with huge discounts, 1 year warranty, free shipping, and COD."/>
+    <meta name="description" content="Phone Friend has a collection of refurbished, box opened and certified pre owned mobile phones with huge discounts, 1 year warranty, free shipping, and COD. We offer phone repair services."/>
 @endsection
 
 @section('content')

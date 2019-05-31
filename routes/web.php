@@ -13,6 +13,7 @@
 
 
 use Carbon\Carbon;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Softon\Indipay\Facades\Indipay;
 
@@ -26,21 +27,21 @@ Route::get('/test', 'HomeController@indexTest');
 
 Route::get('/resize', 'ResizeController@index');
 Route::get('/merchant', function (){
-	return view('auth.merchant');
+    return view('auth.merchant');
 })->name('merchant')->middleware('guest');
 
 Route::get('/admin/merchant/add', 'AdminController@addMerchant')->name('merchant.add');
 
 Route::get('/account',function (){
-	return view('accounts.account');
+    return view('accounts.account');
 })->middleware('auth')->name('accnt');
 
 Route::get('/contact', function (){
-	return view('other.contact');
+    return view('other.contact');
 })->name('contact');
 
 Route::get('/verify-otp',function (){
-	return view('auth.otp');
+    return view('auth.otp');
 })->middleware('ifotp');
 
 Route::get('/admin/merchant/{user}/reset','AdminController@resetPass');
@@ -69,7 +70,7 @@ Route::post('/2fa','PasswordSecurityController@enable2fa')->name('enable2fa');
 Route::post('/disable2fa','PasswordSecurityController@disable2fa')->name('disable2fa');
 
 Route::post('/2faVerify', function () {
-	return redirect()->route('admin.dashboard');
+    return redirect()->route('admin.dashboard');
 })->name('2faVerify')->middleware('2fa');
 
 
@@ -82,7 +83,7 @@ Route::post('/2faVerify', function () {
 Route::get('admin/ship-shipments', 'ShipRocketController@getShipShipments');
 
 Route::get('logout', function (){
-	return view('errors.404');
+    return view('errors.404');
 });
 
 
@@ -157,7 +158,7 @@ Route::get('/admin/orders/unprocessed', 'AdminController@showUnprocessedOrders')
 Route::get('/admin/orders/{order}', 'AdminController@showOrder')->name('orders.order');
 
 Route::get('/admin/lockscreen', function (){
-	return view('admin.lockscreen');
+    return view('admin.lockscreen');
 })->name('admin.locked')->middleware(['auth','isAdmin','isLocked']);
 
 Route::post('/admin/lockscreen', 'AdminController@checkLock')->name('lockscreen')->middleware('auth');
@@ -191,7 +192,7 @@ Route::get('/dashboard','AccountController@index')->name('account');
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 Route::get('/track-your-order', function (){
-	return view('other/track');
+    return view('other/track');
 })->name('track-show');
 Route::post('/track-your-order','ShipRocketController@getAwb')->name('track');
 
@@ -224,27 +225,27 @@ Route::post('/api/isEligibleForDiscount', 'ApiController@isEligibleForDiscount')
 Route::post('/apis/getstate','ApiController@getState')->name('getstate');
 
 Route::get('/terms-and-conditions', function (){
-	return view('footer.terms');
+    return view('footer.terms');
 })->name('footer.terms');
 
 Route::get('/return-policy', function (){
-	return view('footer.return');
+    return view('footer.return');
 })->name('footer.return');
 
 Route::get('/shipping-policy', function (){
-	return view('footer.shipping');
+    return view('footer.shipping');
 })->name('footer.shipping');
 
 Route::get('/cancellation-policy', function (){
-	return view('footer.cancellation');
+    return view('footer.cancellation');
 })->name('footer.cancellation');
 
 Route::get('/about', function (){
-	return view('other.about');
+    return view('other.about');
 })->name('other.about');
 
 Route::get('/privacy-policy', function (){
-	return view('footer.privacy');
+    return view('footer.privacy');
 })->name('footer.privacy');
 
 Route::get('/admin/merchants/requested','AdminController@showMerchantRequests')->name('admin.merchantrequests');
@@ -253,19 +254,13 @@ Route::get('/admin/user/{user}/ban','AdminController@banUser')->name('user.ban')
 
 Route::get('/admin/user/{user}/unban','AdminController@unBanUser')->name('user.unban');
 
-Route::get('/cart',function(){
-	return view('cart.index');
-})->middleware('isUser')->name('cart');
+Route::get('/cart','OrderController@returnCart')->middleware('isUser')->name('cart');
 
 Route::post('/apply-coupon','HomeController@applyCoupon');
+
 Route::get('/remove-coupon/{coupon_code}','HomeController@removeCoupon');
 
-Route::get('/checkout',function(){
-	$cities = DB::table('statelist')->orderBy('city_name', 'asc')->get();
-
-	$states = DB::table('statelist')->orderBy('state', 'asc')->select('state')->groupby('state')->get();
-	return view('cart.checkout',compact('cities','states'));
-})->name('checkout')->middleware(['auth','CartHasItems','AllAvailable','isUser']);
+Route::get('/checkout','OrderController@checkout')->name('checkout')->middleware(['auth','CartHasItems','AllAvailable','isUser']);
 
 Route::match(array('GET', 'POST'),'/indipay/response','OrderController@response')->middleware(['ShowResponse','isUser','auth']);
 
@@ -273,11 +268,7 @@ Route::get('/customer/dashboard','ApiController@getModel')->name('customer.dashb
 
 Route::get('/accounts/phone/{phone}/orders','AccountController@showPhoneOrders')->name('phone.show');
 
-Route::post('/checkout/dashboard','OrderController@storeOrder')->name('order.create')->middleware('AllAvailable');
-
-Route::get('/checkout/successfull',function (){
-	return view('cart.success');
-})->name('order.success');
+Route::post('/checkout/dashboard','OrderController@storeOrder')->name('order.create')->middleware(['AllAvailable', 'CartHasItems']);
 
 Route::get('/merchant/dashboard','ApiController@getModel')->name('merchant.dashboard');
 

@@ -1,8 +1,8 @@
 @extends('layouts.other')
 
 @section('meta')
-    <title>Login to Buy Second Hand Mobile Phones online | Phone Friend</title>
-    <meta name="description" content="Login to buy refurbished, box opened and certified pre owned mobile phones online at affordable prices in Fridabad,Gurgaon,Noida, Ghaziabad and Greator Noida."/>
+    <title>Login to buy second hand mobile phones online | Mobile Phone repair | Phone Friend</title>
+    <meta name="description" content="Login to buy refurbished, second hand, used, box opened and certified pre owned mobile phones online at affordable prices in India. Mobile Repair Services in Delhi"/>
 @endsection
 
 @section('content')

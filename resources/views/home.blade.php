@@ -3,7 +3,7 @@
 @section('meta')
 	<meta name="google-site-verification" content="9WYKJcqAcjJhjbevMcfLfpdijZXhyb79nIORBkfMAEs" />
 	<title>Phone Friend | Second Hand Smartphone store in Delhi NCR</title>
-	<meta name="description" content="Buy refurbished, box opened and certified pre owned mobile phones, tablets & laptops online in India with huge discounts, 1 year warranty, free shipping, and COD."/>
+	<meta name="description" content="Buy refurbished, box opened and certified pre owned mobile phones online in India with huge discounts, 1 year warranty, free shipping, and COD. Phone repair services in delhi."/>
 @endsection
 
 @section('content')
@@ -720,7 +720,7 @@
 										<i class="ec ec-transport"></i>
 									</div>
 									<div class="media-body media-middle feature-text">
-										<strong>Free </strong> Delivery
+										<strong>Low cost </strong> Delivery
 									</div>
 								</div>
 							</div>
