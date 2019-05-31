@@ -102,6 +102,14 @@ class OrderController extends Controller
         return view('cart.checkout',compact('cities','states', 'shipping'));
     }
 
+    public function validateAndCheckout(){
+        if(Auth::check()){
+            return redirect()->route('checkout');
+        }else if(\request().is('checkout')){
+            return "hello";
+        }
+    }
+
 
     public function storeOrder(Request $request){
         $amt = $this->number_unformat(Cart::subtotal());

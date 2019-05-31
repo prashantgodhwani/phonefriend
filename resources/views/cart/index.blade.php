@@ -132,44 +132,11 @@
                                 @endforeach
                                 <tr>
                                     <td class="actions" colspan="6">
-                                        @if(Session::has('coupon'))
-                                            <div class="coupon">
-                                                <p>Copupon <b>{{Session::get('coupon') }}</b> is applied. &nbsp;
-                                                    &nbsp; &nbsp; <a href="{{URL('/remove-coupon/'.Session::get('coupon'))}}"><i class="fa fa-times"></i></a>
-                                                </p>
-                                                @if(Session::has('success'))
-                                                    <div class="alert alert-success">
-                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                        {{ Session::get('success')}}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        @else
-                                            <form action="{{URL('/apply-coupon')}}" accept-charset="UTF-8" class="row" name="applyCouponForm" id="applyCouponForm" method="post">
-                                                {{csrf_field()}}
-                                                <div class="coupon">
-                                                    <label for="coupon_code">Coupon:</label> <input type="text" placeholder="Coupon code" value="" id="coupon_code" class="input-text" name="coupon_code">
 
-                                                    <button type="submit"  name="apply_coupon" class="button">Apply Coupon</button>
-                                                    @if(Session::has('success'))
-                                                        <div class="alert alert-success">
-                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                            {{ Session::get('success')}}
-                                                        </div>
-                                                    @endif
-                                                    @if(Session::has('error'))
-                                                        <div class="alert alert-danger">
-                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                            {{ Session::get('error')}}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </form>
-                                        @endif
 
                                         <div class="wc-proceed-to-checkout">
 
-                                            <a class="checkout-button button alt wc-forward" href="{{route('checkout')}}">Proceed to Checkout</a>
+                                            <a class="checkout-button button alt wc-forward" href="{{route('validateAndCheckout')}}">Proceed to Checkout</a>
                                         </div>
 
                                         <input type="hidden" value="1eafc42c5e" name="_wpnonce" id="_wpnonce"><input type="hidden" value="/electro/cart/" name="_wp_http_referer">

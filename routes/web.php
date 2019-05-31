@@ -260,7 +260,9 @@ Route::post('/apply-coupon','HomeController@applyCoupon');
 
 Route::get('/remove-coupon/{coupon_code}','HomeController@removeCoupon');
 
-Route::get('/checkout','OrderController@checkout')->name('checkout')->middleware(['auth','CartHasItems','AllAvailable','isUser']);
+Route::get('/checkout','OrderController@checkout')->name('checkout')->middleware(['CartHasItems','AllAvailable']);
+
+Route::get('/validateAndCheckout','OrderController@validateAndCheckout')->name('validateAndCheckout')->middleware(['CartHasItems','AllAvailable']);
 
 Route::match(array('GET', 'POST'),'/indipay/response','OrderController@response')->middleware(['ShowResponse','isUser','auth']);
 
