@@ -1985,11 +1985,11 @@ img.desaturate:hover {
 
 .navbar-mini-cart .cart-items-count {
   font-size: 0.750em;
-  line-height: 1.750em;
+  line-height: 1.550em;
   font-weight: bold;
   position: absolute;
   left: 7px;
-  width: 1.750em;
+  width: 1.550em;
   text-align: center;
   border-radius: 50%;
   bottom: 4px; }
