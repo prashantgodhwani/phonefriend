@@ -105,7 +105,7 @@ class OrderController extends Controller
     public function validateAndCheckout(){
         if(Auth::check()){
             return redirect()->route('checkout');
-        }else if(\request().is('checkout')){
+        }else if(\request()->is('cart/*')){
             return "hello";
         }
     }
