@@ -293,6 +293,7 @@ To extend warranty on your product please write us at support@phonefeiend.in or 
                             var postdata = data[0];
                             $('#billing_state').val(postdata.circle);
                             $('#city1').val(postdata.division);
+                            $('#city1').focus();
                             // $.ajax({
                             // 	type: 'post',
                             // 	headers: {
