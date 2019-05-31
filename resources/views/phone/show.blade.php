@@ -170,11 +170,7 @@
                                 </div>
                                 <div class="single_variation_wrap">
                                     <div class="woocommerce-variation single_variation"></div>
-                                    @include('layouts.error')
-                                    @include('layouts.success')
-                                    @if(Auth::check())
                                         <?php $flag=0; ?>
-                                        @if(\Illuminate\Support\Facades\Auth::user()->role==2)
                                             @foreach (Cart::content() as $content)
                                                 @if($content->id==$phone->id)
                                                     <?php $flag=1; ?>
@@ -183,31 +179,18 @@
                                                 @endif
                                             @endforeach
                                             @if($flag==0)
-                                                <button  style=" color: #fff;background-color: #a3d133;
-                           border-color: #5cb85c;" id="cart" <?php if($phone->units>=1)
-                                                {?>data-phoneid="{{$phone->id}}" <?php } ?>><i class="fa fa-cart-plus" style="font-size: 16px;"></i> &nbsp; Add to Cart </button>
-                                                <a id="addtocartButton" href="<?php if($phone->units>=1)
-                                                { echo 'javascript:void(0)';?> <?php } else {echo "#";}?>"
-                                                   data-url="<?php if($phone->units>=1)
-                                                   {?> {{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}} <?php } else {echo "";}?>"
-                                                >
-                                                    <button id="buynow"  style=" color: #fff;background-color: #a3d133;
+                                                    <button  style=" color: #fff;background-color: #a3d133;
+                           border-color: #5cb85c;" id="cart" data-phoneid="{{$phone->id}}"><i class="fa fa-cart-plus" style="font-size: 16px;"></i> &nbsp; Add to Cart </button>
+                                                    <a id="addtocartButton" href="javascript:void(0)"
+                                                       data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
+                                                    >
+                                                        <button id="buynow"  style=" color: #fff;background-color: #a3d133;
                            border-color: #5cb85c;">
-                                                        <?php if($phone->units>=1)
-                                                        {?><i class="fa fa-shopping-bag"></i>
-                                                        &nbsp;Buy Now<?php } else { echo "Out of Stock";}?></button></a>
+                                                            <i class="fa fa-shopping-bag"></i>
+                                                            &nbsp;Buy Now></button></a>
                                             @else
                                                 <a href="https://phonefriend.in/cart"><span class="btn btn-danger"><b><i class="fa fa-cart-plus"></i>&nbsp; Added to Cart</b></span></a>
                                             @endif
-                                        @else
-                                            <span class="btn btn-danger">N.A.</span>
-                                        @endif
-                                    @else
-                                    <!-- <a href="{{route('login')}}" class="btn btn-danger">Login To continue</a> -->
-                                        <a href="<?php if($phone->units>=1)
-                                        {?> {{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}} <?php } else {?> {{route('login')}} <?php }?>" style="    border-radius: 0px !important;" class="btn"> <i class="fa fa-shopping-bag"></i> Buy Now</a>
-                                    @endif
-
                                 </div>
                                 <div style="padding-top: 2%">
                                 <span style="color:red; font-weight:bold; margin-top: 2%">Note:</span>  Due to huge stock shifts we provide colour availability on call confirmation.<br>
