@@ -229,7 +229,7 @@ function myFunction() {
 					   <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="font-size: 16px; color:#ffffff"><b>Login</b></a></li> &nbsp; &nbsp;
 					   <li class="nav-item"><a class="nav-link" href="{{ route('register') }}" style="font-size: 16px; color:#ffffff"><b>Signup</b></a></li>
 					   <li class="nav-item dropdown">
-						   <a href="{{ route('cart') }}" class="nav-link" data-toggle="dropdown" aria-expanded="false" style="font-size: 16px; color:#ffffff">
+						   <a href="{{ route('cart') }}" class="nav-link" aria-expanded="false" style="font-size: 16px; color:#ffffff">
 							   <i class="ec ec-shopping-bag" style="font-size: 1.829em;"></i>
 							   <span class="cart-items-count count" style="background-color: #3c3c3c;">{{Cart::count()}}</span>
 							   <span class="cart-items-total-price total-price"><span class="amount"><b><i class="fa fa-inr"></i> {{Cart::subtotal()}}</b></span></span>
