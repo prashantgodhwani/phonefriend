@@ -1,8 +1,8 @@
 ﻿@extends('layouts.product')
 
 @section('meta')
-        <title>Buy {{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB at Phone Friend</title>
-        <meta name="description" content="Buy superb condition second hand {{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB online at Phone Friend. We have a collection of second hand and used iphones with all the accessories and guarantee. Phone repair service."/>
+    <title>Buy {{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB at Phone Friend</title>
+    <meta name="description" content="Buy superb condition second hand {{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB online at Phone Friend. We have a collection of second hand and used iphones with all the accessories and guarantee. Phone repair service."/>
 @endsection
 
 @section('content')
@@ -160,43 +160,43 @@
                               </span></ins><del><span class="amount"><i class="fa fa-inr"></i> {{number_format($phone->data->price,2)}}</span></del>
                               <span class="onsale" style="background: #a3d133;" data-toggle="tooltip" title="Price Marked Down"><i class="icon-check-sign"></i>You Save {{round((($phone->data->price - $phone->price) / $phone->data->price )*100)}} % </span>
                                     <p class="amount">Inclusive of all taxes.</p></span></p>
-                        <h6 style="color: #5cb85c; font-weight: bold; margin: -15px 0px -7px 0px;display:none"></br>10 days return / replacement warranty available on this product.</h6>
-                        <?php $phoneColor = explode(',', $phone->color); ?>
-                        <select style="display:none" name="" id="phone_color" class="input-text" style="Display: none">
-                           @foreach($phoneColor as $color)
-                                <option value="{{$color}}">{{$color}}</option>
-                            @endforeach
-                        </select>
+                                    <h6 style="color: #5cb85c; font-weight: bold; margin: -15px 0px -7px 0px;display:none"></br>10 days return / replacement warranty available on this product.</h6>
+                                    <?php $phoneColor = explode(',', $phone->color); ?>
+                                    <select style="display:none" name="" id="phone_color" class="input-text" style="Display: none">
+                                        @foreach($phoneColor as $color)
+                                            <option value="{{$color}}">{{$color}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="single_variation_wrap">
                                     <div class="woocommerce-variation single_variation"></div>
-                                        <?php $flag=0; ?>
-                                            @foreach (Cart::content() as $content)
-                                                @if($content->id==$phone->id)
-                                                    <?php $flag=1; ?>
-                                                @else
-                                                    <?php $flag=0; ?>
-                                                @endif
-                                            @endforeach
-                                            @if($flag==0)
-                                                    <button  style=" color: #fff;background-color: #a3d133;
+                                    <?php $flag=0; ?>
+                                    @foreach (Cart::content() as $content)
+                                        @if($content->id==$phone->id)
+                                            <?php $flag=1; ?>
+                                        @else
+                                            <?php $flag=0; ?>
+                                        @endif
+                                    @endforeach
+                                    @if($flag==0)
+                                        <button  style=" color: #fff;background-color: #a3d133;
                            border-color: #5cb85c;" id="cart" data-phoneid="{{$phone->id}}"><i class="fa fa-cart-plus" style="font-size: 16px;"></i> &nbsp; Add to Cart </button>
-                                                    <a id="addtocartButton" href="javascript:void(0)"
-                                                       data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
-                                                    >
-                                                        <button id="buynow"  style=" color: #fff;background-color: #a3d133;
+                                        <a id="addtocartButton" href="javascript:void(0)"
+                                           data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
+                                        >
+                                            <button id="buynow"  style=" color: #fff;background-color: #a3d133;
                            border-color: #5cb85c;">
-                                                            <i class="fa fa-shopping-bag"></i>
-                                                            &nbsp;Buy Now></button></a>
-                                            @else
-                                                <a href="https://phonefriend.in/cart"><span class="btn btn-danger"><b><i class="fa fa-cart-plus"></i>&nbsp; Added to Cart</b></span></a>
-                                            @endif
+                                                <i class="fa fa-shopping-bag"></i>
+                                                &nbsp;Buy Now></button></a>
+                                    @else
+                                        <a href="https://phonefriend.in/cart"><span class="btn btn-danger"><b><i class="fa fa-cart-plus"></i>&nbsp; Added to Cart</b></span></a>
+                                    @endif
                                 </div>
                                 <div style="padding-top: 2%">
-                                <span style="color:red; font-weight:bold; margin-top: 2%">Note:</span>  Due to huge stock shifts we provide colour availability on call confirmation.<br>
+                                    <span style="color:red; font-weight:bold; margin-top: 2%">Note:</span>  Due to huge stock shifts we provide colour availability on call confirmation.<br>
                                     Call confirmation is done within 24 hours after the order has been placed<br>
-                                For more info or assistance : <br><i class="fa fa-phone-square" aria-hidden="true"></i> or <i class="fa fa-whatsapp" aria-hidden="true"></i>  on +91-8448444313  (Between Mon-Sat, 10:30-6:30)
-                                <br>
+                                    For more info or assistance : <br><i class="fa fa-phone-square" aria-hidden="true"></i> or <i class="fa fa-whatsapp" aria-hidden="true"></i>  on +91-8448444313  (Between Mon-Sat, 10:30-6:30)
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -884,11 +884,11 @@
                             </tbody>
                         </table>
                         @if(isset($phone->specifications))
-                        <div class="table">
-                            <h3>Other Specifications</h3>
-                            <?php echo htmlspecialchars_decode(htmlspecialchars_decode($phone->specifications)); ?>
-                        </div>
-                            @endif
+                            <div class="table">
+                                <h3>Other Specifications</h3>
+                                <?php echo htmlspecialchars_decode(htmlspecialchars_decode($phone->specifications)); ?>
+                            </div>
+                        @endif
                     </div><!-- /.panel -->
                 </div>
                 <br>
@@ -961,7 +961,7 @@
                             $(this).html(quan).fadeIn(500);
                         });
                         $('.cart-items-total-price').fadeOut(500, function() {
-                            $(this).html(cartValue).fadeIn(500);
+                            $(this).html(`<i class="fa fa-inr"></i><b> ${cartValue}</b>`).fadeIn(500);
                         });
 
                     },
