@@ -955,11 +955,13 @@
                         $("#cart").css("pointer-events", "none");
                         $('#cart').html(' <strong><i class="fa fa-check"></i>&nbsp;Added to Cart</strong>');
                         document.getElementById('buynow').style.display='none';
-                        var quan = $('.cart-items-count').html();
-                        var quan= parseInt(quan);
-                        var quan= quan + 1;
+                        var quan= data.count;
+                        var cartValue = data.cart_subtotal;
                         $('.cart-items-count').fadeOut(500, function() {
                             $(this).html(quan).fadeIn(500);
+                        });
+                        $('.cart-items-total-price').fadeOut(500, function() {
+                            $(this).html(cartValue).fadeIn(500);
                         });
 
                     },

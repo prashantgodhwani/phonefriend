@@ -33,7 +33,7 @@ class SendOrderConfirmationEmail implements ShouldQueue
     public function handle(OrderConfirmed $event)
     {
        // echo "Order by ".User::find($event->order->user_id)->role." successfull";
-        Mail::to(User::find($event->order->user_id)->email)->send(new OrderConfirmedMail($event->order));
+        Mail::to(Order::find($event->order)->deliver_email)->send(new OrderConfirmedMail($event->order));
         
     }
 }
