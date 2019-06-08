@@ -1259,9 +1259,9 @@
 		if(cookie == undefined || cookie == null || cookie == "") {
 			if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
 
-				$("#offerModal").delay(delay).fadeIn("fast", () => {
-					$('#offerModal').modal('toggle');
-				});
+				// $("#offerModal").delay(delay).fadeIn("fast", () => {
+				// 	$('#offerModal').modal('toggle');
+				// });
 
 				$("button[name=subscribe]").click((e) => {
 					console.log("clicked");

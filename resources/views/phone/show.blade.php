@@ -187,7 +187,7 @@
                                             <button id="buynow"  style=" color: #fff;background-color: #a3d133;
                            border-color: #5cb85c;">
                                                 <i class="fa fa-shopping-bag"></i>
-                                                &nbsp;Buy Now></button></a>
+                                                &nbsp;Buy Now</button></a>
                                     @else
                                         <a href="https://phonefriend.in/cart"><span class="btn btn-danger"><b><i class="fa fa-cart-plus"></i>&nbsp; Added to Cart</b></span></a>
                                     @endif
