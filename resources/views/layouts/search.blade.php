@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en-US" itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -24,24 +21,25 @@
     <meta name="keywords" content="cheap second hand phones for sale, buy refurbished iphone in india, box opened mobile phones, certified pre owned mobile phones, tablets & laptops online in india with huge discounts, smartphone store in noida, second hand iphones for sale, old samsung phones for sale, second hand samsung phones for sale, refurbished oneplus phones, second hand and used oppo mobile phone, second hand vivo mobile phone, mi second hand phone, motorola second hand phone, nokia second hand phones, blackberry second hand phone, gionee second hand phone, lenovo second hand phone">
     <link rel="canonical" href="https://www.phonefriend.in/">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic' rel='stylesheet' type='text/css'>
-<!-- Facebook Pixel Code -->
-
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '341098883103018');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=341098883103018&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2250243695224974');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1"
+             src="https://www.facebook.com/tr?id=2250243695224974&ev=PageView
+&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
     <link rel="shortcut icon" href="{{asset('assets/images/fav-icon.png')}}">
     <style>
 
