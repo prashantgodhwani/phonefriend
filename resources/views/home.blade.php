@@ -1260,6 +1260,7 @@
 			if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
 
 				// $("#offerModal").delay(delay).fadeIn("fast", () => {
+				// $("#offerModal").delay(delay).fadeIn("fast", () => {
 				// 	$('#offerModal').modal('toggle');
 				// });
 
@@ -1341,6 +1342,12 @@
 		$('#myModal').modal('show');
 		$('#aa-search-input').on('keydown', function (e) {
 			if (e.which == 13) {
+				window.location = 'https://phonefriend.in/store/'+document.getElementById('aa-search-input').value.split(' ').join('-');
+			}
+
+		});
+		$('#searchBtn').on('click', function (e) {
+			if (document.getElementById('aa-search-input').value.trim() === "") {
 				window.location = 'https://phonefriend.in/store/'+document.getElementById('aa-search-input').value.split(' ').join('-');
 			}
 
