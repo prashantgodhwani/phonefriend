@@ -418,7 +418,7 @@
 														@if(Auth::check())
 															@if(Auth::user()->role == 2)
 																<?php $phoneColor = explode(',', $phone->color); ?>
-																<?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}" ><b class="buynow"  style=" /*background-color:#72BAD1;
+																<?php if($phone->units_rem){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}" ><b class="buynow"  style=" /*background-color:#72BAD1;
                                         border: none;*/
                                         color: rgb(93, 96, 184);
                                         padding: 10px 20px;
@@ -433,7 +433,7 @@
 															@endif
 														@else
 															<?php $phoneColor = explode(',', $phone->color); ?>
-															<?php if($phone->units){?><a href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}#mobileView'>
+															<?php if($phone->units_rem){?><a href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}#mobileView'>
 																<b class="buynow" style="border-radius: 0%; /*background-color:rgb(93, 96, 184);
                                         border: none;*/
                                         color: #a3d133;
