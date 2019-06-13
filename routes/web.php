@@ -198,8 +198,9 @@ Route::post('/track-your-order','ShipRocketController@getAwb')->name('track');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('login', 'Auth\LoginController@login');
 
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/phones/add', 'PhoneController@create')->name('phone.add');
@@ -254,13 +255,15 @@ Route::get('/admin/user/{user}/ban','AdminController@banUser')->name('user.ban')
 
 Route::get('/admin/user/{user}/unban','AdminController@unBanUser')->name('user.unban');
 
-Route::get('/cart','OrderController@returnCart')->middleware('isUser')->name('cart');
+Route::get('/cart','OrderController@returnCart')->name('cart');
 
 Route::post('/apply-coupon','HomeController@applyCoupon');
 
 Route::get('/remove-coupon/{coupon_code}','HomeController@removeCoupon');
 
-Route::get('/checkout','OrderController@checkout')->name('checkout')->middleware(['auth','CartHasItems','AllAvailable','isUser']);
+Route::get('/checkout','OrderController@checkout')->name('checkout')->middleware(['CartHasItems','AllAvailable']);
+
+Route::get('/checkout/guest','OrderController@validateAndCheckout')->name('validateAndCheckout')->middleware(['CartHasItems','AllAvailable']);
 
 Route::match(array('GET', 'POST'),'/indipay/response','OrderController@response')->middleware(['ShowResponse','isUser','auth']);
 

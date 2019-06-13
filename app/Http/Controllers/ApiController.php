@@ -17,9 +17,9 @@ class ApiController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','isBanned']);
-        $this->middleware('isMerchant', ['only' => ['getModel']]);
-        $this->middleware('isUser', ['only' => ['addToCart','deleteFromCart','updateCart','updateTotal']]);
+//       // $this->middleware(['auth','isBanned']);
+//        $this->middleware('isMerchant', ['only' => ['getModel']]);
+        $this->middleware('CartHasItems', ['only' => ['deleteFromCart']]);
     }
 
     public function getModel(Request $request){
@@ -100,7 +100,8 @@ class ApiController extends Controller
         else{
             $cart="Already Added to cart.";
         }
-        return response()->json($cart);
+        $cartDetails = (object) ['cart_subtotal' => Cart::subtotal(), 'count' => Cart::count()];
+        return response()->json($cartDetails);
     }
 
     public function buyNow(Request $request){

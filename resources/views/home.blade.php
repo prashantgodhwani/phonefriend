@@ -3,7 +3,7 @@
 @section('meta')
 	<meta name="google-site-verification" content="9WYKJcqAcjJhjbevMcfLfpdijZXhyb79nIORBkfMAEs" />
 	<title>Phone Friend | Second Hand Smartphone store in Delhi NCR</title>
-	<meta name="description" content="Buy refurbished, box opened and certified pre owned mobile phones online in India with huge discounts, 1 year warranty, free shipping, and COD. Phone repair services in delhi."/>
+	<meta name="description" content="Buy refurbished, box opened and certified pre owned mobile phones online in India with huge discounts, 1 year warranty, free shipping, and COD. Phone repair service in delhi."/>
 @endsection
 
 @section('content')
@@ -418,7 +418,7 @@
 														@if(Auth::check())
 															@if(Auth::user()->role == 2)
 																<?php $phoneColor = explode(',', $phone->color); ?>
-																<?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}" ><b class="buynow"  style=" /*background-color:#72BAD1;
+																<?php if($phone->units_rem){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}" ><b class="buynow"  style=" /*background-color:#72BAD1;
                                         border: none;*/
                                         color: rgb(93, 96, 184);
                                         padding: 10px 20px;
@@ -433,7 +433,7 @@
 															@endif
 														@else
 															<?php $phoneColor = explode(',', $phone->color); ?>
-															<?php if($phone->units){?><a href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}#mobileView'>
+															<?php if($phone->units_rem){?><a href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}#mobileView'>
 																<b class="buynow" style="border-radius: 0%; /*background-color:rgb(93, 96, 184);
                                         border: none;*/
                                         color: #a3d133;
@@ -990,9 +990,9 @@
 												<div class="product-inner highlight">
 
 													@if($phone->age == '11 - 12 Months' || $phone->age == '12+ Months')
-														<span class="onsale" style="background: #848484; color:white;    width: 100%;">CERTIFIED REFURBISHED <i class="icon-check-sign"></i></span>
+														<span class="onsale" style="background: #848484; color:white;    width: 100%;">RENEWED <i class="icon-check-sign"></i></span>
 													@else
-														<span class="onsale" style="background: #848484; color:white;    width: 100%;">CERTIFIED USED  <i class="icon-check-sign"></i></span>
+														<span class="onsale" style="background: #848484; color:white;    width: 100%;">RENEWED<i class="icon-check-sign"></i></span>
 													@endif
 
 
@@ -1259,9 +1259,10 @@
 		if(cookie == undefined || cookie == null || cookie == "") {
 			if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
 
-				$("#offerModal").delay(delay).fadeIn("fast", () => {
-					$('#offerModal').modal('toggle');
-				});
+				// $("#offerModal").delay(delay).fadeIn("fast", () => {
+				// $("#offerModal").delay(delay).fadeIn("fast", () => {
+				// 	$('#offerModal').modal('toggle');
+				// });
 
 				$("button[name=subscribe]").click((e) => {
 					console.log("clicked");
@@ -1341,6 +1342,12 @@
 		$('#myModal').modal('show');
 		$('#aa-search-input').on('keydown', function (e) {
 			if (e.which == 13) {
+				window.location = 'https://phonefriend.in/store/'+document.getElementById('aa-search-input').value.split(' ').join('-');
+			}
+
+		});
+		$('#searchBtn').on('click', function (e) {
+			if (document.getElementById('aa-search-input').value.trim() === "") {
 				window.location = 'https://phonefriend.in/store/'+document.getElementById('aa-search-input').value.split(' ').join('-');
 			}
 

@@ -87,7 +87,11 @@
                                         <p id="billing_last_name_field" class="form-row form-row form-row-last validate-required"><label class="" for="billing_last_name">Last Name <abbr title="required" class="required">*</abbr></label><input type="text" value="" data-validation="required" placeholder="" id="billing_last_name" name="deliver_lname" class="input-text " required></p><div class="clear"></div>
 
                                         <p id="billing_phone_field" class="form-row-wide validate-required validate-phone"><label class="" for="billing_phone">Phone <abbr title="required" class="required">*</abbr></label><input type="number" data-validation="number,length"  placeholder="" id="deliver_phone" name="deliver_phone" data-validation-length="10-10" class="input-text" required></p><div class="clear"></div>
-
+                                        @if(Auth::check())
+                                            <p id="billing_phone_field" class="form-row-wide validate-required validate-email"><label class="" for="billing_phone">Email <abbr title="required" class="required">*</abbr></label><input type="email" data-validation="requied,email"  placeholder="" id="deliver_email" name="deliver_email" class="input-text" required value="{{Auth::user()->email}}" readonly></p><div class="clear"></div>
+                                        @else
+                                            <p id="billing_phone_field" class="form-row-wide validate-required validate-email"><label class="" for="billing_phone">Email <abbr title="required" class="required">*</abbr></label><input type="email" data-validation="requied,email"  placeholder="" id="deliver_email" name="deliver_email" class="input-text" required></p><div class="clear"></div>
+                                        @endif
                                         <p id="billing_address_1_field" class="form-row form-row form-row-wide address-field validate-required"><label class="" for="billing_address_1">Address <abbr title="required" class="required">*</abbr></label><input type="text" data-validation="required" value="" placeholder="House number / Street address" id="billing_address_1" name="deliver_add1" class="input-text " required></p>
 
                                         <p id="billing_address_2_field" class="form-row form-row form-row-wide address-field"><input type="text" value="" placeholder="Landmark (optional)" id="billing_address_2" name="deliver_add2" class="input-text "></p>
