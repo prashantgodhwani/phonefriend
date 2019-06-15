@@ -136,8 +136,10 @@ class StoreController extends Controller
             return redirect()->to(URL::previous().'/#tab-reviews')
                 ->withErrors($validator);
         }
+
+        //dd(Order::select('orders.id', 'orders.user_id', 'order_devices.phone_id')->leftJoin('order_devices', 'orders.id', '=', 'order_devices.order_id')->where('order_devices.phone_id', $request->phoneIdHide)->where('orders.user_id',  Auth::user()->id)->count());
         if(Order::select('orders.id', 'orders.user_id', 'order_devices.phone_id')->leftJoin('order_devices', 'orders.id', '=', 'order_devices.order_id')->where('order_devices.phone_id', $request->phoneIdHide)->where('orders.user_id',  Auth::user()->id)->count() == 0){
-            redirect()->to(URL::previous().'/#tab-reviews')->withErrors(['You cannot review the product without buying it.']);
+            return redirect()->to(URL::previous().'/#tab-reviews')->withErrors(['You cannot review the product without buying it.']);
         }else {
 
             $comment = new Comment();
