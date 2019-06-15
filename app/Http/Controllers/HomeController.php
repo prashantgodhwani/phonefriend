@@ -48,9 +48,19 @@ class HomeController extends Controller
                 $phone->rating = number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
         }
         $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
+        foreach ($certified as $phone){
+            if(number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '') != 0)
+                $phone->rating = number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
+        }
         $bestseller = Phone::where('units_rem', '!=', 0)->where('type','BEST_SELLING')->where('sold', '==' , 0)->orderBy('price', 'asc')->get();
+        foreach ($bestseller as $phone){
+            if(number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '') != 0)
+                $phone->rating = number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
+        }
         $brands = DB::select( DB::raw("SELECT data.company , COUNT(phones.id) as total FROM data INNER JOIN phones ON data.id = phones.data_id WHERE SOLD = 0 and phones.units_rem != 0 GROUP BY data.company ORDER BY total desc LIMIT 10"));
         $deal =  Phone::where('units_rem', '!=', 0)->where('type','DEAL_OF_THE_DAY')->where('sold', '==' , 0)->first();
+            if(number_format(DB::table('comments')->where('comments.phone_id',$deal->id)->where('comments.status',1)->avg('rating'), 1, '.', '') != 0)
+                $deal->rating = number_format(DB::table('comments')->where('comments.phone_id',$deal->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
         return view('home',compact('phones','certified','bestseller', 'brands', 'deal'));
     }
 
