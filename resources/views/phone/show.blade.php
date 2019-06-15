@@ -1018,7 +1018,7 @@
                                 @endif
                             </div><!-- /.row -->
 
-                            <div id="comments" style="height: 500px; overflow-y: scroll;">
+                            <div id="comments" style="max-height: 500px; overflow-y: auto;">
 
                                 <ol class="commentlist">
                                     @if($comments->count() > 0)
