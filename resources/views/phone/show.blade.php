@@ -6,7 +6,28 @@
 @endsection
 
 @section('content')
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+        @keyframes highlight {
+            0% {
+                background: #ffff99;
+            }
+            100% {
+                background: none;
+            }
+        }
+
+        .highlight {
+            animation: highlight 2s;
+        }
+
+        .fas{
+            color: #fed700;
+        }
+        .far{
+            color: rgba(0, 0, 0, 0.2);
+        }
+
         #sptbl tr th,td{
             color:#000;
         }
@@ -104,7 +125,7 @@
                                 </h1>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        <div class="rating" title="{{($phone->rating / 5) * 100}}%">
+                                        <div class="rating" title="{{($avg / 5) * 100}}%">
                                             <div class="back-stars">
                                                 <span class="fa fa-star" aria-hidden="true"></span>
                                                 <span class="fa fa-star" aria-hidden="true"></span>
@@ -112,7 +133,7 @@
                                                 <span class="fa fa-star" aria-hidden="true"></span>
                                                 <span class="fa fa-star" aria-hidden="true"></span>
 
-                                                <div class="front-stars" style="width: {{($phone->rating / 5) * 100}}%">
+                                                <div class="front-stars" style="width: {{($avg / 5) * 100}}%">
                                                     <span class="fa fa-star" aria-hidden="true"></span>
                                                     <span class="fa fa-star" aria-hidden="true"></span>
                                                     <span class="fa fa-star" aria-hidden="true"></span>
@@ -123,7 +144,7 @@
                                         </div>
                                         @if(!Jenssegers\Agent\Facades\Agent::isMobile())<div style="    display: inline-block;
     padding-left: 7px; padding-right : 0px;
-    bottom: 4px;"><span class="grey font" style="display: inline;">{{$phone->rating}} / <b>5.0</b></span></div>@endif
+    bottom: 4px;"><span class="grey font" style="display: inline;">{{$avg}} / <b>5.0</b></span></div>@endif
 
                                     </div>
                                     <div class="col-xs-7">
@@ -147,10 +168,10 @@
                                 <hr class="single-product-title-divider"><br>
                                 <div itemprop="description">
 
-                                    <span style="padding-top: 2%"><i class="far fa-calendar-check"></i>&nbsp; EMIs start from &nbsp;<i class="fa fa-inr"></i>&nbsp;<?php echo intval($phone->price / 12);?>/month. <a data-toggle="modal" data-target="#emiModal" style="cursor:pointer; font-weight: bold;">View Plans &nbsp;<i class="fas fa-chevron-right"></i> </a><br><br>
-                                        <i class="fas fa-tags"></i>&nbsp; <b>Special Price</b> Smartphone available at discounted price of &nbsp;<i class="fa fa-inr"></i>&nbsp; {{ number_format($phone->price, 2) }}.<br><br>
-                                        <i class="fas fa-shield-alt"></i>&nbsp; <b>12 Months Seller Warranty</b>  bundled with Smartphone.<br><br>
-                                        <i class="fas fa-shopping-bag"></i>&nbsp; Get {{ucwords($phone->data->company)}} {{$phone->data->model}} for &nbsp;<b><i class="fa fa-inr"></i>&nbsp;{{number_format($phone->price - ($phone->price * 1.5) / 100, 2)}}, </b> if you pay online. <a style="cursor:pointer; font-weight: bold;">T&C</a><br>
+                                    <span style="padding-top: 2%; "><i class="far fa-calendar-check" style="color: rgb(135, 125, 125)"></i>&nbsp; EMIs start from &nbsp;<i class="fa fa-inr"></i>&nbsp;<?php echo intval($phone->price / 12);?>/month. <a data-toggle="modal" data-target="#emiModal" style="cursor:pointer; font-weight: bold;">View Plans &nbsp;<i class="fas fa-chevron-right" style="color: #0275d8"></i> </a><br><br>
+                                        <i class="fas fa-tags" style="color: rgb(135, 125, 125)"></i>&nbsp; <b>Special Price</b> Smartphone available at discounted price of &nbsp;<i class="fa fa-inr"></i>&nbsp; {{ number_format($phone->price, 2) }}.<br><br>
+                                        <i class="fas fa-shield-alt" style="color: rgb(135, 125, 125)"></i>&nbsp; <b>12 Months Seller Warranty</b>  bundled with Smartphone.<br><br>
+                                        <i class="fas fa-shopping-bag" style="color: rgb(135, 125, 125)"></i>&nbsp; Get {{ucwords($phone->data->company)}} {{$phone->data->model}} for &nbsp;<b><i class="fa fa-inr"></i>&nbsp;{{number_format($phone->price - ($phone->price * 1.5) / 100, 2)}}, </b> if you pay online. <a style="cursor:pointer; font-weight: bold;">T&C</a><br>
                                     </span><br><br>
                                     <hr class="single-product-title-divider">
 
@@ -734,13 +755,21 @@
                         <hr>
                     </div>
                     <!-- .summary -->
+                </main>
             </div>
+
             <!-- /.single-product-wrapper -->
             <div class="woocommerce-tabs wc-tabs-wrapper">
+
                 <ul class="nav nav-tabs electro-nav-tabs tabs wc-tabs" role="tablist">
-                    <li class="nav-item specification_tab">
-                        <a href="#tab-specification" class="active" data-toggle="tab">Specifications</a>
+                    <li class="nav-item accessories_tab">
+                        <a href="#tab-specification" data-toggle="tab">Specifications</a>
                     </li>
+
+                    <li class="nav-item description_tab">
+                        <a href="#tab-reviews" data-toggle="tab">Reviews</a>
+                    </li>
+
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active panel entry-content wc-tab" id="tab-specification">
@@ -890,6 +919,155 @@
                             </div>
                         @endif
                     </div><!-- /.panel -->
+                    <div class="tab-pane panel entry-content wc-tab" id="tab-reviews" style="color:black">
+                        <div id="reviews" class="electro-advanced-reviews">
+                            <div class="advanced-review row">
+                                <div class="col-xs-12 col-md-6">
+                                    <h2 class="based-title">Based on {{$comments->count()}} reviews</h2>
+                                    <div class="avg-rating">
+                                        <span class="avg-rating-number">{{$avg}}</span> overall
+                                    </div>
+
+                                    <div class="rating-histogram">
+                                        <div class="rating-bar">
+                                            <div class="star-rating" title="Rated 5 out of 5">
+                                                <span style="width:100%"></span>
+                                            </div>
+                                            <div class="rating-percentage-bar">
+                                                                    <span style="width:{{($comments->count() === 0) ? 0 : ($comments->where('rating', 5)->count() / $comments->count())*100}}%" class="rating-percentage">
+
+                                                                    </span>
+                                            </div>
+                                            <div class="rating-count">{{$comments->where('rating', 5)->count()}}</div>
+                                        </div><!-- .rating-bar -->
+
+                                        <div class="rating-bar">
+                                            <div class="star-rating" title="Rated 4 out of 5">
+                                                <span style="width:80%"></span>
+                                            </div>
+                                            <div class="rating-percentage-bar">
+                                                <span style="width:{{($comments->count() === 0) ? 0 : ($comments->where('rating', 4)->count() / $comments->count())*100}}%" class="rating-percentage"></span>
+                                            </div>
+                                            <div class="rating-count">{{$comments->where('rating', 4)->count()}}</div>
+                                        </div><!-- .rating-bar -->
+
+                                        <div class="rating-bar">
+                                            <div class="star-rating" title="Rated 3 out of 5">
+                                                <span style="width:60%"></span>
+                                            </div>
+                                            <div class="rating-percentage-bar">
+                                                <span style="width:{{($comments->count() === 0) ? 0 : ($comments->where('rating', 3)->count() / $comments->count())*100}}%" class="rating-percentage"></span>
+                                            </div>
+                                            <div class="rating-count zero">{{$comments->where('rating', 3)->count()}}</div>
+                                        </div><!-- .rating-bar -->
+
+                                        <div class="rating-bar">
+                                            <div class="star-rating" title="Rated 2 out of 5">
+                                                <span style="width:40%"></span>
+                                            </div>
+                                            <div class="rating-percentage-bar">
+                                                <span style="width:{{($comments->count() === 0) ? 0 : ($comments->where('rating', 2)->count() / $comments->count())*100}}%" class="rating-percentage"></span>
+                                            </div>
+                                            <div class="rating-count zero">{{$comments->where('rating', 2)->count()}}</div>
+                                        </div><!-- .rating-bar -->
+
+                                        <div class="rating-bar">
+                                            <div class="star-rating" title="Rated 1 out of 5">
+                                                <span style="width:20%"></span>
+                                            </div>
+                                            <div class="rating-percentage-bar">
+                                                <span style="width:{{($comments->count() === 0) ? 0 : ($comments->where('rating', 1)->count() / $comments->count())*100}}%" class="rating-percentage"></span>
+                                            </div>
+                                            <div class="rating-count zero">{{$comments->where('rating', 1)->count()}}</div>
+                                        </div><!-- .rating-bar -->
+                                    </div>
+                                </div><!-- /.col -->
+                                @if(Auth::check())
+                                    <div class="col-xs-12 col-md-6">
+                                        <div id="review_form_wrapper">
+                                            <div id="review_form">
+                                                <div id="respond" class="comment-respond">
+                                                    <h3 id="reply-title" class="comment-reply-title">Add a review
+                                                        <small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a>
+                                                        </small>
+                                                    </h3>
+                                                    @include('layouts.error')
+                                                    <form action="/store/saveComment" method="POST" id="commentform" class="comment-form">
+                                                        {{csrf_field()}}
+                                                        <p class="comment-form-rating">
+                                                            <label>Your Rating</label>
+                                                        </p>
+                                                        <input class="rating stars" data-active-icon="fas fa-star" data-inactive-icon="far fa-star" value="3" data-max="5" data-min="1" name="rating" type="number" style="color:#fed700"/>
+
+                                                        <p class="comment-form-comment">
+                                                            <label for="comment">Your Review</label>
+                                                            <textarea id="comment" name="reviewComment" cols="45" rows="8" aria-required="true"></textarea>
+                                                        </p>
+
+                                                        <p class="form-submit">
+                                                            <input name="submit" type="submit" id="submit" class="submit" value="Add Review">
+                                                            <input type="hidden" name="phoneIdHide" value="{{$phone->id}}" id="comment_phone_ID">
+                                                        </p>
+                                                    </form><!-- form -->
+                                                </div><!-- #respond -->
+                                            </div>
+                                        </div>
+
+                                    </div><!-- /.col -->
+                                @endif
+                            </div><!-- /.row -->
+
+                            <div id="comments">
+
+                                <ol class="commentlist">
+                                    @if($comments->count() > 0)
+                                        @foreach($comments as $comment)
+                                            <li itemprop="review" class="comment even thread-even depth-1">
+
+                                                <div id="comment-390" class="comment_container">
+
+                                                    <img alt="" src="assets/images/blog/avatar.jpg" class="avatar" height="60" width="60">
+                                                    <div class="comment-text">
+
+                                                        <div class="star-rating" title="Rated 4 out of 5">
+                                                            <span style="width:{{($comment->rating / 5)*100}}%"><strong itemprop="ratingValue">{{$comment->rating}}</strong> out of 5</span>
+                                                        </div>
+
+
+                                                        <p class="meta">
+                                                            <strong>John Doe</strong> –
+                                                            <time itemprop="datePublished" datetime="2016-03-03T14:13:48+00:00">March 3, 2016</time>:
+                                                        </p>
+
+
+
+                                                        <div itemprop="description" class="description">
+                                                            <p>{{$comment->content}}
+                                                            </p>
+                                                        </div>
+
+
+                                                        <p class="meta">
+                                                            <strong itemprop="author">{{ucwords($comment->name)}}</strong> –  <i class="fa fa-check-circle" style="color: #719e04;"></i>&nbsp; Certified Buyer, &nbsp; <time itemprop="datePublished" datetime="2016-03-03T14:13:48+00:00">{{$comment->created_at->diffForHumans()}}</time>
+                                                        </p>
+
+
+                                                    </div>
+                                                </div>
+                                            </li><!-- #comment-## -->
+                                        @endforeach
+                                    @else
+                                        No Comments yet.
+                                    @endif
+
+
+                                </ol><!-- /.commentlist -->
+
+                            </div><!-- /#comments -->
+
+                            <div class="clear"></div>
+                        </div><!-- /.electro-advanced-reviews -->
+                    </div>
                 </div>
                 <br>
             </div><!-- /.woocommerce-tabs -->
@@ -918,6 +1096,13 @@
         <script type="text/javascript" src="{{secure_asset('assets/js/magiczoom.js')}}"></script>
     @endif
     <script type="text/javascript">
+        $(document).ready(function() {
+            $('.comment:first').addClass("highlight");
+            setTimeout(function () {
+                $('.comment:first').removeClass('highlight');
+            }, 2000);
+        });
+
         $(document).ready(function(){
             $("td").css("color","#000");
             var radioVal = '';
@@ -973,9 +1158,7 @@
 
         });
 
-        window.onload = function(e){
-            window.location.hash = '#mobileView';
-        }
+
     </script>
     <script type="text/javascript" src="{{secure_asset('assets/js/bootstrap-hover-dropdown.min.js')}}"></script>
     <script type="text/javascript" src="{{secure_asset('assets/js/owl.carousel.min.js')}}"></script>
@@ -984,5 +1167,6 @@
     <script type="text/javascript" src="{{secure_asset('assets/js/jquery.easing.min.js')}}"></script>
     <script type="text/javascript" src="{{secure_asset('assets/js/jquery.waypoints.min.js')}}"></script>
     <script type="text/javascript" src="{{secure_asset('assets/js/electro.js')}}"></script>
+    <script src="{{secure_asset('js/bootstrap-rating-input.js')}}" type="text/javascript"></script>
     <script src="https://platform-api.sharethis.com/js/sharethis.js#property=5b4776e1e1ceeb001b842cb7&product=inline-share-buttons"></script>
 @endsection

@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Data;
 use App\Order;
 use App\OrderDevice;
 use App\Phone;
 use App\Comment;
 use Auth;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Ixudra\Curl\Facades\Curl;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Validator;
+
 
 class StoreController extends Controller
 {
@@ -20,6 +21,7 @@ class StoreController extends Controller
     public function __construct()
     {
         $this->middleware('isAvailable', ['only' => ['show']]);
+        $this->middleware('auth', ['only' => ['saveComment']]);
     }
 
     public function all($model=null)
@@ -64,12 +66,13 @@ class StoreController extends Controller
         $accessories = DB::table('accessory_phone')
             ->where('phone_id', $phone->id)
             ->get();
-		$phone2	 = DB::table('phones')
+        $phone2	 = DB::table('phones')
             ->where('id', $phone->id)
             ->get();
-        $comments = \App\Comment::select('users.name','comments.*')->Join('users','comments.user_id','users.id')->where('comments.phone_id',$id)->where('comments.status',1)->get();
+        $comments = \App\Comment::select('users.name','comments.*')->Join('users','comments.user_id','users.id')->where('comments.phone_id',$id)->where('comments.status',1)->latest()->get();
+        $avg = number_format(DB::table('comments')->where('comments.phone_id',$id)->where('comments.status',1)->avg('rating'), 1, '.', '');
         //dd($comments);
-        return view('phone.show',compact('phone','conditions','accessories','specs','phone2','comments'));
+        return view('phone.show',compact('phone','conditions','accessories','specs','phone2','comments','avg'));
     }
 
     public function showAdvertisement($id, $slug = ''){
@@ -123,24 +126,34 @@ class StoreController extends Controller
     public function saveComment(Request $request){
         //$id = $_GET['id'];
 
+        $validator = Validator::make($request->all(), [
+            'reviewComment' => 'required|min:10',
+            'rating' => 'required|digits_between:1,5',
+
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->to(URL::previous().'/#tab-reviews')
+                ->withErrors($validator);
+        }
+        if(Order::select('orders.id', 'orders.user_id', 'order_devices.phone_id')->leftJoin('order_devices', 'orders.id', '=', 'order_devices.order_id')->where('order_devices.phone_id', $request->phoneIdHide)->where('orders.user_id',  Auth::user()->id)->count() == 0){
+            redirect()->to(URL::previous().'/#tab-reviews')->withErrors(['You cannot review the product without buying it.']);
+        }
+
         $comment = new Comment();
         $comment->phone_id = $request->phoneIdHide;
         $comment->user_id = Auth::user()->id;
         $comment->content = $request->reviewComment;
-        $comment->status = 0;
+        $comment->status = 1;
+        $comment->rating = $request->rating;
         $saved = $comment->save();
 
         if($saved){
-            //print_r($_POST); die;
-            return redirect()->back();
+            return redirect()->to(URL::previous().'/#tab-reviews');
         }else{
-            //print_r('else'); die;
-            return redirect()->back();
+            dd(URL::previous().'/#tab-reviews');
+            return redirect()->to(URL::previous().'/#tab-reviews');
         }
-        
-
-
-
     }
 
 
