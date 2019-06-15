@@ -124,29 +124,30 @@
                                     {{$phone->data->storage}} GB </br>
                                 </h1>
                                 <div class="row">
-                                    <div class="col-xs-4">
-                                        <div class="rating" title="{{($avg / 5) * 100}}%">
-                                            <div class="back-stars">
-                                                <span class="fa fa-star" aria-hidden="true"></span>
-                                                <span class="fa fa-star" aria-hidden="true"></span>
-                                                <span class="fa fa-star" aria-hidden="true"></span>
-                                                <span class="fa fa-star" aria-hidden="true"></span>
-                                                <span class="fa fa-star" aria-hidden="true"></span>
+                                    @if($avg > 0)
+                                        <div class="col-xs-4">
+                                            <div class="rating" title="{{($avg / 5) * 100}}%">
+                                                <div class="back-stars">
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
 
-                                                <div class="front-stars" style="width: {{($avg / 5) * 100}}%">
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
-                                                    <span class="fa fa-star"></span>
+                                                    <div class="front-stars" style="width: {{($avg / 5) * 100}}%">
+                                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                                        <span class="fa fa-star" aria-hidden="true"></span>
+                                                        <span class="fa fa-star"></span>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            @if(!Jenssegers\Agent\Facades\Agent::isMobile())<div style="    display: inline-block;
+        padding-left: 7px; padding-right : 0px;
+        bottom: 4px;"><span class="grey font" style="display: inline;">{{$avg}} / <b>5.0</b></span></div>@endif
                                         </div>
-                                        @if(!Jenssegers\Agent\Facades\Agent::isMobile())<div style="    display: inline-block;
-    padding-left: 7px; padding-right : 0px;
-    bottom: 4px;"><span class="grey font" style="display: inline;">{{$avg}} / <b>5.0</b></span></div>@endif
-
-                                    </div>
+                                    @endif
                                     <div class="col-xs-7">
                                         Seller
                                         <b><a href="product-category.html">
@@ -1017,7 +1018,7 @@
                                 @endif
                             </div><!-- /.row -->
 
-                            <div id="comments">
+                            <div id="comments" style="height: 500px; overflow-y: scroll;">
 
                                 <ol class="commentlist">
                                     @if($comments->count() > 0)
