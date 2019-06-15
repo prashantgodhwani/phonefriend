@@ -138,21 +138,22 @@ class StoreController extends Controller
         }
         if(Order::select('orders.id', 'orders.user_id', 'order_devices.phone_id')->leftJoin('order_devices', 'orders.id', '=', 'order_devices.order_id')->where('order_devices.phone_id', $request->phoneIdHide)->where('orders.user_id',  Auth::user()->id)->count() == 0){
             redirect()->to(URL::previous().'/#tab-reviews')->withErrors(['You cannot review the product without buying it.']);
-        }
+        }else {
 
-        $comment = new Comment();
-        $comment->phone_id = $request->phoneIdHide;
-        $comment->user_id = Auth::user()->id;
-        $comment->content = $request->reviewComment;
-        $comment->status = 1;
-        $comment->rating = $request->rating;
-        $saved = $comment->save();
+            $comment = new Comment();
+            $comment->phone_id = $request->phoneIdHide;
+            $comment->user_id = Auth::user()->id;
+            $comment->content = $request->reviewComment;
+            $comment->status = 1;
+            $comment->rating = $request->rating;
+            $saved = $comment->save();
 
-        if($saved){
-            return redirect()->to(URL::previous().'/#tab-reviews');
-        }else{
-            dd(URL::previous().'/#tab-reviews');
-            return redirect()->to(URL::previous().'/#tab-reviews');
+            if ($saved) {
+                return redirect()->to(URL::previous() . '/#tab-reviews');
+            } else {
+                dd(URL::previous() . '/#tab-reviews');
+                return redirect()->to(URL::previous() . '/#tab-reviews');
+            }
         }
     }
 
