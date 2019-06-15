@@ -150,12 +150,7 @@ class StoreController extends Controller
             $comment->rating = $request->rating;
             $saved = $comment->save();
 
-            if ($saved) {
                 return redirect()->to(URL::previous() . '/#tab-reviews');
-            } else {
-                dd(URL::previous() . '/#tab-reviews');
-                return redirect()->to(URL::previous() . '/#tab-reviews');
-            }
         }
     }
 
