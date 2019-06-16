@@ -465,8 +465,8 @@ class AdminController extends Controller
 
     public function comments(){
         //$comment = \App\Comment::where('status',1)->get();
-         $comments = \App\Comment::select('data.model','data.company','comments.content','users.name','comments.id','comments.status')->leftJoin('phones','comments.phone_id','=','phones.id')->leftJoin('data', 'phones.data_id', '=', 'data.id')->leftJoin('users','comments.user_id','=','users.id')->paginate(15);
-         //echo "<pre>"; print_r($comments); echo "</pre>"; die;
+         $comments = \App\Comment::select('data.model','data.company','data.storage','comments.content', 'comments.rating', 'users.name','comments.id','comments.status')->leftJoin('phones','comments.phone_id','=','phones.id')->leftJoin('data', 'phones.data_id', '=', 'data.id')->leftJoin('users','comments.user_id','=','users.id')->paginate(15);
+         dd($comments);
          return view('admin.comments',compact('comments'));
     }
 

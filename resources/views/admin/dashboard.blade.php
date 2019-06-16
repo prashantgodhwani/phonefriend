@@ -8,7 +8,7 @@
                 <div class="col-sm-6 col-lg-6 col-xl-3">
                     <div class="card-box widget-flat border-custom bg-custom text-white">
                         <i class="fi-tag"></i>
-                        <h3 class="m-b-10">{{DB::table('orders')->where('order_status','Success')->whereDate('created_at', DB::raw('CURDATE()'))->count()}}</h3>
+                        <h3 class="m-b-10">{{DB::table('orders')->whereDate('created_at', DB::raw('CURDATE()'))->count()}}</h3>
                         <p class="text-uppercase m-b-5 font-13 font-600">Orders Today</p>
                     </div>
                 </div>

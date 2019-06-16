@@ -89,9 +89,9 @@
                             <div class="product-images-wrapper">
                                 <!-- .availability -->
                                 @if($phone->age == '11 - 12 Months' || $phone->age == '12+ Months')
-                                    <span class="onsale">RENEWED <i class="icon-check-sign"></i></span>
+                                    <span class="onsale">REFURBISHED <i class="icon-check-sign"></i></span>
                                 @else
-                                    <span class="onsale" style="background: #848484;">RENEWED <i class="icon-check-sign"></i></span>
+                                    <span class="onsale" style="background: #848484;">REFURBISHED <i class="icon-check-sign"></i></span>
                                 @endif
                                 <span class="onsale" style="right: 0; background: none; width : 152px;">
                                      <img style=" width : 110px;" src="https://www.phonefriend.in/assets/images/warranty.png" alt="" style="right: 0;">

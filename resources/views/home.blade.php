@@ -990,9 +990,9 @@
 												<div class="product-inner highlight">
 
 													@if($phone->age == '11 - 12 Months' || $phone->age == '12+ Months')
-														<span class="onsale" style="background: #848484; color:white;    width: 100%;">RENEWED <i class="icon-check-sign"></i></span>
+														<span class="onsale" style="background: #848484; color:white;    width: 100%;">REFURBISHED <i class="icon-check-sign"></i></span>
 													@else
-														<span class="onsale" style="background: #848484; color:white;    width: 100%;">RENEWED<i class="icon-check-sign"></i></span>
+														<span class="onsale" style="background: #848484; color:white;    width: 100%;">REFURBISHED<i class="icon-check-sign"></i></span>
 													@endif
 
 

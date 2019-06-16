@@ -8926,6 +8926,10 @@ div.quantity > label {
   padding-top: 0;
   border-top: none; }
 
+.amount{
+  font-weight:bold;
+}
+
 p.stars {
   display: inline-block;
   margin: 0; }

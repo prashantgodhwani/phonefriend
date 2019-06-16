@@ -35,7 +35,7 @@
       <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.min.css')}}" media="all" />
       <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-electro.css')}}" media="all" />
       <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl-carousel.css')}}" media="all" />
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css?v=1.2')}}" media="all" />
+      <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css?v=1.3')}}" media="all" />
       <link rel="stylesheet" type="text/css" href="{{asset('assets/css/colors/green.css')}}" media="all" />
       <link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendor-prefixes.css')}}" media="all" />
       <link rel="stylesheet" type="text/css" href="{{asset('assets/css/responsiveslides.css')}}" media="all" />

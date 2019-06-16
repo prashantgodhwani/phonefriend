@@ -28,9 +28,11 @@
                         <table id="datatable" class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>Phone Name</th>
-                                <th>User Name</th>
+                                <th>Phone ID</th>
+                                <th>Phone</th>
+                                <th>User</th>
                                 <th>Content</th>
+                                <th>Rating</th>
                                 <th>Status</th>
                                 <th>Operations</th>
                             </tr>
@@ -40,9 +42,12 @@
                             <tbody>
                             @foreach($comments as $phone)
                                 <tr>
-                                    <td>{{$phone->company}} {{ucwords($phone->model)}}</td>
+                                    <td>#TT-A0{{$phone->id}}</td>
+                                    <td>{{$phone->company}} {{ucwords($phone->model)}}  - {{$phone->storage}} GB</td>
                                     <td>{{$phone->name}}</td>
-                                    <td>{{$phone->content}} GB</td>
+                                    <td>{{$phone->content}}</td>
+                                    <td>{{$phone->rating}}</td>
+
                                     <td>
                                         @if($phone->status == 0)
                                             UnAporoved
