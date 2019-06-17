@@ -140,6 +140,10 @@ Route::get('/admin/merchant/{user}/settlements', 'AdminController@viewSettlement
 
 Route::get('/admin/user/{user}', 'AdminController@userHistory')->name('user.history');
 
+Route::get('admin/orders/date', 'AdminController@getOrdersByPhones')->name('orders.via.dates');
+
+Route::post('admin/orders/date', 'AdminController@getOrdersBetweenDates')->name('orders.date');
+
 Route::get('/admin/order/{order}', 'AdminController@displayOrder')->name('user.showorder');
 
 Route::get('/admin/order/{order}/bank', 'AdminController@bankDetails')->name('order.bankdetails');
@@ -307,7 +311,5 @@ Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
-Route::get('admin/orders/date', 'AdminController@getOrdersByPhones');
 
-Route::post('admin/orders/date', 'AdminController@getOrdersBetweenDates')->name('orders.date');
 

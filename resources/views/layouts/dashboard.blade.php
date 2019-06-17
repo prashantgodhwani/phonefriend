@@ -124,6 +124,7 @@
                                 <li><a href="{{route('orders.failed')}}">Failed</a></li>
                                 <li><a href="{{route('orders.unprocessed')}}">Not Processed</a></li>
                                 <li><a href="{{route('orders.cancelled')}}">Cancelled</a></li>
+                                <li><a href="{{route('orders.via.dates')}}">Orders via Dates</a></li>
                             </ul>
                         </li>
 
