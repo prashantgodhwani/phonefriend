@@ -9,6 +9,7 @@ use App\OrderDevice;
 use App\Phone;
 use App\Settlement;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -55,17 +56,17 @@ class AdminController extends Controller
         $otp = rand(100000000,999999999);
         session(['onthep' => $otp]);
         $response = Curl::to('http://103.8.127.46/vendorsms/pushsms.aspx')
-        ->withData( array( 'user' => 'PHFRN', 'password' => 'Sandeep@5051', 'msisdn' => '8126911300','sid' => 'PHNFRN' , 'msg' => $otp.' is the one-time password (OTP) for your online registration at Phone Friend. This is usable once. PLEASE DO NOT SHARE WITH ANYONE.','fl'=>'0','gwid'=>'2') )
-        ->asJson()
-        ->get();
+            ->withData( array( 'user' => 'PHFRN', 'password' => 'Sandeep@5051', 'msisdn' => '8126911300','sid' => 'PHNFRN' , 'msg' => $otp.' is the one-time password (OTP) for your online registration at Phone Friend. This is usable once. PLEASE DO NOT SHARE WITH ANYONE.','fl'=>'0','gwid'=>'2') )
+            ->asJson()
+            ->get();
         return view('admin.updatepassword',compact('user'));
     }
     public function updatePassword(User $user){
         $this->validate(\request(),[
-         'otp'=>'required',
-         'password'=>'required'
+            'otp'=>'required',
+            'password'=>'required'
 
-     ]);
+        ]);
         if(session()->get('onthep') == \request()->otp){
             $user->update(['password' => bcrypt(\request()->password)]);
             $status = "Password successfully updated. You can now login.";
@@ -81,7 +82,7 @@ class AdminController extends Controller
 
     public function checkLock(Request $request){
         if(\Hash::check($request->password,\Auth::user
-            ()->password)){
+        ()->password)){
             session(['last_activity_at'=>now()]);
             return redirect()->route('admin.dashboard');
         }
@@ -99,19 +100,19 @@ class AdminController extends Controller
 
     public function viewDevice(Phone $phone){
         $conditions= DB::table('condition_phone')
-        ->where('phone_id', $phone->id)
-        ->get();
+            ->where('phone_id', $phone->id)
+            ->get();
 
         $accessories = DB::table('accessory_phone')
-        ->where('phone_id', $phone->id)
-        ->get();
+            ->where('phone_id', $phone->id)
+            ->get();
         return view('admin.device',compact('phone','conditions','accessories'));
     }
 
     public function showContacted(){
         $contacts = DB::select('select * from contact');
         return view('admin.contacted',compact('contacts'));
-    } 
+    }
 
     public function repair(){
         $repair = DB::select('select * from repair');
@@ -128,7 +129,7 @@ class AdminController extends Controller
     }
 
     public function updateModel(Request $request,Data
-        $data){
+    $data){
         $this->validate($request,[
             'company'=>'required',
             'model'=>'required',
@@ -157,40 +158,40 @@ class AdminController extends Controller
 
     public function addMerchant(){
         $cities = DB::table('statelist')
-        ->get();
+            ->get();
         return view('admin.addmerchant',compact
-            ('cities'));
+        ('cities'));
     }
 
     public function showAccounts(){
         $data = DB::table('phones')->selectRaw('`user_id`,SUM(price*(units-units_rem)) as total_sales')
-        ->whereRaw('`units_rem` < `units` AND `sold`!=2')->groupBy('user_id')->orderByRaw('total_sales DESC')->get();
+            ->whereRaw('`units_rem` < `units` AND `sold`!=2')->groupBy('user_id')->orderByRaw('total_sales DESC')->get();
         $total_sales=DB::table('phones')->selectRaw('SUM(price*(units-units_rem)) as total_sales')
-        ->whereRaw('`units_rem` < `units` AND `sold`!=2')->get();
+            ->whereRaw('`units_rem` < `units` AND `sold`!=2')->get();
         $total_settled = DB::table('settlements')
-        ->select(DB::raw('SUM(amount) as total_settled'))
-        ->first();
+            ->select(DB::raw('SUM(amount) as total_settled'))
+            ->first();
         $total_sales = $total_sales[0]->total_sales;
         return view('admin.accounts',compact(['data','total_sales','total_settled']));
     }
 
     public function settleMerchant(User $user){
         $totals = DB::table('settlements')
-        ->select('user_id', DB::raw('SUM(amount) as total_settled'))
-        ->where('user_id',$user->id)
-        ->groupBy('user_id')
-        ->first();
+            ->select('user_id', DB::raw('SUM(amount) as total_settled'))
+            ->where('user_id',$user->id)
+            ->groupBy('user_id')
+            ->first();
         $dt = DB::table('phones')->selectRaw('`user_id`,SUM(price*(units-units_rem)) as total_sales')
-        ->whereRaw('`units_rem` < `units` AND `user_id`= '.$user->id.' AND `sold`!=2')->groupBy('user_id')->orderByRaw('total_sales DESC')->first();
+            ->whereRaw('`units_rem` < `units` AND `user_id`= '.$user->id.' AND `sold`!=2')->groupBy('user_id')->orderByRaw('total_sales DESC')->first();
         return view('admin.settlemerchant',compact(['user','totals','dt']));
     }
-    
+
     public function storeSettlement(User $user){
         $this->validate(request(),[
-         'method' =>'required',
-         'transaction_id'=>'required',
-         'amount'=>'required|numeric'
-     ]);
+            'method' =>'required',
+            'transaction_id'=>'required',
+            'amount'=>'required|numeric'
+        ]);
         $data=\request();
         $data['user_id']=$user->id;
         Settlement::create($data->toArray());
@@ -200,12 +201,12 @@ class AdminController extends Controller
 
     public function viewSettlements(User $user){
         $totals = DB::table('settlements')
-        ->select('user_id', DB::raw('SUM(amount) as total_settled'))
-        ->where('user_id',$user->id)
-        ->groupBy('user_id')
-        ->first();
+            ->select('user_id', DB::raw('SUM(amount) as total_settled'))
+            ->where('user_id',$user->id)
+            ->groupBy('user_id')
+            ->first();
         $dt = DB::table('phones')->selectRaw('`user_id`,SUM(price*(units-units_rem)) as total_sales')
-        ->whereRaw('`units_rem` < `units` AND `user_id`= '.$user->id .' AND `sold`!=2')->groupBy('user_id')->orderByRaw('total_sales DESC')->first();
+            ->whereRaw('`units_rem` < `units` AND `user_id`= '.$user->id .' AND `sold`!=2')->groupBy('user_id')->orderByRaw('total_sales DESC')->first();
         $data=Settlement::where('user_id',$user->id)->get();
         return view('admin.merchant_settlements',compact(['totals','dt','data']));
     }
@@ -213,7 +214,7 @@ class AdminController extends Controller
     public function merchantTransactions(User $user){
         $phones=Phone::where('user_id',$user->id)->whereRaw('`units_rem` < `units`')->get();
         $dt = DB::table('phones')->selectRaw('`user_id`,SUM(price*(units-units_rem)) as total_sales')
-        ->whereRaw('`units_rem` < `units` AND `user_id`= '.$user->id .' AND `sold`!=2')->groupBy('user_id')->first();
+            ->whereRaw('`units_rem` < `units` AND `user_id`= '.$user->id .' AND `sold`!=2')->groupBy('user_id')->first();
 
         return view('admin.merchanttransactions',compact(['phones','user','dt']));
     }
@@ -341,11 +342,11 @@ class AdminController extends Controller
     public function editMerchant(User $user){
 
         $cities = DB::table('statelist')
-        ->get();
+            ->get();
         $mrchntinfo=MerchantDetails::where('user_id',$user->id)->get();
         $citty = DB::table('statelist')
-        ->where('city_id', '=', $mrchntinfo[0]->deliver_cityid)
-        ->first();
+            ->where('city_id', '=', $mrchntinfo[0]->deliver_cityid)
+            ->first();
         return view('admin.editmerchant',compact('user','cities','mrchntinfo','citty'));
 
     }
@@ -366,7 +367,7 @@ class AdminController extends Controller
 
     public function showMerchantRequests(){
         $users = DB::table('merchant')
-        ->get();
+            ->get();
         return view('admin.merchantrequests',compact('users'));
 
     }
@@ -426,9 +427,9 @@ class AdminController extends Controller
     }
 
     public function showOrders(){
-       // $orders=Order::paginate(8);
+        // $orders=Order::paginate(8);
         $orders=Order::orderBy('created_at', 'desc')->get();
-        
+
         // $data=array();
         //$data=Data::distinct()->get(['company']);
         return view('admin.neworders',compact('orders'));
@@ -465,24 +466,42 @@ class AdminController extends Controller
 
     public function comments(){
         //$comment = \App\Comment::where('status',1)->get();
-         $comments = \App\Comment::select('data.model','data.company','data.storage','comments.content', 'comments.rating', 'users.name','comments.id','comments.status')->leftJoin('phones','comments.phone_id','=','phones.id')->leftJoin('data', 'phones.data_id', '=', 'data.id')->leftJoin('users','comments.user_id','=','users.id')->paginate(15);
-         dd($comments);
-         return view('admin.comments',compact('comments'));
+        $comments = \App\Comment::select('data.model','data.company','data.storage','comments.content', 'comments.rating', 'users.name','comments.id','comments.status')->leftJoin('phones','comments.phone_id','=','phones.id')->leftJoin('data', 'phones.data_id', '=', 'data.id')->leftJoin('users','comments.user_id','=','users.id')->paginate(15);
+        return view('admin.comments',compact('comments'));
     }
 
     public function commentupdate(Request $request,$id){
-        
+
         $commentUpdate = \App\Comment::where('id',$id)->update(['status'=>$request->commentStatus]);
         \request()->session()->flash('status', 'Comment Updated!');
         return redirect()->back();
     }
 
     public function sendlink()
-	{
-		
-		  $ch=curl_init("http://cloud.smsindiahub.in/vendorsms/pushsms.aspx?user=PHFRN&password=Sandeep@5051&msisdn=".$_POST['mobileno']."&sid=PHNFRN&msg=Congrats%20your%20order%20has%20been%20shipped.Please%20track%20your%20order%20at%20the%20given%20link%20below%20".$_POST['link']."%20Thanks%20for%20shopping%20with%20us%20Please%20leave%20us%20a%20valuable%20feedback%20atSupport@phonefriend.in%20Visit%20www.phonefriend.in&fl=0&gwid=2");
-	$data = curl_exec($ch);	
-\request()->session()->flash('status', 'Link sent as SMS Successfully!');
+    {
+
+        $ch=curl_init("http://cloud.smsindiahub.in/vendorsms/pushsms.aspx?user=PHFRN&password=Sandeep@5051&msisdn=".$_POST['mobileno']."&sid=PHNFRN&msg=Congrats%20your%20order%20has%20been%20shipped.Please%20track%20your%20order%20at%20the%20given%20link%20below%20".$_POST['link']."%20Thanks%20for%20shopping%20with%20us%20Please%20leave%20us%20a%20valuable%20feedback%20atSupport@phonefriend.in%20Visit%20www.phonefriend.in&fl=0&gwid=2");
+        $data = curl_exec($ch);
+        \request()->session()->flash('status', 'Link sent as SMS Successfully!');
         return redirect('/admin/orders');
-	}
+    }
+
+    public function getOrdersByPhones(){
+        return view('admin.orderbyphones');
+    }
+
+    public function getOrdersBetweenDates(Request $request){
+        $this->validate($request,[
+            'startdt' => 'required',
+            'enddt' => 'required'
+        ]);
+        $start = $request->startdt;
+        $end = $request->enddt;
+
+        //dd(Carbon::createFromFormat('Y-m-d', $request->startdt)->toDateTimeString(), Carbon::createFromFormat('Y-m-d', $request->enddt)->toDateTimeString());
+
+        //$orders = Order::findOrFail(OrderDevice::select('order_id')->where('phone_id', $phone->id)->get());
+        $orders = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween('orders.created_at', [Carbon::createFromFormat('Y-m-d', $start)->toDateTimeString(), Carbon::createFromFormat('Y-m-d', $end)->toDateTimeString()])->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
+        return view('admin.orderbyphones', compact('orders', 'start','end'));
+    }
 }
