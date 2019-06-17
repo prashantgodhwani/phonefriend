@@ -307,3 +307,7 @@ Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
 
+Route::get('admin/orders/date', 'AdminController@getOrdersByPhones');
+
+Route::post('admin/orders/date', 'AdminController@getOrdersBetweenDates')->name('orders.date');
+
