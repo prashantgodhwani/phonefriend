@@ -85,7 +85,8 @@
                 <script type="text/javascript">
                     $(document).ready(function() {
                         $('#datatable').DataTable({
-                            keys: true
+                            keys: true,
+                            order: [[1, 'desc']]
                         });
                     });
                 </script>
