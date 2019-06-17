@@ -501,7 +501,7 @@ class AdminController extends Controller
         //dd(Carbon::createFromFormat('Y-m-d', $request->startdt)->toDateTimeString(), Carbon::createFromFormat('Y-m-d', $request->enddt)->toDateTimeString());
 
         //$orders = Order::findOrFail(OrderDevice::select('order_id')->where('phone_id', $phone->id)->get());
-        $orders = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween('orders.created_at', [Carbon::createFromFormat('Y-m-d', $start)->toDateTimeString(), Carbon::createFromFormat('Y-m-d', $end)->toDateTimeString()])->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
+        $orders = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
         return view('admin.orderbyphones', compact('orders', 'start','end'));
     }
 }
