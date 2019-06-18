@@ -28,14 +28,14 @@
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="card-box widget-flat border-success bg-success text-white">
                                         <i class="fi-help"></i>
-                                        <h3 class="m-b-10">{{($codAttempted->isEmpty()) ? '0' : $codSuccess[0]->sales}}</h3>
+                                        <h3 class="m-b-10">{{($codSuccess->isEmpty()) ? '0' : $codSuccess[0]->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">COD Successful</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="card-box bg-danger widget-flat border-danger text-white">
                                         <i class="fi-server"></i>
-                                        <h3 class="m-b-10">{{($codAttempted->isEmpty()) ? '0' :  $ccdcAttempted[0]->sales}}</h3>
+                                        <h3 class="m-b-10">{{($ccdcAttempted->isEmpty()) ? '0' :  $ccdcAttempted[0]->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">CCDC Attempted</p>
                                     </div>
                                 </div>
