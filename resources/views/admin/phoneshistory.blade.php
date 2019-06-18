@@ -35,7 +35,7 @@
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="card-box bg-danger widget-flat border-danger text-white">
                                         <i class="fi-server"></i>
-                                        <h3 class="m-b-10">{{$ccdcAttempted)}}</h3>
+                                        <h3 class="m-b-10">{{$ccdcAttempted}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">CCDC Attempted</p>
                                     </div>
                                 </div>

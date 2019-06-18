@@ -506,18 +506,21 @@ class AdminController extends Controller
     }
 
     public function getPhonesBetweenDates(Request $request){
-        dd($request->phoneId, $request->startdt, $request->enddt);
-        $this->validate($request,[
-            'startdt' => 'required',
-            'enddt' => 'required'
-        ]);
+
         $start = $request->startdt;
         $end = $request->enddt;
 
         //dd(Carbon::createFromFormat('Y-m-d', $request->startdt)->toDateTimeString(), Carbon::createFromFormat('Y-m-d', $request->enddt)->toDateTimeString());
 
-        //$orders = Order::findOrFail(OrderDevice::select('order_id')->where('phone_id', $phone->id)->get());
         $orders = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
-        return view('admin.orderbyphones', compact('orders', 'start','end'));
+        $codAttempted = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->where('orders.payment_mode','cod')->where('order_devices.phone_id',$request->phoneId)->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
+        $codSuccess = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->where('orders.payment_mode','cod')->where('order_devices.phone_id',$request->phoneId)->where('order_status', 'Success')->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
+
+        $ccdcAttempted= DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->where('orders.payment_mode','ccdc')->where('order_devices.phone_id',$request->phoneId)->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
+        $ccdcSuccess = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->where('orders.payment_mode','ccdc')->where('order_devices.phone_id',$request->phoneId)->where('order_status', 'Success')->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
+        $ccdcUP = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->where('orders.payment_mode','ccdc')->where('order_devices.phone_id',$request->phoneId)->where('order_status', 'UP')->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
+        $ccdcAborted = DB::table('order_devices')->select('order_devices.phone_id', DB::raw("count('order_devices.order_id') as sales"))->leftJoin('orders','orders.id','=','order_devices.order_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->where('orders.payment_mode','ccdc')->where('order_devices.phone_id',$request->phoneId)->where('order_status', 'Aborted')->groupBy('order_devices.phone_id')->orderBy('sales', 'DESC')->get();
+//        dd($codAttempted, $codSuccess, $ccdcAttempted, $ccdcSuccess, $ccdcUP, $ccdcAborted);
+        return view('admin.phoneshistory', compact('orders','codAttempted', 'codSuccess', 'ccdcAborted','ccdcSuccess', 'ccdcAttempted', 'ccdcUP'));
     }
 }
