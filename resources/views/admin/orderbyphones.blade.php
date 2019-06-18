@@ -54,7 +54,7 @@
                                                         <td>{{$order->sales}}</td>
 
                                                         <td>
-                                                            <a href="javascript: void(0);">
+                                                            <a href="/phone/{{$order->phone_id}}/{{$start}}/{{$end}}">
                                                                 View Sales
                                                             </a>
                                                         </td>
