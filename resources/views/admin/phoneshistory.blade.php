@@ -42,21 +42,21 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-4">
-                                    <div class="card-box widget-flat border-custom bg-custom text-white"  style="background-color: #8828a7 !important; border-color: #570679 !important;">
+                                    <div class="card-box widget-flat border-custom bg-custom text-white"  style="background-color: #8828a7 !important; border-color: #8828a7 !important;">
                                         <i class="fi-tag"></i>
                                         <h3 class="m-b-10">{{($ccdcSuccess->isEmpty()) ? '0' : $ccdcSuccess[0]->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">CCDC Success</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-4">
-                                    <div class="card-box bg-primary widget-flat border-primary text-white"  style="background-color: #2bceb0 !important; border-color: #12ab82 !important;">
+                                    <div class="card-box bg-primary widget-flat border-primary text-white"  style="background-color: #2bceb0 !important; border-color: #2bceb0 !important;">
                                         <i class="fi-archive"></i>
                                         <h3 class="m-b-10">{{($ccdcUP->isEmpty()) ? '0' : $ccdcUP[0]->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">CCDC Under Process</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-4">
-                                    <div class="card-box widget-flat border-success bg-success text-white"  style="background-color: #e28817 !important; border-color: #a5590c !important;">
+                                    <div class="card-box widget-flat border-success bg-success text-white"  style="background-color: #e28817 !important; border-color: #e28817 !important;">
                                         <i class="fi-help"></i>
                                         <h3 class="m-b-10">{{($ccdcAborted->isEmpty()) ? '0' : $ccdcAborted[0]->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">CCDC Aborted</p>
