@@ -14,28 +14,28 @@
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="card-box widget-flat border-custom bg-custom text-white">
                                         <i class="fi-tag"></i>
-                                        <h3 class="m-b-10">{{$orders}}</h3>
+                                        <h3 class="m-b-10">{{$orders->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">Total Orders</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="card-box bg-primary widget-flat border-primary text-white">
                                         <i class="fi-archive"></i>
-                                        <h3 class="m-b-10">{{$codAttempted}}</h3>
+                                        <h3 class="m-b-10">{{$codAttempted->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">COD Attempted</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="card-box widget-flat border-success bg-success text-white">
                                         <i class="fi-help"></i>
-                                        <h3 class="m-b-10">{{$codSuccess}}</h3>
+                                        <h3 class="m-b-10">{{$codSuccess->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">COD Successful</p>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="card-box bg-danger widget-flat border-danger text-white">
                                         <i class="fi-server"></i>
-                                        <h3 class="m-b-10">{{$ccdcAttempted}}</h3>
+                                        <h3 class="m-b-10">{{$ccdcAttempted->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">CCDC Attempted</p>
                                     </div>
                                 </div>
