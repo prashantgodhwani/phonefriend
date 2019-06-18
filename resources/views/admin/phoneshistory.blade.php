@@ -58,7 +58,7 @@
                                 <div class="col-xs-6 col-sm-4">
                                     <div class="card-box widget-flat border-success bg-success text-white">
                                         <i class="fi-help"></i>
-                                        <h3 class="m-b-10">{{(($ccdcAborted->isEmpty()) ? '0' : $ccdcAborted[0]->sales}}</h3>
+                                        <h3 class="m-b-10">{{($ccdcAborted->isEmpty()) ? '0' : $ccdcAborted[0]->sales}}</h3>
                                         <p class="text-uppercase m-b-5 font-13 font-600">CCDC Aborted</p>
                                     </div>
                                 </div>
