@@ -506,7 +506,7 @@ class AdminController extends Controller
     }
 
     public function getPhonesBetweenDates(Request $request){
-        dd($request->query('phoneId'), $request->query('startdt'), $request->query('enddt'));
+        dd($request->phoneId, $request->startdt, $request->enddt);
         $this->validate($request,[
             'startdt' => 'required',
             'enddt' => 'required'
