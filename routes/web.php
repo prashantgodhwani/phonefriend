@@ -144,6 +144,8 @@ Route::get('admin/orders/date', 'AdminController@getOrdersByPhones')->name('orde
 
 Route::post('admin/orders/date', 'AdminController@getOrdersBetweenDates')->name('orders.date');
 
+Route::get('admin/orders/date/{phoneId]/{startdt}/{enddt}', 'AdminController@getPhonesBetweenDates')->name('orders.date.phones');
+
 Route::get('/admin/order/{order}', 'AdminController@displayOrder')->name('user.showorder');
 
 Route::get('/admin/order/{order}/bank', 'AdminController@bankDetails')->name('order.bankdetails');
