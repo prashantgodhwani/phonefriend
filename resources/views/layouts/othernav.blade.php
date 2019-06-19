@@ -1,5 +1,4 @@
 
-
 <style>
 
 .topnavnew {
@@ -63,7 +62,52 @@
     padding: 5px;
     font-size: 10px;
 }
+.module {
+	position: relative;
+}
+.notice-module {
+	overflow: hidden;
+	-webkit-box-ordinal-group: -99;
+	-ms-flex-order: -100;
+	order: -100;
+}
+.module-header_notice-56 .module-body {
+	height: auto;
+	flex-direction: row;
+	background: rgba(223, 231, 246, 1);
+	padding: 5px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+.module-header_notice-56 .hn-body {
+	display: flex;
+}
+.notice-module .module-body, .notice-module .hn-body {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.module-header_notice-56 .hn-content {
+	line-height: 1.4;
+}
 </style>
+<div class="notice-module module module-header_notice module-header_notice-56" data-options="{&quot;cookie&quot;:&quot;9e4f882c&quot;,&quot;ease&quot;:&quot;easeOutQuart&quot;,&quot;duration&quot;:&quot;700&quot;}" style="">
+	<div class="module-body">
+		<div class="hn-body">
+			<div class="hn-content col-md-12">This is the <b>Header Notice </b>module, use it for promotional or other important messages.</div>
+		</div>
+		<div class="header-notice-close-button">
+			<button class="btn hn-close">
+			</button>
+		</div>
+	</div>
+</div>
 <div class="topnavnew" id="mytopnavnew">
   <a href="https://www.phonefriend.in" class="active" style="    width: 135px;"><img src="{{asset('images/logo1.png')}}"></a>
   <a  class="restmenu" href="https://www.phonefriend.in/">Home</a>
