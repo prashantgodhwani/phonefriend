@@ -96,6 +96,7 @@
 }
 .module-header_notice-56 .hn-content {
 	line-height: 1.4;
+	text-align: center;
 }
 </style>
 <div class="notice-module module module-header_notice module-header_notice-56" id="newsTicker" style="">
