@@ -101,7 +101,7 @@
 <div class="notice-module module module-header_notice module-header_notice-56" id="newsTicker" style="">
 	<div class="module-body">
 		<div class="hn-body">
-			<div class="hn-content col-md-12"><img src="http://www.sclance.com/pngs/yay-png/yay_png_1547446.png" style="height: 27px; display:inline;"><b>Phone Friend </b>now a trusted partner of, <b>Amazon India</b> for Reburbished Phones.</div>
+			<div class="hn-content col-md-12"><img src="http://www.sclance.com/pngs/yay-png/yay_png_1547446.png" style="height: 27px; display:inline;">&nbsp;&nbsp;<b>Phone Friend </b>now a trusted partner of, <b>Amazon India</b> for Reburbished Phones.</div>
 		</div>
 		<i class="fa fa-times" aria-hidden="true" onClick="hide()" ></i>
 
