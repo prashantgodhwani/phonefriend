@@ -74,10 +74,11 @@
 .module-header_notice-56 .module-body {
 	height: auto;
 	flex-direction: row;
-	background: rgba(223, 231, 246, 1);
+	background: rgb(60, 60, 60);
 	padding: 5px;
 	padding-top: 7px;
 	padding-bottom: 7px;
+	color: aliceblue;
 }
 .module-header_notice-56 .hn-body {
 	display: flex;
@@ -97,15 +98,13 @@
 	line-height: 1.4;
 }
 </style>
-<div class="notice-module module module-header_notice module-header_notice-56" data-options="{&quot;cookie&quot;:&quot;9e4f882c&quot;,&quot;ease&quot;:&quot;easeOutQuart&quot;,&quot;duration&quot;:&quot;700&quot;}" style="">
+<div class="notice-module module module-header_notice module-header_notice-56" id="newsTicker" style="">
 	<div class="module-body">
 		<div class="hn-body">
-			<div class="hn-content col-md-12">This is the <b>Header Notice </b>module, use it for promotional or other important messages.</div>
+			<div class="hn-content col-md-12"><img src="http://www.sclance.com/pngs/yay-png/yay_png_1547446.png" style="height: 27px; display:inline;"><b>Phone Friend </b>now a trusted partner of, <b>Amazon India</b> for Reburbished Phones.</div>
 		</div>
-		<div class="header-notice-close-button">
-			<button class="btn hn-close">
-			</button>
-		</div>
+		<i class="fa fa-times" aria-hidden="true" onClick="hide()" ></i>
+
 	</div>
 </div>
 <div class="topnavnew" id="mytopnavnew">
@@ -122,6 +121,13 @@
 
 
 <script>
+	function hide() {
+
+		var el = document.getElementById('newsTicker');
+
+		el.style.display = 'none';
+
+	}
 function myFunction() {
   var x = document.getElementById("mytopnavnew");
   if (x.className === "topnavnew") {
