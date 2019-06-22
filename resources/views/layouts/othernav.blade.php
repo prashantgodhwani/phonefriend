@@ -99,14 +99,22 @@
 	text-align: center;
 }
 </style>
-<div class="notice-module module module-header_notice module-header_notice-56" id="newsTicker" style="">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+<div class="notice-module module module-header_notice module-header_notice-56" id="newsTicker" style="display:none">
 	<div class="module-body">
 		<div class="hn-body">
 			<div class="hn-content col-md-12"><img src="http://www.sclance.com/pngs/yay-png/yay_png_1547446.png" style="height: 27px; display:inline;">&nbsp;&nbsp;<b>Phone Friend </b>now a trusted partner of <b>Amazon India</b> for Reburbished Phones.</div>
 		</div>
-		<i class="fa fa-times" aria-hidden="true" onClick="hide()" ></i>
 
 	</div>
+
+    <div class="module-body">
+        <div class="hn-body">
+            <div class="hn-content col-md-12"><img src="http://www.sclance.com/pngs/yay-png/yay_png_1547446.png" style="height: 27px; display:inline;">&nbsp;&nbsp;<b>Phone Friend </b>now provides low cost shipping upto <b>&nbsp;<i class="fa fa-inr"></i>50,000</b> for all Reburbished Phones.</div>
+        </div>
+
+    </div>
 </div>
 <div class="topnavnew" id="mytopnavnew">
   <a href="https://www.phonefriend.in" class="active" style="    width: 135px;"><img src="{{asset('images/logo1.png')}}"></a>
@@ -383,7 +391,9 @@ function myFunction() {
     </div>
 
   </div>
-</div><script src="https://phonefriend.in/jquery.min.js"></script>
+</div>
+
+
 <script>
 $(document).ready(function(){
 	
@@ -439,9 +449,15 @@ $(document).ready(function(){
 		
 		
 	});
+
+
 	
 });
 
+
+
+
 </script>
+
 
 

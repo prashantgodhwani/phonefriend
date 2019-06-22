@@ -137,6 +137,20 @@
             }
         });
     </script>
+    <script type="text/javascript" src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.notice-module').show();
+    $('.notice-module').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+        arrows: false,
+        vertical : true
+    });
+        });
+    </script>
 
 </body>
 
