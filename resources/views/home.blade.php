@@ -251,6 +251,7 @@
 			<li><img src="assets/images/slider/banner-12.jpg" alt=""></li>
 			<li><img src="assets/images/slider/banner-3.jpg" alt=""></li>
 			<li><img src="assets/images/slider/banner-2.jpg" alt=""></li>
+			<li><img src="images/banner-1.jpg" alt="" class="img img-responsive"></li>
 		</ul>
 
 		<section class="products-with-category-image container"  style="margin-top: 4%; margin-bottom: 0;">
