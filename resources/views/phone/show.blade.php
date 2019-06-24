@@ -795,10 +795,6 @@
                                     <td>{{ucwords($phone->imei1)}}</td>
                                 </tr>
                             @endif
-                            <tr class="size-weight">
-                                <td>Age</td>
-                                <td>{{$phone->age}} old</td>
-                            </tr>
                             <tr class="item-model-number">
                                 <td>Physical Condition</td>
                                 <td>{{ucwords($phone->physical_condition)}}</td>
