@@ -42,7 +42,7 @@ class HomeController extends Controller
         //        $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(5)->orderBy('price', 'asc')->get();
 
 
-        $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderByRaw('RAND()')->get();
+        $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
         foreach ($phones as $phone){
             if(number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '') != 0)
                 $phone->rating = number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
