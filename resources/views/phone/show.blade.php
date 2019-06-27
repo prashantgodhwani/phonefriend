@@ -206,12 +206,13 @@
                                         <a id="addtocartButton" href="javascript:void(0)"
                                            data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
                                         >
+                                            <a id="goToCart" style="display: none" href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
                                             <button id="buynow"  style=" color: #fff;background-color: #a3d133;
                            border-color: #5cb85c;">
                                                 <i class="fa fa-shopping-bag"></i>
                                                 &nbsp;Buy Now</button></a>
                                     @else
-                                        <a href="https://phonefriend.in/cart"><span class="btn btn-danger"><b><i class="fa fa-cart-plus"></i>&nbsp; Added to Cart</b></span></a>
+                                        <a href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
                                     @endif
                                 </div>
                                 <div style="padding-top: 2%">
@@ -1134,8 +1135,8 @@
                     url:'{!!URL::to('/apis/addtocart')!!}',
                     data:{'phone':phone},
                     success:function(data){
-                        $("#cart").css("pointer-events", "none");
-                        $('#cart').html(' <strong><i class="fa fa-check"></i>&nbsp;Added to Cart</strong>');
+                        $("#cart").css("display", "none");
+                        $('#goToCart').css("display", "block");
                         document.getElementById('buynow').style.display='none';
                         var quan= data.count;
                         var cartValue = data.cart_subtotal;
