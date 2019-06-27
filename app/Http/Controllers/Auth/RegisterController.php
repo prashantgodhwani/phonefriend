@@ -183,7 +183,8 @@ class RegisterController extends Controller
                 session(['last_activity_at'=>now()]);
                 return redirect('/admin/dashboard');
             }
-            else if(request()->headers->get('referer') == "https://phonefriend.in/checkout/guest" || request()->headers->get('referer') == "https://www.phonefriend.in/checkout/guest"){
+
+            if(request()->headers->get('referer') == "https://phonefriend.in/checkout/guest" || request()->headers->get('referer') == "https://www.phonefriend.in/checkout/guest"){
                 return redirect()->intended('/cart');
             }
 
