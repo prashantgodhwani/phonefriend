@@ -75,7 +75,6 @@
         height: auto;
         flex-direction: row;
         background: rgb(60, 60, 60);
-        padding: 5px;
         padding-top: 7px;
         padding-bottom: 7px;
         color: aliceblue;
@@ -104,14 +103,14 @@
 <div class="notice-module module module-header_notice module-header_notice-56" id="newsTicker" style="display:none">
     <div class="module-body">
         <div class="hn-body">
-            <div class="hn-content col-md-12"><img src="http://www.sclance.com/pngs/yay-png/yay_png_1547446.png" style="height: 27px; display:inline;">&nbsp;&nbsp;<b>Phone Friend </b>now a trusted partner of <b>Amazon India</b> for Reburbished Phones.</div>
+            <div class="hn-content col-md-12"><img src="https://phonefriend.in/images/yay_png_1547446.png" style="height: 27px; display:inline;">&nbsp;&nbsp;<b>Phone Friend </b>now a trusted partner of <b>Amazon India</b> for Reburbished Phones.</div>
         </div>
 
     </div>
 
     <div class="module-body">
         <div class="hn-body">
-            <div class="hn-content col-md-12"><img src="http://www.sclance.com/pngs/yay-png/yay_png_1547446.png" style="height: 27px; display:inline;">&nbsp;&nbsp;<b>Phone Friend </b>now provides low cost shipping upto <b>&nbsp;<i class="fa fa-inr"></i>50,000</b> for all Reburbished Phones.</div>
+            <div class="hn-content col-md-12"><img src="https://phonefriend.in/images/yay_png_1547446.png" style="height: 27px; display:inline;">&nbsp;&nbsp;<b>Phone Friend </b>now provides low cost shipping upto <b>&nbsp;<i class="fa fa-inr"></i>50,000</b> for all Reburbished Phones.</div>
         </div>
 
     </div>
