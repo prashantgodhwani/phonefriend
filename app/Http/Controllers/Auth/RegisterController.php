@@ -185,7 +185,7 @@ class RegisterController extends Controller
             }
 
             if(request()->headers->get('referer') == "https://phonefriend.in/checkout/guest" || request()->headers->get('referer') == "https://www.phonefriend.in/checkout/guest"){
-                return redirect()->intended('/cart');
+                return redirect('/cart');
             }
 
             // return redirect($this->redirectTo);
