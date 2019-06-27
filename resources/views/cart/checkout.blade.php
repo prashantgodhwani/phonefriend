@@ -218,7 +218,13 @@ To extend warranty on your product please write us at support@phonefeiend.in or 
                                             <input type="radio" data-order_button_text="Proceed to PayPal" value="ccdc" name="payment_method" class="input-radio" id="payment_method_paypal">
 
                                             <label for="payment_method_paypal">Pay &nbsp;<span style="color:green; font-weight: bold;"><i class="fa fa-inr"></i>{{number_format((number_unformat(Cart::subtotal()) + $shipping) - (((number_unformat(Cart::subtotal()) + $shipping) * 1.5) / 100),2) }}</span>&nbsp; by Credit / Debit Card  / Net Banking / EMI</span>
-                                                <img alt="Credit Card / Debit Card" src="http://www.fa.ufl.edu/wp-content/uploads/cardops/Credit-Card-Logos.jpg"></label>
+                                                <img alt="Credit Card / Debit Card" src="https://i2.wp.com/devonmoving.com/wp-content/uploads/2015/01/credit-card-icons-png.png?ssl=1"></label>
+                                        </li>
+                                        <li class="wc_payment_method payment_method_paypal">
+                                            <input type="radio" data-order_button_text="Proceed to PayPal" value="ccdc" name="payment_method" class="input-radio" id="payment_method_paypal">
+
+                                            <label for="payment_method_paypal">Pay &nbsp;<span style="color:green; font-weight: bold;"><i class="fa fa-inr"></i>{{number_format((number_unformat(Cart::subtotal()) + $shipping) - (((number_unformat(Cart::subtotal()) + $shipping) * 1.5) / 100),2) }}</span>&nbsp; by Wallet</span>
+                                                <img alt="Wallet" src="https://phonefriend.in/images/wallet.png"></label>
                                         </li>
                                         </li>
                                     </ul>
