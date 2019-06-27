@@ -206,11 +206,12 @@
                                         <a id="addtocartButton" href="javascript:void(0)"
                                            data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
                                         >
-                                            <a id="goToCart" style="display: none" href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
                                             <button id="buynow"  style=" color: #fff;background-color: #a3d133;
                            border-color: #5cb85c;">
                                                 <i class="fa fa-shopping-bag"></i>
                                                 &nbsp;Buy Now</button></a>
+                                        <a id="goToCart" style="display: none" href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
+
                                     @else
                                         <a href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
                                     @endif
