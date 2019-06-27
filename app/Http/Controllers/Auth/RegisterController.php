@@ -179,7 +179,7 @@ class RegisterController extends Controller
             $authUser = $this->findOrCreateUser($user, $provider);
             Auth::login($authUser, true);
 
-            if($user->role == 3) {
+            if($authUser->role == 3) {
                 session(['last_activity_at'=>now()]);
                 return redirect('/admin/dashboard');
             }
