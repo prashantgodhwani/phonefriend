@@ -6,6 +6,7 @@ use App\Mail\VerifyMail;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\VerifyUser;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -184,7 +185,7 @@ class RegisterController extends Controller
                 return redirect('/admin/dashboard');
             }
 
-            if(request()->headers->get('referer') == "https://phonefriend.in/checkout/guest" || request()->headers->get('referer') == "https://www.phonefriend.in/checkout/guest"){
+            if(Cart::count() > 0){
                 return redirect('/cart');
             }
 
