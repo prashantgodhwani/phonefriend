@@ -41,15 +41,20 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
+        if(request()->headers->get('referer') == "https://phonefriend.in/checkout/guest" || request()->headers->get('referer') == "https://www.phonefriend.in/checkout/guest"){
+            return redirect()->intended('/cart');
+        }
+
         if($user->role == 3) {
             session(['last_activity_at'=>now()]);
-            return redirect()->intended('/admin/dashboard');
+            return redirect('/admin/dashboard');
         }
 
         else if (!$user->verified) {
             auth()->logout();
             return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
         }
+
         return redirect()->intended($this->redirectPath());
     }
 
