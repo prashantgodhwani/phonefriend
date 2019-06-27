@@ -107,7 +107,6 @@
 
     <div class="copyright-bar">
         <div class="container">
-            <div class="flip copyright col-md-5">Powered by <a href="https://encodezero.com">Encode Zero</a></div>
             <div class="col-md-3 copyright">&copy; <a href="#" style="color: rgb(163,209,51)">Phone Friend</a> - All Rights Reserved</div>
 
             <div class="pull-right copyright flip payment">
