@@ -178,6 +178,9 @@ class RegisterController extends Controller
             }
             $authUser = $this->findOrCreateUser($user, $provider);
             Auth::login($authUser, true);
+            if(request()->headers->get('referer') == "https://phonefriend.in/checkout/guest" || request()->headers->get('referer') == "https://www.phonefriend.in/checkout/guest"){
+                return redirect()->intended('/cart');
+            }
             // return redirect($this->redirectTo);
             return redirect()->intended($this->redirectTo);
     }
