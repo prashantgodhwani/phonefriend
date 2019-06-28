@@ -2243,7 +2243,7 @@ li.product .loop-product-categories a:focus, .section-onsale-product .onsale-pro
   color: #333; }
 
 li.product a, .section-onsale-product .onsale-product a, .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content a, .products-carousel .owl-item .product a {
-  color: #0062bd; }
+  color: #1d83e2; }
 li.product a:focus, .section-onsale-product .onsale-product a:focus, .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content a:focus, .products-carousel .owl-item .product a:focus, li.product a:hover, .section-onsale-product .onsale-product a:hover, .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-content a:hover, .products-carousel .owl-item .product a:hover {
   text-decoration: none; }
 
@@ -3101,7 +3101,7 @@ article.post.format-link .entry-content p {
 article.post.format-link .entry-content p:last-child {
   margin-bottom: 0; }
 article.post.format-link .entry-content p a {
-  color: #0062bd;
+  color: #1d83e2;
   font-size: 0.875rem;
   line-height: 2.143em; }
 article.post.format-aside .entry-content p {
@@ -6696,13 +6696,13 @@ section.section-posts-carousel .post-carousel .owl-nav, section.section-posts-ca
 .product_list_widget > li:last-child {
   margin-bottom: 0; }
 .product_list_widget .product-title {
-  color: #0062bd;
+  color: #1d83e2;
   font-weight: bold;
   font-size: 1em;
   display: block;
   line-height: 1.2em; }
 .product_list_widget a {
-  color: #0062bd;
+  color: #1d83e2;
   font-weight: bold; }
 .product_list_widget .wp-post-image {
   width: 75px;
@@ -8755,10 +8755,10 @@ div.quantity > label {
 .accessories .accessory-checkbox {
   font-size: 1em;
   line-height: 1.286em;
-  color: #0062bd;
+  color: #1d83e2;
   margin-bottom: 0.857em; }
 .accessories .accessory-checkbox .product-title {
-  border-bottom: 1px solid #0062bd; }
+  border-bottom: 1px solid #1d83e2; }
 .accessories .accessory-checkbox:first-child {
   color: #686c6f; }
 .accessories .accessory-checkbox:first-child .product-title {
@@ -9164,7 +9164,7 @@ h3.faq-title {
   font-size: 1.071em;
   line-height: 1.286em;
   font-weight: bold;
-  color: #0062bd; }
+  color: #1d83e2; }
 .table-compare tbody tr th {
   text-transform: uppercase;
   background-color: #f1f1f1;
