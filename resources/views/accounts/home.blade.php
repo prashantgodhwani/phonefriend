@@ -15,17 +15,17 @@
                         @if(Auth::user()->role==1) <!--is Merchant-->
                         <div class="woocommerce columns-4">
                             <ul class="product-loop-categories">
-                                <li class="product-category product first col-md-4"  style=" width: 33.33%;"><a href="{{route('phone.add')}}" style=" padding-top: 2%;"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 5em; color: #a3d133"></i><h3><b>Sell a Phone</b></h3></a></li>
-                                <li class="product-category product col-md-4" style=" width: 33.33%;"><a href="{{route('phones.show')}}" style=" padding-top: 2%;"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 5.5em; color: #a3d133"></i><h3><b>My Phones</b></h3></a></li>
-                                <li class="product-category product col-md-4" style=" width: 33.33%;"><a href="{{route('account.settlements')}}" style="    padding-top: 5% !important;"><i class="fa fa-inr" aria-hidden="true" style="font-size: 4.5em; color: #a3d133"></i><h3><b>Settlements</b></h3></a></li>
+                                <li class="product-category product first col-md-4"  style=" width: 33.33%;"><a href="{{route('phone.add')}}" style=" padding-top: 2%;"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 5em; color: #e85561"></i><h3><b>Sell a Phone</b></h3></a></li>
+                                <li class="product-category product col-md-4" style=" width: 33.33%;"><a href="{{route('phones.show')}}" style=" padding-top: 2%;"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 5.5em; color: #e85561"></i><h3><b>My Phones</b></h3></a></li>
+                                <li class="product-category product col-md-4" style=" width: 33.33%;"><a href="{{route('account.settlements')}}" style="    padding-top: 5% !important;"><i class="fa fa-inr" aria-hidden="true" style="font-size: 4.5em; color: #e85561"></i><h3><b>Settlements</b></h3></a></li>
 
                             </ul>
                         </div>
                             @else <!--is user-->
                             <div class="woocommerce columns-4">
                                 <ul class="product-loop-categories">
-                                    <li class="product-category product col-md-6" style="width:50%;"><a href="{{route('phones.orders')}}" style=" padding-top: 2%;"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 5.5em; color: #a3d133"></i><h3><b>My Orders</b></h3></a></li>
-                                    <li class="product-category product col-md-6" style="width:50%;"><a href="{{route('phones.show')}}" style=" padding-top: 2%;"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 5.5em; color: #a3d133"></i><h3><b>Profile</b></h3></a></li>
+                                    <li class="product-category product col-md-6" style="width:50%;"><a href="{{route('phones.orders')}}" style=" padding-top: 2%;"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 5.5em; color: #e85561"></i><h3><b>My Orders</b></h3></a></li>
+                                    <li class="product-category product col-md-6" style="width:50%;"><a href="{{route('phones.show')}}" style=" padding-top: 2%;"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 5.5em; color: #e85561"></i><h3><b>Profile</b></h3></a></li>
                                 </ul>
                             </div>
                         @endif

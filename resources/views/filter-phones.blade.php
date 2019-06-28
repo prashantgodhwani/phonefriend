@@ -4,9 +4,9 @@
     <div class="product-outer">
         <div class="product-inner highlight">
             @if($phone->age == '11 - 12 Months' || $phone->age == '12+ Months')
-            <span class="onsale" style="background: #848484; color:white;    width: 100%;">CERTIFIED REFURBISHED <i class="icon-check-sign"></i></span>
+            <span class="onsale" style="background: #3c3c3c; color:white;    width: 100%;">CERTIFIED REFURBISHED <i class="icon-check-sign"></i></span>
             @else
-            <span class="onsale" style="background: #848484; color:white;    width: 100%;">CERTIFIED USED  <i class="icon-check-sign"></i></span>
+            <span class="onsale" style="background: #3c3c3c; color:white;    width: 100%;">CERTIFIED USED  <i class="icon-check-sign"></i></span>
             @endif
             <a href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}'>
 
@@ -63,9 +63,9 @@
                 @endif
             @else
             <?php $phoneColor = explode(',', $phone->color); ?>
-            <?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}"" ><b class="buynow" style="border-radius: 0%; /*background-color:#A3D133;
+            <?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}"" ><b class="buynow" style="border-radius: 0%; /*background-color:#e85561;
                                     border: none;*/
-                                    color: #a3d133;
+                                    color: #e85561;
                                     padding: 9px;
                                     text-align: center;
                                     text-decoration: none;

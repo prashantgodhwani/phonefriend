@@ -17,22 +17,22 @@
 .widget_electro_products_filter .widget_product_categories li.current-cat > a::before,
 .features-list .media-left i,
 p.stars a {
-  color: #a3d133; }
+  color: #e85561; }
 
 .header-logo svg ellipse,
 .footer-logo svg ellipse {
-  fill: #a3d133; }
+  fill: #e85561; }
 
 .primary-nav .nav-inline > .menu-item .dropdown-menu,
 .navbar-primary .navbar-nav > .menu-item .dropdown-menu,
 .vertical-menu .menu-item-has-children > .dropdown-menu,
 .departments-menu .menu-item-has-children:hover > .dropdown-menu,
 .top-bar .nav-inline > .menu-item .dropdown-menu {
-  border-top-color: #a3d133; }
+  border-top-color: #e85561; }
 
 .columns-6-1 > ul.products > li.product .thumbnails > a:hover,
 .primary-nav .nav-inline .yamm-fw.open > a::before {
-  border-bottom-color: #a3d133; }
+  border-bottom-color: #e85561; }
 
 .navbar-primary,
 .footer-newsletter,
@@ -79,13 +79,13 @@ ul.products > li.product.list-view.list-view-small .button:active::after,
 .full-color-background .header-v3,
 .full-color-background .top-bar,
 .pace .pace-progress {
-  background-color: #a3d133; }
+  background-color: #e85561; }
 
 .hero-action-btn:hover {
   background-color: #97c42c !important; }
 
 .hero-action-btn {
-  background-color: #a3d133 !important; }
+  background-color: #e85561 !important; }
 
 .departments-menu .departments-menu-dropdown,
 .departments-menu .menu-item-has-children > .dropdown-menu,
@@ -136,7 +136,7 @@ section.section-onsale-product-carousel .onsale-product-carousel,
 .widget_electro_products_carousel_widget .section-products-carousel .owl-nav .owl-prev:hover,
 .widget_electro_products_carousel_widget .section-products-carousel .owl-nav .owl-next:hover,
 .wpb-accordion .vc_tta.vc_general .vc_tta-panel .vc_tta-panel-heading .vc_tta-panel-title > a:not(.collapsed):before {
-  border-color: #a3d133; }
+  border-color: #e85561; }
 
 .widget_price_filter .price_slider_amount .button,
 .dropdown-menu-mini-cart .wc-forward.checkout,
@@ -145,8 +145,8 @@ table.cart .actions .checkout-button,
 .btn-primary,
 input[type="submit"] {
   color: #333e48;
-  background-color: #a3d133;
-  border-color: #a3d133; }
+  background-color: #e85561;
+  border-color: #e85561; }
   .widget_price_filter .price_slider_amount .button:hover,
   .dropdown-menu-mini-cart .wc-forward.checkout:hover,
   table.cart .actions .checkout-button:hover,
@@ -284,8 +284,8 @@ input[type="submit"] {
   input[type="submit"].disabled.focus,
   input[type="submit"]:disabled:focus,
   input[type="submit"]:disabled.focus {
-    background-color: #a3d133;
-    border-color: #a3d133; }
+    background-color: #e85561;
+    border-color: #e85561; }
   .widget_price_filter .price_slider_amount .button.disabled:hover, .widget_price_filter .price_slider_amount .button:disabled:hover,
   .dropdown-menu-mini-cart .wc-forward.checkout.disabled:hover,
   .dropdown-menu-mini-cart .wc-forward.checkout:disabled:hover,
@@ -297,8 +297,8 @@ input[type="submit"] {
   .btn-primary:disabled:hover,
   input[type="submit"].disabled:hover,
   input[type="submit"]:disabled:hover {
-    background-color: #a3d133;
-    border-color: #a3d133; }
+    background-color: #e85561;
+    border-color: #e85561; }
 
 .navbar-primary .navbar-nav > .menu-item > a:hover,
 .navbar-primary .navbar-nav > .menu-item > a:focus {
@@ -316,18 +316,18 @@ input[type="submit"] {
 .single-product div.thumbnails-all .synced a,
 .products-2-1-2 .nav-link:hover::after,
 .section-onsale-product-carousel .onsale-product-carousel .onsale-product .onsale-product-thumbnails .images .thumbnails a.current {
-  border-bottom-color: #a3d133; }
+  border-bottom-color: #e85561; }
 
 #scrollUp {
-  background-color: #a3d133; }
+  background-color: #e85561; }
 
 .custom .tp-bullet.selected {
-  background-color: #a3d133 !important; }
+  background-color: #e85561 !important; }
 
 .home-v1-slider .btn-primary,
 .home-v2-slider .btn-primary,
 .home-v3-slider .btn-primary {
-  background-color: #a3d133 !important; }
+  background-color: #e85561 !important; }
   .home-v1-slider .btn-primary:hover,
   .home-v2-slider .btn-primary:hover,
   .home-v3-slider .btn-primary:hover {

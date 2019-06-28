@@ -11,7 +11,7 @@
 }
 
 .color {
-   outline: #a3d133 4px solid;  
+   outline: #e85561 4px solid;
     color:white;
 }
 
@@ -88,7 +88,7 @@
 }
 
 div.yo:hover {
-    outline: #a3d133 solid 4px;
+    outline: #e85561 solid 4px;
 }
 
 
@@ -203,7 +203,7 @@ div.yo{
 .wizard > .steps .current a:hover,
 .wizard > .steps .current a:active
 {
-    background: #a3d133;
+    background: #e85561;
     color: #fff;
     cursor: default;
 }

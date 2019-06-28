@@ -2,7 +2,7 @@
 
 .topnavnew {
   overflow: hidden;
-  background-color: #a3d133;
+  background-color: #e85561;
 }
 
 .topnavnew a {
@@ -303,7 +303,7 @@ numericFilters:['units_rem != 0','sold != 2'],
                                                     </div>
                                                 </a>
                                                 <del><span class="amount amttt"><i class="fa fa-inr"></i> @{{ result.original_price }}</span></del><br>
-                                                <span class="onsale pad" style="background: #a3d133;" data-toggle="tooltip" title="Price Marked Down"><i class="fa fa-check" style="color: white !important;"></i>&nbsp;@{{ result.discount }} % OFF</span><br>
+                                                <span class="onsale pad" style="background: #e85561;" data-toggle="tooltip" title="Price Marked Down"><i class="fa fa-check" style="color: white !important;"></i>&nbsp;@{{ result.discount }} % OFF</span><br>
                                                 <div class="price-add-to-cart">
                                                     <span class="price">
                                                         <span class="electro-price">

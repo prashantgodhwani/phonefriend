@@ -13,7 +13,7 @@
 	100% { transform: rotate(360deg); }
 }
 .green{
-    color:#A3D133;
+    color:#e85561;
 	font-size:12px;
 }
 .grey{
@@ -100,9 +100,9 @@
 								<div class="product-inner highlight">
 
 									@if($phone->age == '11 - 12 Months' || $phone->age == '12+ Months')
-									<span class="onsale" style="background: #848484; color:white;    width: 100%;">CERTIFIED REFURBISHED <i class="icon-check-sign"></i></span>
+									<span class="onsale" style="background: #3c3c3c; color:white;    width: 100%;">CERTIFIED REFURBISHED <i class="icon-check-sign"></i></span>
 									@else
-									<span class="onsale" style="background: #848484; color:white;    width: 100%;">CERTIFIED USED  <i class="icon-check-sign"></i></span>
+									<span class="onsale" style="background: #3c3c3c; color:white;    width: 100%;">CERTIFIED USED  <i class="icon-check-sign"></i></span>
 									@endif
 
 
@@ -150,7 +150,7 @@
 									<?php $phoneColor = explode(',', $phone->color); ?>
 									<?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}" ><b class="buynow"  style=" /*background-color:#72BAD1;
 									border: none;*/
-									color: #a3d133;
+									color: #e85561;
 									padding: 10px 20px;
 									text-align: center;
 									text-decoration: none;
@@ -163,9 +163,9 @@
 										@endif
 									@else
 									<?php $phoneColor = explode(',', $phone->color); ?>
-									<?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}"" ><b class="buynow" style="border-radius: 0%; /*background-color:#A3D133;
+									<?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}"" ><b class="buynow" style="border-radius: 0%; /*background-color:#e85561;
 									border: none;*/
-									color: #a3d133;
+									color: #e85561;
 									padding: 9px;
 									text-align: center;
 									text-decoration: none;
@@ -502,9 +502,9 @@
 								<div class="product-inner highlight">
 
 									@if($phone->age == '11 - 12 Months' || $phone->age == '12+ Months')
-									<span class="onsale" style="background: #848484; color:white;    width: 100%;">CERTIFIED REFURBISHED <i class="icon-check-sign"></i></span>
+									<span class="onsale" style="background: #3c3c3c; color:white;    width: 100%;">CERTIFIED REFURBISHED <i class="icon-check-sign"></i></span>
 									@else
-									<span class="onsale" style="background: #848484; color:white;    width: 100%;">CERTIFIED USED  <i class="icon-check-sign"></i></span>
+									<span class="onsale" style="background: #3c3c3c; color:white;    width: 100%;">CERTIFIED USED  <i class="icon-check-sign"></i></span>
 									@endif
 
 
@@ -553,7 +553,7 @@
 									<?php $phoneColor = explode(',', $phone->color); ?>
 									<?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}" ><b class="buynow"  style=" /*background-color:#72BAD1;
 									border: none;*/
-									color: #a3d133;
+									color: #e85561;
 									padding: 10px 20px;
 									text-align: center;
 									text-decoration: none;
@@ -566,9 +566,9 @@
 										@endif
 									@else
 									<?php $phoneColor = explode(',', $phone->color); ?>
-									<?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}"" ><b class="buynow" style="border-radius: 0%; /*background-color:#A3D133;
+									<?php if($phone->units){?><a href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}"" ><b class="buynow" style="border-radius: 0%; /*background-color:#e85561;
 									border: none;*/
-									color: #a3d133;
+									color: #e85561;
 									padding: 9px;
 									text-align: center;
 									text-decoration: none;
@@ -591,7 +591,7 @@
                               <!--   <a href="{{route('store.all')}}">
                                     <div class="col-md-4 col-offset-4" style="float: right; padding-bottom: 5%;">
                                         <a href="{{route('store.all')}}" rel="nofollow" class="btn btn-success" style="    color: #fff;
-    background-color: #a3d133;
+    background-color: #e85561;
     border-color: #5cb85c;">
                                             See More Products &nbsp; &nbsp;<i class="fa fa-angle-right" style="font-size:1.2em"></i> </a>
                                     </div>

@@ -62,7 +62,7 @@
             border-radius: 50%;
         }
         .green {
-            color: #a3d133 !important;
+            color: #e85561 !important;
         }
         .border-b-1 {border-bottom: 1px solid rgba(162,162,162,.16);}
     </style>
@@ -91,7 +91,7 @@
                                 @if($phone->age == '11 - 12 Months' || $phone->age == '12+ Months')
                                     <span class="onsale">REFURBISHED <i class="icon-check-sign"></i></span>
                                 @else
-                                    <span class="onsale" style="background: #848484;">REFURBISHED <i class="icon-check-sign"></i></span>
+                                    <span class="onsale" style="background: #ef4956;">REFURBISHED <i class="icon-check-sign"></i></span>
                                 @endif
                                 <span class="onsale" style="right: 0; background: none; width : 152px;">
                                      <img style=" width : 110px;" src="https://www.phonefriend.in/assets/images/warranty.png" alt="" style="right: 0;">
@@ -180,7 +180,7 @@
                            <span class="electro-price">
                               <ins><span class="amount"><i class="fa fa-inr"></i> {{ number_format($phone->price, 2) }}
                               </span></ins><del><span class="amount"><i class="fa fa-inr"></i> {{number_format($phone->data->price,2)}}</span></del>
-                              <span class="onsale" style="background: #a3d133;" data-toggle="tooltip" title="Price Marked Down"><i class="icon-check-sign"></i>You Save {{round((($phone->data->price - $phone->price) / $phone->data->price )*100)}} % </span>
+                              <span class="onsale" style="background: #e85561;" data-toggle="tooltip" title="Price Marked Down"><i class="icon-check-sign"></i>You Save {{round((($phone->data->price - $phone->price) / $phone->data->price )*100)}} % </span>
                                     <p class="amount">Inclusive of all taxes.</p></span></p>
                                     <h6 style="color: #5cb85c; font-weight: bold; margin: -15px 0px -7px 0px;display:none"></br>10 days return / replacement warranty available on this product.</h6>
                                     <?php $phoneColor = explode(',', $phone->color); ?>
@@ -201,12 +201,12 @@
                                         @endif
                                     @endforeach
                                     @if($flag==0)
-                                        <button  style=" color: #fff;background-color: #a3d133;
+                                        <button  style=" color: #fff;background-color: #e85561;
                            border-color: #5cb85c;" id="cart" data-phoneid="{{$phone->id}}"><i class="fa fa-cart-plus" style="font-size: 16px;"></i> &nbsp; Add to Cart </button>
                                         <a id="addtocartButton" href="javascript:void(0)"
                                            data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
                                         >
-                                            <button id="buynow"  style=" color: #fff;background-color: #a3d133;
+                                            <button id="buynow"  style=" color: #fff;background-color: #e85561;
                            border-color: #5cb85c;">
                                                 <i class="fa fa-shopping-bag"></i>
                                                 &nbsp;Buy Now</button></a>
