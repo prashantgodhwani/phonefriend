@@ -490,6 +490,7 @@ class AdminController extends Controller
         return view('admin.orderbyphones');
     }
 
+
     public function getOrdersBetweenDates(Request $request){
         $this->validate($request,[
             'startdt' => 'required',
@@ -506,8 +507,8 @@ class AdminController extends Controller
         $orders = DB::table('order_devices')->select('data.id', DB::raw("count('order_devices.order_id') as sales"))->join('orders','orders.id','=','order_devices.order_id')->join('phones','phones.id','=','order_devices.phone_id')->join('data','data.id','=','phones.data_id')->whereBetween(DB::raw('date(orders.created_at)'), [Carbon::createFromFormat('Y-m-d', $start)->toDateString(), Carbon::createFromFormat('Y-m-d', $end)->toDateString()])->groupBy('data.id')->orderBy('sales', 'DESC')->get();
         foreach ($orders as $order){
             if(Data::where('id',$order->id)->first()->company == 'apple'){
-                ++$iosDevice;
-            }else ++$nonIosDevice;
+                $iosDevice += $order->sales;
+            }else $nonIosDevice += $order->sales;
             $totalDevices += $order->sales;
         }
         return view('admin.orderbyphones', compact('orders', 'start','end', 'iosDevice','nonIosDevice', 'totalDevices'));
