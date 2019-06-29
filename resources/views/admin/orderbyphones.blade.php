@@ -49,12 +49,12 @@
                                                 @foreach($orders as $order)
 
                                                     <tr>
-                                                        <td><b>{{ucwords(\App\Phone::find($order->phone_id)->data->company)}} {{ucwords(App\Phone::find($order->phone_id)->data->model)}} - {{App\Phone::find($order->phone_id)->data->storage}}GB</b></td>
+                                                        <td><b>{{ucwords(\App\Data::find($order->id)->company)}} {{ucwords(\App\Data::find($order->id)->model)}} - {{\App\Data::find($order->id)->storage}}GB</b></td>
 
                                                         <td>{{$order->sales}}</td>
 
                                                         <td>
-                                                            <a href="date/phone/{{$order->phone_id}}/{{$start}}/{{$end}}">
+                                                            <a href="date/phone/{{$order->id}}/{{$start}}/{{$end}}">
                                                                 View Sales
                                                             </a>
                                                         </td>
