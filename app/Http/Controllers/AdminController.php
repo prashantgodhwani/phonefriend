@@ -533,4 +533,3 @@ class AdminController extends Controller
         return view('admin.phoneshistory', compact('orders','codAttempted', 'codSuccess', 'codCancelled', 'ccdcAborted','ccdcSuccess', 'ccdcAttempted', 'ccdcUP', 'start', 'end'));
     }
 }
-}
