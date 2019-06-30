@@ -7,7 +7,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card-box">
-                        <h4 class="header-title"></h4>
+                        <h3 class="header-title" style="    font-size: 18px;
+    text-align: left;
+    padding-bottom: 2%;">Orders for <b>{{ucwords(\App\Data::find($orders[0]->id)->company)}} {{ucwords(\App\Data::find($orders[0]->id)->model)}} - {{\App\Data::find($orders[0]->id)->storage}}GB</b> between <b>{{$start}}</b> and <b>{{$end}}</b></h3><hr><br>
 
                         <div class="text-center mt-4 mb-4">
                             <div class="row">
