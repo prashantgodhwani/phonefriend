@@ -2,7 +2,7 @@
 
     <div class="footer-newsletter">
         <div class="container">
-            
+
         </div>
     </div>
 
@@ -68,7 +68,7 @@
 
                 <div class="footer-contact col-xs-12 col-sm-12 col-md-5 col-md-pull-7">
                     <div class="footer-logo">
-                        <img src="{{asset('images/logo1.png')}}" style="width:50%">
+                        <img src="{{asset('images/logo1-bottom.png')}}" style="width:50%">
                     </div><!-- /.footer-contact -->
 
                     <div class="footer-call-us">
@@ -84,10 +84,10 @@
 
                     <div class="footer-address">
                         <address><b>Phone Friend</b><br>
-                           Shop No.6, Himgiri Enclave Chander Vihar, Near Tilak Nagar Metro Station, Nilothi Ext., New delhi - 110041<br>
-                          India | CIN : U74999UR2018PTC008664<BR>
+                            Shop No.6, Himgiri Enclave Chander Vihar, Near Tilak Nagar Metro Station, Nilothi Ext., New delhi - 110041<br>
+                            India | CIN : U74999UR2018PTC008664<BR>
                             PAN : ABACS2219K | TAN : MRTS15190A<BR>
-                           +91-8448444313 , +91 1204318432 | help@phonefriend.in
+                            +91-8448444313 , +91 1204318432 | help@phonefriend.in
                         </address>
                     </div><!-- /.footer-address -->
 
@@ -125,5 +125,5 @@
     </div><!-- /.copyright-bar -->
 </footer><!-- #colophon -->
 
-  <!--<script src="js/bootstrap-select.min.js"></script>-->
+<!--<script src="js/bootstrap-select.min.js"></script>-->
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1b0ebbdb-3be0-4e03-9b0b-fc8a7a831c8e";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
