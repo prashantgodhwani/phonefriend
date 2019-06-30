@@ -8834,7 +8834,7 @@ div.quantity > label {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #333e48;
+  background-color: #e8555f;
   color: white;
   text-align: center;
   height:55px;
@@ -10922,7 +10922,7 @@ input[type=number]::-webkit-outer-spin-button {
     /* width: 100%; */
   }
   ul.products li.product.col-md-4{
-    height: auto !important;
+    height: 370px;
     margin: 0;
     padding: 0;
     display: table;

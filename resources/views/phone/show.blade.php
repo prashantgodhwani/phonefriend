@@ -190,32 +190,34 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="single_variation_wrap">
-                                    <div class="woocommerce-variation single_variation"></div>
-                                    <?php $flag=0; ?>
-                                    @foreach (Cart::content() as $content)
-                                        @if($content->id==$phone->id)
-                                            <?php $flag=1; ?>
-                                        @else
-                                            <?php $flag=0; ?>
-                                        @endif
-                                    @endforeach
-                                    @if($flag==0)
-                                        <button  style=" color: #fff;background-color: #e85561;
+                                @if(!Jenssegers\Agent\Facades\Agent::isMobile())
+                                    <div class="single_variation_wrap">
+                                        <div class="woocommerce-variation single_variation"></div>
+                                        <?php $flag=0; ?>
+                                        @foreach (Cart::content() as $content)
+                                            @if($content->id==$phone->id)
+                                                <?php $flag=1; ?>
+                                            @else
+                                                <?php $flag=0; ?>
+                                            @endif
+                                        @endforeach
+                                        @if($flag==0)
+                                            <button  style=" color: #fff;background-color: #e85561;
                            border-color: #5cb85c;" id="cart" data-phoneid="{{$phone->id}}"><i class="fa fa-cart-plus" style="font-size: 16px;"></i> &nbsp; Add to Cart </button>
-                                        <a id="addtocartButton" href="javascript:void(0)"
-                                           data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
-                                        >
-                                            <button id="buynow"  style=" color: #fff;background-color: #e85561;
+                                            <a id="addtocartButton" href="javascript:void(0)"
+                                               data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
+                                            >
+                                                <button id="buynow"  style=" color: #fff;background-color: #e85561;
                            border-color: #5cb85c;">
-                                                <i class="fa fa-shopping-bag"></i>
-                                                &nbsp;Buy Now</button></a>
-                                        <a id="goToCart" style="display: none" href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
+                                                    <i class="fa fa-shopping-bag"></i>
+                                                    &nbsp;Buy Now</button></a>
+                                            <a id="goToCart" style="display: none" href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
 
-                                    @else
-                                        <a href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
-                                    @endif
-                                </div>
+                                        @else
+                                            <a href="https://phonefriend.in/cart"><span class="btn btn-danger" style="background-color: #ef5b15"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
+                                        @endif
+                                    </div>
+                                @endif
                                 <div style="padding-top: 2%">
                                     <span style="color:red; font-weight:bold; margin-top: 2%">Note:</span>  Due to huge stock shifts we provide colour availability on call confirmation.<br>
                                     Call confirmation is done within 24 hours after the order has been placed<br>
@@ -1076,96 +1078,147 @@
     </div>
     <!-- /.container -->
     </div><!-- /.site-content -->
-@endsection
-@section('scripts')
-    <script type="text/javascript" src="{{secure_asset('assets/js/tether.min.js')}}"></script>
-    <script
-            src="https://code.jquery.com/jquery-2.2.4.js"
-    ></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $( document ).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
-        });
-    </script>
-    <?php
-    use Jenssegers\Agent\Agent;
-    $agent = new Agent(); ?>
-    @if($agent->isDesktop())
-        <script type="text/javascript" src="{{secure_asset('assets/js/magiczoom.js')}}"></script>
-    @endif
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.comment:first').addClass("highlight");
-            setTimeout(function () {
-                $('.comment:first').removeClass('highlight');
-            }, 2000);
-        });
+    @if(\Jenssegers\Agent\Facades\Agent::isMobile())
 
-        $(document).ready(function(){
-            $("td").css("color","#000");
-            var radioVal = '';
-            $('.extendedWarranty').click(function() {
-                $('.warrantyShow').toggle("slide");
-            });
-            $(".warrantyRadio").change(function(){
-                if( $(this).is(":checked") ){
-                    radioVal = $(this).val();
-                    //alert(radioVal);
-                }
-            });
+        <div class="container" id="bottombar">
+            <?php $flag=0; ?>
+            @foreach (Cart::content() as $content)
+                @if($content->id==$phone->id)
+                    <?php $flag=1; ?>
+                @else
+                    <?php $flag=0; ?>
+                @endif
+            @endforeach
+            @if($flag==0)
+                <div class="row">
+                    <div class="col-sm-6 btn btn-primary" style="float:left; width:50%;" id="cart" data-phoneid="{{$phone->id}}">
+                        <p>Add to Cart </p>
+                    </div>
+                    <div class="col-sm-6 btn" style="float:right; width:50%; background-color: #3c3c3c;" id="buynow">
+                        <a href="javascript:void(0)"
+                           data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
+                        > <p style="color: white"><b>Buy Now</b></p></a>
+                    </div>
+                    <a href="https://phonefriend.in/cart"><div class="col-md-12" style="display: none; background-color: #e85560;" id="goToCart"><span class="btn" style="background-color: #e85560"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></div></a>
+                    <div class="col-md-12" style="display: none; background-color: #e85560;" id="adding" ><span class="btn btn-danger" style="color:white"><b>  <i class="fas fa-circle-notch fa-spin"></i>&nbsp; Checking availability.. &nbsp;</b></span></div>
+                </div>
+            @else
+                <div class="row">
+                    <div class="col-md-12" style="background-color: #e85560;" ><a href="https://phonefriend.in/cart"><span class="btn" style="background-color: #e85560"><b>&nbsp; Go to Cart &nbsp; <i class="fa fa-arrow-right"></i></b></span></a>
+                    </div>
+                    @endif
+                </div>
 
-            $('#addtocartButton').on('click',function(){
 
-                if($('#addtocartButton').data('url') != ""){
-                    var phone_color = $('#phone_color option:selected').val();
 
-                    window.location.href =  $('#addtocartButton').data('url')+'/'+phone_color+'?warranty='+radioVal;
-                }
-            })
+            @endif
+            @endsection
+            @section('scripts')
+                <script type="text/javascript" src="{{secure_asset('assets/js/tether.min.js')}}"></script>
+                <script
+                        src="https://code.jquery.com/jquery-2.2.4.js"
+                ></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script>
+                    $( document ).ready(function() {
+                        $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
+                    });
+                </script>
+                <?php
+                use Jenssegers\Agent\Agent;
+                $agent = new Agent(); ?>
+                @if($agent->isDesktop())
+                    <script type="text/javascript" src="{{secure_asset('assets/js/magiczoom.js')}}"></script>
+                @endif
+                <script type="text/javascript">
+                    window.onscroll = function() {myFunction()};
 
-            $(document).on('click','#cart',function(){
-                var phone = $(this).attr("data-phoneid");
-                var op=" ";
+                    var navbar = document.getElementById("bottombar");
 
-                $.ajax({
-                    type:'post',
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    url:'{!!URL::to('/apis/addtocart')!!}',
-                    data:{'phone':phone},
-                    success:function(data){
-                        $("#cart").css("display", "none");
-                        $('#goToCart').css("display", "block");
-                        document.getElementById('buynow').style.display='none';
-                        var quan= data.count;
-                        var cartValue = data.cart_subtotal;
-                        $('.cart-items-count').fadeOut(500, function() {
-                            $(this).html(quan).fadeIn(500);
-                        });
-                        $('.cart-items-total-price').fadeOut(500, function() {
-                            $(this).html(`<i class="fa fa-inr"></i><b> ${cartValue}</b>`).fadeIn(500);
-                        });
-
-                    },
-                    error:function(){
-
+                    function myFunction() {
+                        if (window.pageYOffset >= 250) {
+                            navbar.classList.add("sticky")
+                        } else {
+                            navbar.classList.remove("sticky");
+                        }
                     }
-                });
-            });
 
-        });
+                    $(document).ready(function() {
+                        $('.comment:first').addClass("highlight");
+                        setTimeout(function () {
+                            $('.comment:first').removeClass('highlight');
+                        }, 2000);
+                    });
+
+                    $(document).ready(function(){
+                        $("td").css("color","#000");
+                        var radioVal = '';
+                        $('.extendedWarranty').click(function() {
+                            $('.warrantyShow').toggle("slide");
+                        });
+                        $(".warrantyRadio").change(function(){
+                            if( $(this).is(":checked") ){
+                                radioVal = $(this).val();
+                                //alert(radioVal);
+                            }
+                        });
+
+                        $('#addtocartButton').on('click',function(){
+
+                            if($('#addtocartButton').data('url') != ""){
+                                var phone_color = $('#phone_color option:selected').val();
+
+                                window.location.href =  $('#addtocartButton').data('url')+'/'+phone_color+'?warranty='+radioVal;
+                            }
+                        })
+
+                        $(document).on('click','#cart',function(){
+                            var phone = $(this).attr("data-phoneid");
+                            var op=" ";
+                            $("#cart").css("display", "none");
+                            document.getElementById('buynow').style.display='none';
+                            $("#adding").css("display", "block");
+                            $.ajax({
+                                type:'post',
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+                                url:'{!!URL::to('/apis/addtocart')!!}',
+                                data:{'phone':phone},
+                                success:function(data){
+                                    $("#cart").css("display", "none");
+                                    $('#goToCart').css("display", "block");
+                                    $("#adding").css("display", "none");
+                                    document.getElementById('buynow').style.display='none';
+                                    var quan= data.count;
+                                    var cartValue = data.cart_subtotal;
+                                    $('.cart-items-count').fadeOut(500, function() {
+                                        $(this).html(quan).fadeIn(500);
+                                    });
+                                    $('.cart-items-total-price').fadeOut(500, function() {
+                                        $(this).html(`<i class="fa fa-inr"></i><b> ${cartValue}</b>`).fadeIn(500);
+                                    });
+
+                                },
+                                error:function(){
+                                    $("#adding").css("display", "none");
+                                    $("#cart").css("display", "block");
+                                    document.getElementById('buynow').style.display='block';
+                                }
+                            });
+                        });
+
+                    });
 
 
-    </script>
-    <script type="text/javascript" src="{{secure_asset('assets/js/bootstrap-hover-dropdown.min.js')}}"></script>
-    <script type="text/javascript" src="{{secure_asset('assets/js/owl.carousel.min.js')}}"></script>
-    <script type="text/javascript" src="{{secure_asset('assets/js/echo.min.js')}}"></script>
-    <script type="text/javascript" src="{{secure_asset('assets/js/wow.min.js')}}"></script>
-    <script type="text/javascript" src="{{secure_asset('assets/js/jquery.easing.min.js')}}"></script>
-    <script type="text/javascript" src="{{secure_asset('assets/js/jquery.waypoints.min.js')}}"></script>
-    <script type="text/javascript" src="{{secure_asset('assets/js/electro.js')}}"></script>
-    <script src="{{secure_asset('js/bootstrap-rating-input.js')}}" type="text/javascript"></script>
-    <script src="https://platform-api.sharethis.com/js/sharethis.js#property=5b4776e1e1ceeb001b842cb7&product=inline-share-buttons"></script>
+                </script>
+                <script type="text/javascript" src="{{secure_asset('assets/js/bootstrap-hover-dropdown.min.js')}}"></script>
+                <script type="text/javascript" src="{{secure_asset('assets/js/owl.carousel.min.js')}}"></script>
+                <script type="text/javascript" src="{{secure_asset('assets/js/echo.min.js')}}"></script>
+                <script type="text/javascript" src="{{secure_asset('assets/js/wow.min.js')}}"></script>
+                <script type="text/javascript" src="{{secure_asset('assets/js/jquery.easing.min.js')}}"></script>
+                <script type="text/javascript" src="{{secure_asset('assets/js/jquery.waypoints.min.js')}}"></script>
+                <script type="text/javascript" src="{{secure_asset('assets/js/electro.js')}}"></script>
+                <script src="{{secure_asset('js/bootstrap-rating-input.js')}}" type="text/javascript"></script>
+                <script src="https://platform-api.sharethis.com/js/sharethis.js#property=5b4776e1e1ceeb001b842cb7&product=inline-share-buttons"></script>
 @endsection
