@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -41,8 +42,8 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
-        if(request()->headers->get('referer') == "https://phonefriend.in/checkout/guest" || request()->headers->get('referer') == "https://www.phonefriend.in/checkout/guest"){
-            return redirect()->intended('/cart');
+        if(Cart::count() > 0){
+            return redirect('/cart');
         }
 
         if($user->role == 3) {
