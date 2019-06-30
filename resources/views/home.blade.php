@@ -501,51 +501,6 @@
                                                 <!--  <a rel="nofollow" href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}' class="button add_to_cart_button pull-right">Add to cart</a>-->
                                                 </div><!-- /.price-add-to-cart -->
 
-{{--                                                <div class="hover-area" style=" display: block !important;--}}
-{{--                                        padding-top: 0.214em !important;--}}
-{{--                                        border-top: 1px solid #eaeaea !important;">--}}
-{{--                                                    <div class="action-buttons" style="    font-weight: bold;--}}
-{{--                                        color: #949494;">--}}
-{{--                                                        @if(Auth::check())--}}
-{{--                                                            @if(Auth::user()->role == 2)--}}
-{{--                                                                <?php $phoneColor = explode(',', $phone->color); ?>--}}
-{{--                                                                <?php if($phone->units_rem){?><a--}}
-{{--                                                                        href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}"><b--}}
-{{--                                                                            class="buynow" style=" /*background-color:#72BAD1;--}}
-{{--                                        border: none;*/--}}
-{{--                                        color: rgb(93, 96, 184);--}}
-{{--                                        padding: 10px 20px;--}}
-{{--                                        text-align: center;--}}
-{{--                                        text-decoration: none;--}}
-{{--                                        display: inline-block;--}}
-{{--                                        font-size: 14px;--}}
-{{--                                        margin: 4px 2px;--}}
-{{--                                        cursor: pointer;"><i class="fa fa-shopping-cart" aria-hidden="true"></i>--}}
-{{--                                                                        &nbsp;Buy Now</b></a><?php }--}}
-{{--                                                                else{?>--}}
-{{--                                                                <div>Out of Stock</div><?php } ?>--}}
-{{--                                                            @endif--}}
-{{--                                                        @else--}}
-{{--                                                            <?php $phoneColor = explode(',', $phone->color); ?>--}}
-{{--                                                            <?php if($phone->units_rem){?><a--}}
-{{--                                                                    href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}#mobileView'>--}}
-{{--                                                                <b class="buynow" style="border-radius: 0%; /*background-color:rgb(93, 96, 184);--}}
-{{--                                        border: none;*/--}}
-{{--                                        color: #e85561;--}}
-{{--                                        padding: 9px;--}}
-{{--                                        text-align: center;--}}
-{{--                                        text-decoration: none;--}}
-{{--                                        display: inline-block;--}}
-{{--                                        font-size: 14px;--}}
-{{--                                        margin: 4px 2px;--}}
-{{--                                        cursor: pointer;"><i class="fa fa-shopping-cart" aria-hidden="true"></i>--}}
-{{--                                                                    &nbsp; Buy Now</b></a><?php }--}}
-{{--                                                            else{?>--}}
-{{--                                                            <div>Out of Stock</div><?php } ?>--}}
-{{--                                                        @endif--}}
-
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
                                             </div><!-- /.product-inner -->
                                         </div><!-- /.product-outer -->
                                     </li>
@@ -1285,51 +1240,7 @@
                                                     <!--  <a rel="nofollow" href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}' class="button add_to_cart_button pull-right">Add to cart</a>-->
                                                     </div><!-- /.price-add-to-cart -->
 
-{{--                                                    <div class="hover-area" style=" display: block !important;--}}
-{{--									padding-top: 0.214em !important;--}}
-{{--									border-top: 1px solid #eaeaea !important;">--}}
-{{--                                                        <div class="action-buttons" style="    font-weight: bold;--}}
-{{--									color: #949494;">--}}
-{{--                                                            @if(Auth::check())--}}
-{{--                                                                @if(Auth::user()->role == 2)--}}
-{{--                                                                    <?php $phoneColor = explode(',', $phone->color); ?>--}}
-{{--                                                                    <?php if($phone->units){?><a--}}
-{{--                                                                            href="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-').'/'.$phoneColor[0])}}"><b--}}
-{{--                                                                                class="buynow" style=" /*background-color:#72BAD1;--}}
-{{--									border: none;*/--}}
-{{--									color: #e85561;--}}
-{{--									padding: 10px 20px;--}}
-{{--									text-align: center;--}}
-{{--									text-decoration: none;--}}
-{{--									display: inline-block;--}}
-{{--									font-size: 14px;--}}
-{{--									margin: 4px 2px;--}}
-{{--									cursor: pointer;"><i class="fa fa-shopping-cart" aria-hidden="true"></i>--}}
-{{--                                                                            &nbsp;Buy Now</b></a><?php }--}}
-{{--                                                                    else{?>--}}
-{{--                                                                    <div>Out of Stock</div><?php } ?>--}}
-{{--                                                                @endif--}}
-{{--                                                            @else--}}
-{{--                                                                <?php $phoneColor = explode(',', $phone->color); ?>--}}
-{{--                                                                <?php if($phone->units){?><a--}}
-{{--                                                                        href='https://phonefriend.in/store/show/{{$phone->id}}/{{str_slug($phone->data->company." ".$phone->data->model." ".$phone->data->storage." GB", "-")}}#mobileView'>--}}
-{{--                                                                    <b class="buynow" style="border-radius: 0%; /*background-color:#e85561;--}}
-{{--									border: none;*/--}}
-{{--									color: #e85561;--}}
-{{--									padding: 9px;--}}
-{{--									text-align: center;--}}
-{{--									text-decoration: none;--}}
-{{--									display: inline-block;--}}
-{{--									font-size: 14px;--}}
-{{--									margin: 4px 2px;--}}
-{{--									cursor: pointer;"><i class="fa fa-shopping-cart" aria-hidden="true"></i>--}}
-{{--                                                                        &nbsp; Buy Now</b></a><?php }--}}
-{{--                                                                else{?>--}}
-{{--                                                                <div>Out of Stock</div><?php } ?>--}}
-{{--                                                            @endif--}}
 
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
                                                 </div><!-- /.product-inner -->
                                             </div><!-- /.product-outer -->
                                         </li>
