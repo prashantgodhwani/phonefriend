@@ -1091,10 +1091,10 @@
             @endforeach
             @if($flag==0)
                 <div class="row">
-                    <div class="col-sm-6 btn btn-primary" style="float:left; width:50%;" id="cart" data-phoneid="{{$phone->id}}">
+                    <div class="col-sm-6 btn btn-primary" style="float:left; width:50%; background-color: #3c3c3c;" id="cart" data-phoneid="{{$phone->id}}">
                         <p>Add to Cart </p>
                     </div>
-                    <div class="col-sm-6 btn" style="float:right; width:50%; background-color: #3c3c3c;" id="buynow">
+                    <div class="col-sm-6 btn btn-primary" style="float:right; width:50%;" id="buynow">
                         <a id="addtocartButton" href="javascript:void(0)"
                            data-url="{{URL('/phone/purchase/'.$phone->id.'/'.str_slug($phone->data->company.' '.$phone->data->model.' '.$phone->data->storage.' GB', '-'))}}"
                         > <p style="color: white"><b>Buy Now</b></p></a>
