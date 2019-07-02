@@ -635,7 +635,7 @@
             </div>
 
             @if(!Jenssegers\Agent\Facades\Agent::isMobile() || 1==1)
-                <div id="sidebar" class="sidebar" role="complementary">
+                <div id="sidebar" class="sidebar" role="complementary" style="right:0">
 
                     <aside class="widget widget_electro_products_filter">
                         <h3 class="widget-title">Filters</h3>
@@ -889,7 +889,7 @@
             </div>
 
 
-            <div id="primary" class="content-area">
+            <div id="primary" class="content-area" style="left:0">
                 <main id="main" class="site-main ">
                     @if(!Jenssegers\Agent\Facades\Agent::isMobile())
                         <section class=" section-onsale-product-carousel" data-animation="fadeIn">
