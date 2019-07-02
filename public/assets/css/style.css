@@ -11382,3 +11382,47 @@ html, body {
   border-radius: 50%;
   bottom: 4px;
 }
+
+.mvW8vq {
+  width: 80%;
+  display: content;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.FqIVIZ {
+  color: #f1f1f1;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+._1wxP6t {
+  color: #f1f1f1;
+  font-size: 14px;
+  text-align: center;
+}
+
+._1U-Jli {
+  background-image: url(https://img1a.flixcart.com/batman-returns/batman-returns/images/landscape-e85e99.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30%;
+  padding-bottom: 25.5%;
+}
+
+.lockLandscape{
+  opacity: 1;
+  background: #e85560;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: fixed;
+  color:white;
+}
