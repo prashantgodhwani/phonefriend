@@ -1209,9 +1209,29 @@ fieldset legend {
   #content #primary {
     padding-left: 0;
     width: 75%;
-    /* left: 25%;  */
+    left: 25%;
   }
 }
+
+.list-group-item{
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.card-header{
+  color: #3c3c3c !important;
+  background-color: #fff !important;
+}
+
+.card-body{
+  color: #3c3c3c !important;
+  background-color: #fff !important;
+}
+
+.card-footer{
+  color: #3c3c3c !important;
+}
+
 #content #sidebar {
   position: relative;
   float: left;
@@ -1225,7 +1245,7 @@ fieldset legend {
   #content #sidebar {
     padding-right: 0.9375rem;
     width: 25%;
-    /* right: 75%;  */
+    right: 75%;
   }
 }
 

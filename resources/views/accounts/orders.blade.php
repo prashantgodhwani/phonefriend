@@ -32,8 +32,8 @@
                                             </div>
                                         </div>
                                         <div class="card-body">
+                                            <div id="map"><iframe src="https://maps.google.com/maps?&q={{$order->state}}&output=embed" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></div>
                                             <ul class="list-group">
-
                                                 @foreach($order->orderdevices as $device)
                                                     <?php
                                                     $amt = $order->amount;
@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="card-footer text-muted">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-8">
                                                     <b>ORDERED : </b> {{\Carbon\Carbon::parse($order->created_at)->toDayDateTimeString()}}
                                                 </div>
                                                 <div class="col-md-4">
