@@ -171,6 +171,17 @@
 <body class="single-product full-width">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGB9VQV"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="lockLandscape" style="display: none">
+    <div class="mvW8vq container container-table">
+        <div class="row vertical-center-row">
+            <div class="_1U-Jli container"></div>
+            <div class="FqIVIZ">Please rotate your device</div>
+            <div class="_1wxP6t">We don't support landscape mode yet. Please go back to portrait mode for the best
+                experience
+            </div>
+        </div>
+    </div>
+</div>
 <div>
 
     @if(Jenssegers\Agent\Facades\Agent::isMobile())
@@ -183,7 +194,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     @yield('content')
 
 
-    @include('layouts.footer')
 
 </div><!-- #page -->
 

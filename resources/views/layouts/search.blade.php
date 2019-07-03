@@ -2,7 +2,7 @@
 <html lang="en-US" itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head><!-- Global site tag (gtag.js) - Google Ads: 801041161 --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-801041161"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-801041161'); </script><script async src="https://www.googletagmanager.com/gtag/js?id=AW-801041161"></script>
-<!-- Global site tag (gtag.js) - Google Ads: 801041161 --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-801041161"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-801041161'); </script>
+    <!-- Global site tag (gtag.js) - Google Ads: 801041161 --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-801041161"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-801041161'); </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,27 +61,47 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121571191-1"></script>
     <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'UA-121571191-1');
-</script>
-    
+        gtag('config', 'UA-121571191-1');
+    </script>
+
 </head>
 
 <body class="home-v2">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGB9VQV"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="lockLandscape" style="display: none">
+    <div class="mvW8vq container container-table">
+        <div class="row vertical-center-row">
+            <div class="_1U-Jli container"></div>
+            <div class="FqIVIZ">Please rotate your device</div>
+            <div class="_1wxP6t">We don't support landscape mode yet. Please go back to portrait mode for the best
+                experience
+            </div>
+        </div>
+    </div>
+</div>
 <div id="page" class="hfeed site">
-  
+    <a class="skip-link screen-reader-text" href="#site-navigation">Skip to navigation</a>
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+    @if(Jenssegers\Agent\Facades\Agent::isMobile())
+        @include('layouts.mobilenav')
+    @else
+
+        @include('layouts.othernav')
+    @endif
+
     @yield('content')
 
-    @include('layouts.footer')
 
 </div><!-- #page -->
 
 @yield('scripts')
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
