@@ -9766,8 +9766,9 @@ h3.faq-title {
   .ec-tabs > li a {
     display: inline-block; }
   .electro-nav-tabs > li.nav-item {
-    display: block;
-    margin-bottom: 1.429em; }
+    display: inline;
+    margin-bottom: 1.429em;
+    margin-right: 2em;}
   .electro-nav-tabs > li.nav-item + li.nav-item {
     margin-left: 0; }
   .accessories .col-left {
