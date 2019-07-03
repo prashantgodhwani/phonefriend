@@ -20,22 +20,23 @@
     <div id="content" class="site-content" tabindex="-1">
         <div class="container">
 
-            <nav class="woocommerce-breadcrumb"><a href="home.html">Home</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>Checkout</nav>
+            <nav class="woocommerce-breadcrumb"><a href="/">Home</a><span class="delimiter"><i class="fa fa-angle-right"></i></span>Checkout</nav>
 
             <div >
                 <main id="main" class="site-main">
                     <article class="page type-page status-publish hentry">
-                        <header class="entry-header"><h1 itemprop="name" class="entry-title">Order placed Successfully.</h1></header><!-- .entry-header -->
+                        <header class="entry-header">
+                            <h1 itemprop="name" class="entry-title">Order placed Successfully.</h1>
+                            <h4>#{{$order_id}}</h4>
+                        </header><!-- .entry-header -->
 
                         <div class="col-md-12">
                             <div class="row">
                                 <img src="https://cdn.dribbble.com/users/159981/screenshots/2112264/checkmark.gif" class="success-icon">
-                                <div id="map"><iframe src="https://maps.google.com/maps?&q={{$order->state}}&output=embed" width="100%" height="200" frameborder="0" style="border:0" ></iframe></div>
-
                             </div>
                             <div class="row">
-                                <h3 style="text-align: center;">{{('Your Order with order number')}}<b> #{{$order_id}}</b> was successful.</h3><br><br>
-                                <div class="woocommerce-checkout-review-order imagex" id="order_review">
+                                <div id="map col-md-6"><iframe src="https://maps.google.com/maps?&q={{$order->state}}&output=embed" width="100%" height="200" frameborder="0" style="border:0" ></iframe></div><br>
+                                <div class="woocommerce-checkout-review-order imagex col-md-6" id="order_review">
                                     <table class="shop_table woocommerce-checkout-review-order-table">
                                         <thead>
                                         <tr>
@@ -77,7 +78,9 @@
     left: 69%;"><img src="https://phonefriend.in/images/phonefriend-logo.png" style="height:71px; transform: rotate(-14deg);"></div>
                                 </div>
 
-                            </div><br><br><br><br>
+                            </div>
+                            <h3 style="text-align: center;padding-top: 5%;">Thank you {{ucwords($order->deliver_fname)}} !</h3>
+                            <br><br><br><br>
                             <div class="row">
                                 <b><a href="{{route('store.all')}}">Buy more products? Head back to Store</a></b>
                             </div>
