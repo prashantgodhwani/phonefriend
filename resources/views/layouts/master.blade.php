@@ -179,7 +179,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a class="skip-link screen-reader-text" href="#site-navigation">Skip to navigation</a>
     <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-    @include('layouts.nav')
+    @if(Jenssegers\Agent\Facades\Agent::isMobile())
+        @include('layouts.mobilenav')
+    @else
+
+        @include('layouts.othernav')
+    @endif
 
     @yield('content')
 
@@ -248,6 +253,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             autoplaySpeed: 3000,
             arrows: false,
             vertical : true
+        });
+    });
+</script>
+<script>
+    window.addEventListener("orientationchange", function () {
+        if (window.orientation === 90 || window.orientation === -90) {
+            $('.lockLandscape').css("display", "block");
+
+        } else {
+            $('.lockLandscape').css("display", "none");
+        }
+    }, false);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+
+        $('#dismiss, .overlay').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').fadeOut();
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').fadeIn();
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
         });
     });
 </script>
