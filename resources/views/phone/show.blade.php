@@ -1164,7 +1164,9 @@
                         });
 
                         $('#addtocartButton').on('click',function(){
-
+                            $("#cart").css("display", "none");
+                            document.getElementById('buynow').style.display='none';
+                            $("#adding").css("display", "block");
                             if($('#addtocartButton').data('url') != ""){
                                 var phone_color = $('#phone_color option:selected').val();
 
