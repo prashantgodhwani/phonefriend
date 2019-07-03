@@ -4,6 +4,19 @@
     <script>
         gtag('event', 'conversion', {'send_to': 'AW-801041161/raLiCIGHqoUBEInW-_0C'});
     </script>
+    <style>
+        @media (min-width: 768px) {
+            .success-icon {
+                padding-left: 29%;
+                height: 354px;
+            }
+        }
+        @media (max-width: 554px) {
+            .success-icon{
+                padding-left: 0;
+            }
+        }
+    </style>
     <div id="content" class="site-content" tabindex="-1">
         <div class="container">
 
@@ -16,10 +29,12 @@
 
                         <div class="col-md-12">
                             <div class="row">
-                                <img src="https://cdn.dribbble.com/users/159981/screenshots/2112264/checkmark.gif" style="padding-left: 29%;height: 354px;">
+                                <img src="https://cdn.dribbble.com/users/159981/screenshots/2112264/checkmark.gif" class="success-icon">
+                                <div id="map"><iframe src="https://maps.google.com/maps?&q={{$order->state}}&output=embed" width="100%" height="200" frameborder="0" style="border:0" ></iframe></div>
+
                             </div>
                             <div class="row">
-                                <h3 style="padding-left: 12%;">{{('Your Order with order number')}}<b> #{{$order_id}}</b> was successful.</h3><br><br>
+                                <h3 style="text-align: center;">{{('Your Order with order number')}}<b> #{{$order_id}}</b> was successful.</h3><br><br>
                                 <div class="woocommerce-checkout-review-order imagex" id="order_review">
                                     <table class="shop_table woocommerce-checkout-review-order-table">
                                         <thead>

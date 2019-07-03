@@ -54,6 +54,8 @@ class OrderController extends Controller
         Order::where('order_id', $response['order_id'])
             ->update(['tracking_id' => $response['order_id'],'bank_ref_no'=>$response['bank_ref_no'],'order_status'=>$response['order_status'],'payment_mode'=>$response['payment_mode'],'card_name'=>$response['card_name']]);
 
+        $order = Order::where('order_id', $response['order_id'])->first();
+
         $order_id=$response['order_id'];
         if($response['order_status']=="Success"){
             foreach (Cart::content() as $content) {
@@ -65,12 +67,12 @@ class OrderController extends Controller
             $request->session()->put('order', 'Success');
             $request->session()->put('order_id', $order_id);
             event(new \App\Events\OrderConfirmed(\App\Order::where('order_id',$order_id)->first()));
-            return view('cart.success',compact('order_id','shipping'));
+            return view('cart.success',compact('order_id','shipping','order'));
         }
         else{
             $request->session()->put('order', $response['order_status']);
             $request->session()->flash('status', 'Items have been re-stored to your cart for your convenience');
-            return view('cart.failed',compact('order_id','shipping'));
+            return view('cart.failed',compact('order_id','shipping','order'));
         }
 
     }
@@ -221,7 +223,7 @@ class OrderController extends Controller
             $request->session()->put('order', 'Success');
 
             event(new \App\Events\OrderConfirmed($order));
-            return view('cart.success',compact('order_id', 'shipping'));
+            return view('cart.success',compact('order_id', 'shipping','order'));
         }  else {
             $finalAmount = $order->amount - (($order->amount * 1.5)/100);
             if($request->session()->has('coupon')){
