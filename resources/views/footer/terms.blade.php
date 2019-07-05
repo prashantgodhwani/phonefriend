@@ -11,7 +11,7 @@
         <div class="container">
 
             <nav class="woocommerce-breadcrumb" >
-                <a href="home.html">Home</a>
+                <a href="/home">Home</a>
                 <span class="delimiter"><i class="fa fa-angle-right"></i></span>
                 Terms and Conditions
             </nav><!-- .woocommerce-breadcrumb -->
@@ -25,7 +25,7 @@
 
                         <header class="entry-header">
                             <h1 class="entry-title">Terms and Conditions</h1>
-                            <p class="entry-subtitle">This Agreement was last modified on 1 February 2018.</p>
+                            <p class="entry-subtitle">This Agreement was last modified on 5 July 2019.</p>
                         </header><!-- .entry-header -->
 
                         <div class="entry-content">
@@ -60,6 +60,12 @@
                                                <p>Solely to enable&nbsp;Phonefriend&nbsp;to use the information you supply us with, so that we are not violating any rights you might have in Your Information, you agree to grant us a non-exclusive, worldwide, perpetual, irrevocable, royalty-free, sub-licensable (through multiple tiers) right to exercise the copyright, publicity, database rights or any other rights you have in Your Information, in any media now known or not currently known, with respect to Your Information.&nbsp;Phonefriend&nbsp;will only use Your Information in accordance with the terms of use and&nbsp;Phonefriend's&nbsp;Privacy Policy.</p>
                                                <p>From time to time, you shall be responsible for providing information relating to the items or services proposed to be sold by you. In this connection, you undertake that all such information shall be accurate in all respects. You shall not exaggerate or over emphasize the attributes of such items or services so as to mislead other Users in any manner.</p>
                                                <p>You shall not engage in advertising to, or solicitation of, other users of&nbsp;Phonefriend&nbsp;to buy or sell any products or services, including, but not limited to, products or services related being displayed on&nbsp;Phonefriend&nbsp;or related to&nbsp;Phonefriend. You may not transmit any chain letters or unsolicited commercial or junk email to other users via&nbsp;Phonefriend. It shall be a violation of these Terms of Use to use any information obtained from&nbsp;Phonefriend&nbsp;in order to harass, abuse, or harm another person, or in order to contact, advertise to, solicit, or sell to another person outside of the&nbsp;Phonefriend&nbsp;without&nbsp;Phonefriend&rsquo; s prior explicit consent. In order to protect our users from such advertising or solicitation,&nbsp;Phonefriend&nbsp;reserves the right to restrict the number of messages or emails which a user may send to other users in any 24-hour period which&nbsp;Phonefriend&nbsp;deems appropriate in its sole discretion.12. You understand that&nbsp;Phonefriend&nbsp;has the right at all times to disclose any information (including the identity of the persons providing information or materials on the&nbsp;Phonefriend&nbsp;Website) as necessary to satisfy any law, regulation or valid governmental request. This may include, without limitation, disclosure of the information in connection with investigation of alleged illegal activity or solicitation of illegal activity.</p>
+                                               <br><hr><br>
+                                               <li class="menu-item"><a href="{{route('footer.return')}}">Returns/Exchange</a></li>
+                                               <li class="menu-item"><a href="{{route('footer.terms')}}">Terms and Conditions</a></li>
+                                               <li class="menu-item"><a href="{{route('footer.shipping')}}">Shipping Policy</a></li>
+                                               <li class="menu-item"><a href="{{route('footer.cancellation')}}">Cancellation Policy</a></li>
+
                                            </div>
                                        </div>
                                    </div>
