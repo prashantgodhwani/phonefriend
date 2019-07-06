@@ -89,20 +89,22 @@ numericFilters:['units_rem != 0','sold != 2'],
         <div id="content" class="site-content" tabindex="-1">
             <div class="container">
                 @if(\Jenssegers\Agent\Facades\Agent::isMobile())
+
                 <nav class="woocommerce-breadcrumb"><a href="https://phonefriend.in">Home</a><span class="delimiter"><i
                                 class="fa fa-angle-right"></i></span>Smart Phones &amp; Tablets
                 </nav>
+                @endif
                 <div id="updateDiv">
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
-
+                            @if(\Jenssegers\Agent\Facades\Agent::isMobile())
                             <header class="page-header">
                                 <h1 class="page-title">Smart Phones &amp; Tablets</h1>
                                 <p class="woocommerce-result-count">
                                     <ais-stats></ais-stats>
                                 </p>
                             </header>
-                @endif
+                            @endif
                             <div class="shop-control-bar">
                                 <ul class="shop-view-switcher nav nav-tabs" role="tablist">
                                     <li class="nav-item"><a class="nav-link active" data-toggle="tab" title="Grid View"
