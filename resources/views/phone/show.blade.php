@@ -116,7 +116,7 @@
          </span>{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB
             </nav>
             <!-- /.woocommerce-breadcrumb -->
-            <div id="primary" class="content-area">
+            <div id="primary" class="content-area" style="margin-bottom: 2%;">
                 <main id="main" class="site-main">
                     <div class="availability in-stock">
                         Availablity: <span><?php if($phone->units >= 1){?>In stock<?php } else {
