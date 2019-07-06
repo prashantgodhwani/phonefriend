@@ -11439,3 +11439,20 @@ html, body {
   display: table-cell;
   vertical-align: middle;
 }
+
+.menu-box{
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 20px;
+  position: relative;
+  cursor: pointer;
+  background: #f3f3f3;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  list-style: none;
+}
+
+.menu-box > a{
+  color : #3c3c3c;
+  font-weight: bold;
+}
