@@ -22,6 +22,8 @@
     <link rel="canonical" href="https://www.phonefriend.in/">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic' rel='stylesheet' type='text/css'>
     <!-- Facebook Pixel Code -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -101,9 +103,7 @@
 </div><!-- #page -->
 
 
-<script
-        src="https://code.jquery.com/jquery-2.2.4.js"
-></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 @yield('scripts')
