@@ -88,7 +88,7 @@ numericFilters:['units_rem != 0','sold != 2'],
 
         <div id="content" class="site-content" tabindex="-1">
             <div class="container">
-
+                @if(\Jenssegers\Agent\Facades\Agent::isMobile())
                 <nav class="woocommerce-breadcrumb"><a href="https://phonefriend.in">Home</a><span class="delimiter"><i
                                 class="fa fa-angle-right"></i></span>Smart Phones &amp; Tablets
                 </nav>
@@ -102,7 +102,7 @@ numericFilters:['units_rem != 0','sold != 2'],
                                     <ais-stats></ais-stats>
                                 </p>
                             </header>
-
+                @endif
                             <div class="shop-control-bar">
                                 <ul class="shop-view-switcher nav nav-tabs" role="tablist">
                                     <li class="nav-item"><a class="nav-link active" data-toggle="tab" title="Grid View"
@@ -132,7 +132,8 @@ numericFilters:['units_rem != 0','sold != 2'],
                                                 <li class="product col-md-4">
                                                     <div class="product-outer">
                                                         <div class="product-inner highlight">
-                                                            <span class="loop-product-categories"><a href="" rel="tag">Smartphones</a></span>
+                                                             <span class="onsale"
+                                                                   style="background: #3c3c3c; color:white;    width: 100%;">REFURBISHED</span>
 
                                                             <a :href='result.url'>
 
