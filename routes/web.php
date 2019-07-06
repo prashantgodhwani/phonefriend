@@ -235,6 +235,10 @@ Route::get('/terms-and-conditions', function (){
     return view('footer.terms');
 })->name('footer.terms');
 
+Route::get('/phonefriend-policies', function (){
+    return view('footer.termsredirect');
+})->name('footer.pfpolicies');
+
 Route::get('/return-policy', function (){
     return view('footer.return');
 })->name('footer.return');
