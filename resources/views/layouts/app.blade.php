@@ -104,19 +104,16 @@ numericFilters:['units_rem != 0','sold != 2'],
                                     <ais-stats></ais-stats>
                                 </p>
                             </header>
-                            @endif
                             <div class="shop-control-bar">
-                                @if(!\Jenssegers\Agent\Facades\Agent::isMobile())
                                 <ul class="shop-view-switcher nav nav-tabs" role="tablist">
                                     <li class="nav-item"><a class="nav-link active" data-toggle="tab" title="Grid View"
                                                             href="#grid"><i class="fa fa-th"></i></a></li>
-                                    @if(\Jenssegers\Agent\Facades\Agent::isMobile())
                                         <li class="nav-item"><a class="nav-link" data-toggle="modal"
                                                                 data-target="#filters" title="Refine Results"><i
                                                         class="fa fa-filter"></i></a></li>
-                                    @endif
                                 </ul>
                                 @endif
+
 
                                 <form class="woocommerce-ordering" method="get" action="{{route('store.sort')}}">
                                     <ais-results-per-page-selector :options="[25, 50, 100]" :class-names="{
