@@ -296,18 +296,24 @@
 
     <!-- loader end -->
     <div id="content" class="site-content" tabindex="-1">
+        @if(!Jenssegers\Agent\Facades\Agent::isMobile())
+            <ul class="rslides">
+                <li><img src="assets/images/slider/banner-1.jpg" alt="" class="img img-responsive"></li>
+                <li><img src="assets/images/slider/banner-10.jpg" alt=""></li>
+                <li><img src="assets/images/slider/banner-11.jpg" alt=""></li>
+                <li><img src="assets/images/slider/banner-12.jpg" alt=""></li>
+                <li><img src="assets/images/slider/banner-3.jpg" alt=""></li>
+                <li><img src="assets/images/slider/banner-2.jpg" alt=""></li>
+                <li><img src="images/banner-1.jpg" alt="" class="img img-responsive"></li>
+            </ul>
+        @else
+            <ul class="rslides">
+                <li><img src="assets/images/slider/banner-10mob.jpg" alt="" class="img img-responsive"></li>
+                <li><img src="assets/images/slider/banner-11mob.jpg" alt="" class="img img-responsive"></li>
+            </ul>
+        @endif
 
-        <ul class="rslides">
-            <li><img src="assets/images/slider/banner-1.jpg" alt="" class="img img-responsive"></li>
-            <li><img src="assets/images/slider/banner-10.jpg" alt=""></li>
-            <li><img src="assets/images/slider/banner-11.jpg" alt=""></li>
-            <li><img src="assets/images/slider/banner-12.jpg" alt=""></li>
-            <li><img src="assets/images/slider/banner-3.jpg" alt=""></li>
-            <li><img src="assets/images/slider/banner-2.jpg" alt=""></li>
-            <li><img src="images/banner-1.jpg" alt="" class="img img-responsive"></li>
-        </ul>
-
-        <section class="products-with-category-image container" style="margin-top: 4%; margin-bottom: 0;">
+                <section class="products-with-category-image container" style="margin-top: 4%; margin-bottom: 0;">
             <header class="show-nav" style="margin-bottom: 0">
                 <h2 class="h1">Best Selling Smartphones</h2>
 
@@ -1171,7 +1177,7 @@
                                                         <div class="product-thumbnail" style="">
 
                                                             <img class="img img-responsive lazyload"
-                                                                 src="https://plugins.iamrohit.in/img/Facebook-Style-Content-Loader-For-React.png"
+                                                                 src="https://phplaravel-155986-846240.cloudwaysapps.com/images/logo-loader.png"
                                                                  data-src="https://www.phonefriend.in/storage/{{str_replace("public", "", $phone->dp)}}"
                                                                  alt="{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB second hand phone at phonefriend"
                                                                  title="{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB">

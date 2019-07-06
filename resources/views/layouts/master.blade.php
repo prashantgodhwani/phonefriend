@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/animate.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="assets/css/font-electro.css" media="all" />
     <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=1.3" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=1.4" media="all" />
     <link rel="stylesheet" type="text/css" href="assets/css/colors/green.css" media="all" />
     <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css" />
 	<!--<link href="css/bootstrap.min.css" rel="stylesheet">
