@@ -305,7 +305,6 @@ numericFilters:['units_rem != 0','sold != 2'],
 @endif
 
 
-<!-- <script src="{{ asset('js/app.js') }}"></script> -->
 <script type="text/javascript" rel="script" src="{{asset('js/app.js')}}"></script>
 <script>
     function onPageChange(page) {
