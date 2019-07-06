@@ -112,8 +112,6 @@ numericFilters:['units_rem != 0','sold != 2'],
                                                                 data-target="#filters" title="Refine Results"><i
                                                         class="fa fa-filter"></i></a></li>
                                 </ul>
-                                @endif
-
 
                                 <form class="woocommerce-ordering" method="get" action="{{route('store.sort')}}">
                                     <ais-results-per-page-selector :options="[25, 50, 100]" :class-names="{
@@ -121,7 +119,7 @@ numericFilters:['units_rem != 0','sold != 2'],
                         }"></ais-results-per-page-selector>
                                 </form>
                             </div>
-
+@endif
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" aria-expanded="true">
                                     <ul class="products columns-3">
