@@ -87,7 +87,7 @@ numericFilters:['units_rem != 0','sold != 2'],
 
 
         <div id="content" class="site-content" tabindex="-1">
-            <div class="container">
+            <div class="container" style="padding-top: 2%;">
                 @if(\Jenssegers\Agent\Facades\Agent::isMobile())
 
                 <nav class="woocommerce-breadcrumb"><a href="https://phonefriend.in">Home</a><span class="delimiter"><i
