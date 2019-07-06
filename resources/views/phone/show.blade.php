@@ -768,11 +768,11 @@
 
                 <ul class="nav nav-tabs electro-nav-tabs tabs wc-tabs" role="tablist">
                     <li class="nav-item accessories_tab">
-                        <a href="#tab-specification" data-toggle="tab">Specifications</a>
+                        <a href="#tab-specification" data-toggle="tab" class="tab-spec active">Specifications</a>
                     </li>
 
                     <li class="nav-item description_tab">
-                        <a href="#tab-reviews" data-toggle="tab">Reviews</a>
+                        <a href="#tab-reviews" data-toggle="tab" class="tab-spec">Reviews</a>
                     </li>
 
                 </ul>
@@ -1122,6 +1122,14 @@
                 <script>
                     $( document ).ready(function() {
                         $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
+                    });
+                </script>
+                <script>
+                    $(document).ready(function() {
+                        $(".tab-spec").click(function () {
+                            $(".tab-spec").removeClass("active");
+                            $(this).addClass("active");
+                        });
                     });
                 </script>
                 <?php
