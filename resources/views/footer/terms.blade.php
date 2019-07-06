@@ -307,22 +307,22 @@
                                                 <br>
                                                 <li class="menu-box"><a href="{{route('footer.return')}}"
                                                                         style="font-weight: bold">Returns/Exchange</a>
-                                                    <i class="fas fa-chevron-right" style="
+                                                    <i class="fa fa-chevron-right" style="
     float: right;
 "></i></li>
                                                 <li class="menu-box"><a href="{{route('footer.terms')}}"
                                                                         style="font-weight: bold">Terms and
-                                                        Conditions</a><i class="fas fa-chevron-right" style="
+                                                        Conditions</a><i class="fa fa-chevron-right" style="
     float: right;
 "></i></li>
                                                 <li class="menu-box"><a href="{{route('footer.shipping')}}"
                                                                         style="font-weight: bold">Shipping Policy</a><i
-                                                            class="fas fa-chevron-right" style="
+                                                            class="fa fa-chevron-right" style="
     float: right;
 "></i></li>
                                                 <li class="menu-box"><a href="{{route('footer.cancellation')}}"
                                                                         style="font-weight: bold">Cancellation
-                                                        Policy</a><i class="fas fa-chevron-right" style="
+                                                        Policy</a><i class="fa fa-chevron-right" style="
     float: right;
 "></i></li>
 
