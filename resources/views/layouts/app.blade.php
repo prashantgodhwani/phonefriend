@@ -97,7 +97,7 @@ numericFilters:['units_rem != 0','sold != 2'],
                 <div id="updateDiv">
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
-                            @if(\Jenssegers\Agent\Facades\Agent::isMobile())
+                            @if(!\Jenssegers\Agent\Facades\Agent::isMobile())
                             <header class="page-header">
                                 <h1 class="page-title">Smart Phones &amp; Tablets</h1>
                                 <p class="woocommerce-result-count">
