@@ -924,7 +924,7 @@
                         <div id="reviews" class="electro-advanced-reviews">
                             <div class="advanced-review row">
                                 <div class="col-xs-12 col-md-6">
-                                    <h2 class="based-title">Based on {{$comments->count()}} reviews</h2>
+{{--                                    <h2 class="based-title">Based on {{$comments->count()}} reviews</h2>--}}
                                     <div class="avg-rating">
                                         <span class="avg-rating-number">{{$avg}}</span> overall
                                     </div>
@@ -1230,5 +1230,5 @@
                 <script type="text/javascript" src="{{secure_asset('assets/js/jquery.waypoints.min.js')}}"></script>
                 <script type="text/javascript" src="{{secure_asset('assets/js/electro.js')}}"></script>
                 <script src="{{secure_asset('js/bootstrap-rating-input.js')}}" type="text/javascript"></script>
-                <script src="https://platform-api.sharethis.com/js/sharethis.js#property=5b4776e1e1ceeb001b842cb7&product=inline-share-buttons"></script>
+                <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5d2032f96d20a10012251aae&product=inline-share-buttons"></script>
 @endsection
