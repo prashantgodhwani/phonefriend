@@ -14,7 +14,7 @@
             <nav class="woocommerce-breadcrumb">
                 <a href="/home">Home</a>
                 <span class="delimiter"><i class="fa fa-angle-right"></i></span>
-                Phonefriend Policies<
+                Phonefriend Policies
             </nav><!-- .woocommerce-breadcrumb -->
 
 
@@ -25,8 +25,8 @@
                     <article id="post-2183" class="hentry">
 
                         <header class="entry-header">
-                            <h1 class="entry-title">Phonefriend Policies</h1>
-                        </header><!-- .entry-header -->
+                            <h3 class="entry-title">Phonefriend Policies</h3>
+                        </header><!-- .entry-header --><br>
 
                         <div class="entry-content">
                             <section class="section inner-bottom-xs">
