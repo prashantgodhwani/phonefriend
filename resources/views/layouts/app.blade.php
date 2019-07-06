@@ -86,8 +86,6 @@ numericFilters:['units_rem != 0','sold != 2'],
     >
 
 
-
-
         <div id="content" class="site-content" tabindex="-1">
             <div class="container">
 
@@ -151,51 +149,52 @@ numericFilters:['units_rem != 0','sold != 2'],
 
                                                                     <img :src="result.photo" alt=""
                                                                          class="img img-responsive">
-
+                                                                    <span class="sale pad" style="display: inline-block;" data-toggle="tooltip" title="Price Marked Down"><b>@{{ result.discount }} %</b><br><span style="font-size: 10px;">OFF</span></span>
                                                                 </div>
                                                             </a>
-                                                            <del><span class="amount amttt"><i class="fa fa-inr"></i> @{{ result.original_price }}</span>
-                                                            </del>
-                                                            <br>
-                                                            <span class="onsale pad" style="background: #e85561;"
-                                                                  data-toggle="tooltip" title="Price Marked Down"><i
-                                                                        class="fa fa-check"
-                                                                        style="color: white !important;"></i>&nbsp;@{{ result.discount }} % OFF</span><br>
-                                                            <div class="price-add-to-cart">
-                                                    <span class="price">
-                                                        <span class="electro-price">
-
-                                                            <ins><span class="amount pricee"><i class="fa fa-inr"></i> @{{ result.price }}</span></ins>
 
 
 
+                                                            <div class="price-add-to-cart" style="padding-top: 5%; padding-bottom: 5%; margin-bottom: 1%">
 
-                                                        </span>
-                                                    </span>
-
-                                                            </div><!-- /.price-add-to-cart -->
-
-                                                            <div class="hover-area" style=" display: block !important;
-                                                padding-top: 0.214em !important;
-                                                border-top: 1px solid #eaeaea !important;">
-                                                                <div class="action-buttons buyn" onload="check();"
-                                                                     :data-id="result.units">
-                                                                    @if(Auth::check())
-                                                                        @if(Auth::user()->role == 2)
-                                                                            <a :href='result.buy_url'><b class="buynow"><i
-                                                                                            class="fa fa-bolt"
-                                                                                            aria-hidden="true"></i>
-                                                                                    &nbsp; Buy Now</b></a>
-                                                                        @endif
-                                                                    @else
-                                                                        <a :href='result.buy_url'><b class="buynow"><i
-                                                                                        class="fa fa-bolt"
-                                                                                        aria-hidden="true"></i>
-                                                                                &nbsp; Buy Now</b></a>
+                                                                <div style="margin-bottom: -3px;font-size: 16px;">
+                                                                    <ais-rating-menu attribute="rating" />
+                                                                    @if(5 > 0)
+                                                                        <div class="col-md-5" style="    display: inline-block;
+        padding-left: 0px; padding-right : 0px;">
+                                                                        <span
+                                                                                v-for="(_, i) in 5"
+                                                                                :key="i"
+                                                                                :class="[
+                                                                                    'fa fa-star star-fill',
+                                                                                    i >= result.rating && 'star-empty'
+                                                                                  ]"
+                                                                                aria-hidden="true"
+                                                                                width="24"
+                                                                                height="24"
+                                                                        >
+                                                                            <use :xlink:href="`#ais-RatingMenu-star${i >= result.rating ? 'Empty' : ''}Symbol`" />
+                                                                        </span>
+                                                                        </div>
+                                                                        </span>
+                                                                        @if(!Jenssegers\Agent\Facades\Agent::isMobile())
+                                                                            <div class="col-md-4" style="    display: inline-block;
+        padding-left: 0px; padding-right : 0px;
+        bottom: 4px;"><span class="grey font" style="display: inline;">@{{result.rating}} / <b>5.0</b></span>
+                                                                            </div>@endif
                                                                     @endif
-
                                                                 </div>
+                                                                <span class="price">
+											<span class="electro-price">
+												<ins><span class="amount"><i class="fa fa-inr"></i>@{{ result.price }}</span></ins>&nbsp;
+												<del class=""><span class="amount "><i class="fa fa-inr"></i>@{{ result.original_price }}</span></del><br>
+
+											</span>
+										</span>
+                                                                <!--  <a rel="nofollow" href='https://phonefriend.in/store/show/635/samsung-galaxy-j2-2015-16-gb' class="button add_to_cart_button pull-right">Add to cart</a>-->
                                                             </div>
+
+
                                                         </div><!-- /.product-inner -->
                                                     </div><!-- /.product-outer -->
                                                 </li>
@@ -354,7 +353,9 @@ numericFilters:['units_rem != 0','sold != 2'],
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Fill the form we will receive your phone for repair</h4>
             </div>
-            {!! Form::open(array('url' => 'home/repair', 'method' => 'post','class'=>'row','name'=>'repairform','id'=>'repairform','file'=>true, 'enctype'=>"multipart/form-data" )) !!}
+            {!! Form::open(array('url' => 'home/repair', 'method' =>
+            'post','class'=>'row','name'=>'repairform','id'=>'repairform','file'=>true, 'enctype'=>"multipart/form-data"
+            )) !!}
             <div class="modal-body col-md-12">
                 <div class="form-group col-md-12">
                     <label>Enter Name:</label>

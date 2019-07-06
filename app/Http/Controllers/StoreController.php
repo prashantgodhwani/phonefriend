@@ -149,7 +149,10 @@ class StoreController extends Controller
             $comment->status = 1;
             $comment->rating = $request->rating;
             $saved = $comment->save();
-
+            $avg = number_format(DB::table('comments')->where('comments.phone_id',$request->phoneIdHide)->where('comments.status',1)->avg('rating'), 1, '.', '');
+            $phone = Phone::find($request->phoneIdHide);
+            $phone->rating = $avg;
+            $phone->save();
                 return redirect()->to(URL::previous() . '/#tab-reviews');
         }
     }

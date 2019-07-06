@@ -55,7 +55,7 @@
 
                                                 <p><strong>Connecting with phonefriend.in</strong></p>
 
-                                                <p>You can contact us:&nbsp;<br />by telephone on&nbsp;<strong>8126911300</strong>&nbsp;between 09:30 to 18:30 IST or<br />by email at&nbsp;<strong><a href="mailto:help@phonefriend.com" target="_blank" data-mt-detrack-inspected="true">help@phonefriend.com</a></strong><br />&nbsp;<br /><strong>Note:</strong>&nbsp;When contacting us you must quote your Web Order Number or registered mobile no that you received when placing the original order.</p>
+                                                <p>You can contact us:&nbsp;<br />by telephone on&nbsp;<strong>+91-8448444313</strong>&nbsp;between 09:30 to 18:30 IST or<br />by email at&nbsp;<strong><a href="mailto:help@phonefriend.com" target="_blank" data-mt-detrack-inspected="true">help@phonefriend.com</a></strong><br />&nbsp;<br /><strong>Note:</strong>&nbsp;When contacting us you must quote your Web Order Number or registered mobile no that you received when placing the original order.</p>
                                             </div>
                                         </div>
                                     </div>

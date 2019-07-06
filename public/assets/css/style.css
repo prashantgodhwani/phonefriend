@@ -278,6 +278,30 @@ li.menu-item a {
 
 }
 
+.star-fill{
+  color: #eb0;
+  overflow: hidden;
+}
+
+.star-empty{
+  color: #808080;
+  position: relative;
+}
+.grey{
+  color:grey;
+}
+.form-ro
+
+.star-fill{
+  color: #eb0;
+  overflow: hidden;
+}
+
+.star-empty{
+  color: #808080;
+  position: relative;
+}
+
 input#aa-search-input {
   background-color: #fff;
   border-radius: 5px 0px 0px 5px;
