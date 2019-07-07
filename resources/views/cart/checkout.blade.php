@@ -82,11 +82,9 @@
 
                                         <h3>Shipping Details</h3>
 
-                                        <p id="billing_first_name_field" class="form-row form-row form-row-first validate-required"><label class="" for="billing_first_name">First Name <abbr title="required" class="required">*</abbr></label><input type="text" value="" data-validation="required" placeholder="" id="billing_first_name" name="deliver_fname" class="input-text " value="{{Auth::user()->email}}" required></p>
+                                        <p id="billing_first_name_field" class="form-row form-row form-row-first validate-required"><label class="" for="billing_first_name">First Name <abbr title="required" class="required">*</abbr></label><input type="text" value="" data-validation="required" placeholder="" id="billing_first_name" name="deliver_fname" class="input-text " required></p>
 
                                         <p id="billing_last_name_field" class="form-row form-row form-row-last validate-required"><label class="" for="billing_last_name">Last Name <abbr title="required" class="required">*</abbr></label><input type="text" value="" data-validation="required" placeholder="" id="billing_last_name" name="deliver_lname" class="input-text " required></p><div class="clear"></div>
-
-                                        <p id="billing_phone_field" class="form-row-wide validate-required validate-phone"><label class="" for="billing_phone">Phone <abbr title="required" class="required">*</abbr></label><input type="number" data-validation="number,length"  placeholder="" id="deliver_phone" name="deliver_phone" data-validation-length="10-10" class="input-text" required></p><div class="clear"></div>
                                         @if(Auth::check())
                                             <p id="billing_phone_field" class="form-row-wide validate-required validate-email"><label class="" for="billing_phone">Email <abbr title="required" class="required">*</abbr></label><input type="email" data-validation="requied,email"  placeholder="" id="deliver_email" name="deliver_email" class="input-text" required value="{{Auth::user()->email}}" readonly></p><div class="clear"></div>
                                         @else
