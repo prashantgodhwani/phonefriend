@@ -68,7 +68,7 @@
 
                 <div class="footer-contact col-xs-12 col-sm-12 col-md-5 col-md-pull-7">
                     <div class="footer-logo">
-                        <img src="{{asset('images/logo1.png')}}" style="width:50%">
+                        <img src="{{asset('images/logo-new.png')}}" style="width:50%">
                     </div><!-- /.footer-contact -->
 
                     <div class="footer-call-us">
