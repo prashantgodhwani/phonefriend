@@ -73,11 +73,9 @@
                                                         </div>
                                                     </div>
                                                 </div><!-- /.footer-call-us -->
+                                                <li class="menu-box" style="margin-bottom: 13%;"><a target="_blank" href="https://www.tidio.com/talk/f8xkns3a5mgrctwnti65j0gmh93lffrh" style="font-weight: bold;     text-decoration: none;">Chat with us</a>
+                                                    <i class="fa fa-chevron-right" style="float: right;"></i></li>
                                                 <div class="wpb_wrapper">
-                                                    <li class="menu-box"><a href="https://www.tidio.com/talk/f8xkns3a5mgrctwnti65j0gmh93lffrh" style="font-weight: bold">Chat with us</a>
-                                                        <i class="fa fa-chevron-right" style="
-    float: right;
-"></i></li>
                                                     <h2 class="contact-page-title">Our HQ's</h2>
                                                     <address><b>Phone Friend</b><br>
                                                         Plot No.6, Himgiri Enclave Chander Vihar, Near Tilak Nagar Metro Station, Nilothi Ext., New delhi - 110041<br>
