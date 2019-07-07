@@ -336,6 +336,44 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4"  id="loginbardiv"><div class="media-body">
+                @if (Auth::guest())
+                    <div class="top-right links">
+
+                        <ul class="navbar-mini-cart navbar-nav animate-dropdown nav flip" >
+                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="font-size: 16px; color:#ffffff"><b>Login</b></a></li> &nbsp; &nbsp;
+                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}" style="font-size: 16px; color:#ffffff"><b>Signup</b></a></li>
+                            <li class="nav-item dropdown">
+                                <a href="{{ route('cart') }}" class="nav-link" aria-expanded="false" style="font-size: 16px; color:#ffffff">
+                                    <i class="ec ec-shopping-bag" style="font-size: 1.829em;"></i>
+                                    <span class="cart-items-count count" style="background-color: #3c3c3c;">{{Cart::count()}}</span>
+                                    <span class="cart-items-total-price total-price"><span class="amount"><b><i class="fa fa-inr"></i> {{Cart::subtotal()}}</b></span></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+
+                    <a href="{{route('accnt')}}" class="nav-link" role="button" aria-expanded="false" style="font-size: 16px; color:#ffffff">
+                        <b>Welcome ! {{ucwords(Auth::user()->name) }} </b>
+                    </a>
+
+                    &nbsp; &nbsp; &nbsp; &nbsp; <a href="{{ route('logout') }}" onclick="event.preventDefault();                                                document.getElementById('logout-form').submit();"  style="color:#fff" >
+                        <i class="	fa fa-sign-out"  style="font-size:25px;"></i>
+
+                        Sign Out</a>
+
+                @endif
+                @if(Auth::check())
+                    @if(Auth::user()->role==2)
+                        <a href="/cart" id="bigcart" class="nav-link" style="    color: #fff;
+    font-size: 30px;">
+                            <i class="ec ec-shopping-bag" style="font-size: 1.5em;"></i>
+                            <span class="cart-items-count count">{{Cart::count()}}</span>
+                        </a>
+                    @endif
+                @endif
+            </div></div>
 
     </div>
 
