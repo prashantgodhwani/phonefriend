@@ -108,7 +108,7 @@
                             <tr>
                                 <td height="1" align="left" valign="top" style="background-color:#e4e6eb;padding:0px" colspan="2"><img src="https://ci6.googleusercontent.com/proxy/3f3GjW3tjvOHHu29dfFFVpDzb8-eEesPLKgw9nni23Lw3SirQ3M6rpM9sDxpM4yRtqTfNOPUWRycYVWzANgz43tW6AoJv3w=s0-d-e1-ft#https://test.ccavenue.com/images/blank_spacer.gif" width="1" height="1" class="CToWUd"></td>
                                 <td width="74%" align="left" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#373737"><strong>CUSTOMER CARE<br></strong>https://www.phonefriend.in<br> Email : sandeep.chawla@phonefriend.in<br> Contact Info : +91-8448444313 | 0120-4121361</td>
-                                <td width="26%" align="right" valign="bottom"><img src="http://encodezero.com/phonefriend/images/logo-new.png" width="130" height="31" border="0" class="CToWUd"></td>
+                                <td width="26%" align="right" valign="bottom"><img src="https://www.phonefriend.in/images/logo-footer.png" width="130" height="31" border="0" class="CToWUd"></td>
                             </tr>
                             </tbody>
                         </table>

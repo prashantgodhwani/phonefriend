@@ -64,7 +64,20 @@
                                     <div class="vc_column-inner ">
                                         <div class="wpb_wrapper">
                                             <div class="wpb_text_column wpb_content_element ">
+                                                <div class="footer-call-us">
+                                                    <div class="media">
+                                                        <span class="media-left call-us-icon media-middle"><i class="ec ec-support"></i></span>
+                                                        <div class="media-body">
+                                                            <span class="call-us-text">Got Questions ? Call us 24/7!</span>
+                                                            <span class="call-us-number">+91-8448444313</span>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.footer-call-us -->
                                                 <div class="wpb_wrapper">
+                                                    <li class="menu-box"><a href="https://www.tidio.com/talk/f8xkns3a5mgrctwnti65j0gmh93lffrh" style="font-weight: bold">Chat with us</a>
+                                                        <i class="fa fa-chevron-right" style="
+    float: right;
+"></i></li>
                                                     <h2 class="contact-page-title">Our HQ's</h2>
                                                     <address><b>Phone Friend</b><br>
                                                         Plot No.6, Himgiri Enclave Chander Vihar, Near Tilak Nagar Metro Station, Nilothi Ext., New delhi - 110041<br>
