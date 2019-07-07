@@ -66,9 +66,12 @@
                                             <div class="wpb_text_column wpb_content_element ">
                                                 <div class="wpb_wrapper">
                                                     <h2 class="contact-page-title">Our HQ's</h2>
-                                                    <address>F-23, Panch Mandir Road,<br>
-                                                        Rudrapur, Uttrakhand <br>
-                                                        263153, IN</address>
+                                                    <address><b>Phone Friend</b><br>
+                                                        Plot No.6, Himgiri Enclave Chander Vihar, Near Tilak Nagar Metro Station, Nilothi Ext., New delhi - 110041<br>
+                                                        India | CIN : U74999UR2018PTC008664<BR>
+                                                        PAN : ABACS2219K | TAN : MRTS15190A<BR>
+                                                        +91-8448444313 , +91 1204318432 | help@phonefriend.in
+                                                    </address>
                                                     <h3>Merchant Enquiries</h3>
                                                     <p class="inner-right-md">If you’re interested in employment opportunities at Phone Friend, please email us: <a href="mailto:merchant@phonefriend.in">merchant@phonefriend.in</a></p>
                                                 </div>

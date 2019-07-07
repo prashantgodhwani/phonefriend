@@ -68,7 +68,7 @@
 
                 <div class="footer-contact col-xs-12 col-sm-12 col-md-5 col-md-pull-7">
                     <div class="footer-logo">
-                        <img src="{{asset('images/logo1-bottom.png')}}" style="width:50%">
+                        <img src="{{asset('images/logo-footer.png')}}" style="width:50%">
                     </div><!-- /.footer-contact -->
 
                     <div class="footer-call-us">
@@ -84,7 +84,7 @@
 
                     <div class="footer-address">
                         <address><b>Phone Friend</b><br>
-                            Shop No.6, Himgiri Enclave Chander Vihar, Near Tilak Nagar Metro Station, Nilothi Ext., New delhi - 110041<br>
+                            Plot No.6, Himgiri Enclave Chander Vihar, Near Tilak Nagar Metro Station, Nilothi Ext., New delhi - 110041<br>
                             India | CIN : U74999UR2018PTC008664<BR>
                             PAN : ABACS2219K | TAN : MRTS15190A<BR>
                             +91-8448444313 , +91 1204318432 | help@phonefriend.in
