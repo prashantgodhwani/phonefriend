@@ -35,7 +35,7 @@
                                 <img src="https://cdn.dribbble.com/users/159981/screenshots/2112264/checkmark.gif" class="success-icon">
                             </div>
                             <div class="row">
-                                <div id="map col-md-6"><iframe src="https://maps.google.com/maps?&q={{$order->state}}&output=embed" width="100%" height="200" frameborder="0" style="border:0" ></iframe></div><br>
+                                <div id="map" class="col-md-6"><iframe src="https://maps.google.com/maps?&q={{$order->state}}&output=embed" width="100%" height="200" frameborder="0" style="border:0" ></iframe></div>
                                 <div class="woocommerce-checkout-review-order imagex col-md-6" id="order_review">
                                     <table class="shop_table woocommerce-checkout-review-order-table">
                                         <thead>
