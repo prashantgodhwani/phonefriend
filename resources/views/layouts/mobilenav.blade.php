@@ -333,7 +333,7 @@
                 <div class="col-xs-4 someicons ">
                     <a title="Your Cart" style="color:#fff" href="{{route('cart')}}"><i
                                 class="ec ec-shopping-bag" style="font-size:26px;"></i>
-                        <span class='badge badge-warning' id='lblCartCount'> {{Cart::count()}} </span>
+                        <span class='badge badge-warning cart-items-count' id='lblCartCount'> {{Cart::count()}} </span>
                         <br>
                         Cart
 
