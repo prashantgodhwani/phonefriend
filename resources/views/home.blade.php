@@ -1177,7 +1177,7 @@
                                                         <div class="product-thumbnail" style="">
 
                                                             <img class="img img-responsive lazyload"
-                                                                 src="https://phplaravel-155986-846240.cloudwaysapps.com/images/logo-loader.png"
+                                                                 src="https://phonefriend.in/images/logo-loader.png"
                                                                  data-src="https://www.phonefriend.in/storage/{{str_replace("public", "", $phone->dp)}}"
                                                                  alt="{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB second hand phone at phonefriend"
                                                                  title="{{ucwords($phone->data->company)}} {{$phone->data->model}} - {{$phone->data->storage}} GB">

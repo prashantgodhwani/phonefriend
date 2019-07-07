@@ -76,10 +76,10 @@
                 <div class="topbar-left">
                     <a href="{{route('admin.dashboard')}}" class="logo">
                         <span>
-                                <img src="{{asset('images/logo1.png')}}" alt="" height="35">
+                                <img src="{{asset('images/logo-new.png')}}" alt="" height="35">
                             </span>
                         <i>
-                                <img src="{{asset('images/logo1.png')}}" alt="" height="38">
+                                <img src="{{asset('images/logo-new.png')}}" alt="" height="38">
                             </i>
                     </a>
                 </div>

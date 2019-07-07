@@ -140,7 +140,7 @@
 <div class="topnavnew" id="mytopnavnew">
     <a href="https://www.phonefriend.in" class="active" style="background-color: transparent;
     width: 192px;"><img
-                src="{{asset('images/logo1.png')}}"></a>
+                src="{{asset('images/logo-new.png')}}"></a>
     <a class="restmenu" href="https://www.phonefriend.in/">Home</a>
 
     <a href="https://www.phonefriend.in/store">Store</a>
@@ -319,7 +319,7 @@
         </div>
 
         <div class="col-md-2"><a href="https://www.phonefriend.in" class="header-logo-link">
-                <img src="{{asset('images/logo1.png')}}" class="logo" id="biglogo">
+                <img src="{{asset('images/logo-new.png')}}" class="logo" id="biglogo">
             </a></div>
         <div class="col-md-6" id="searchbardiv">
             <div class="input-group" id="aa-input-container">
