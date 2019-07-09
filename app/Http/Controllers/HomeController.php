@@ -32,7 +32,10 @@ class HomeController extends Controller
     }
     public function index()
     {
-        $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->where('type','!=','BEST_SELLING')->where('type','!=','DEAL_OF_THE_DAY')->orderByRaw('RAND()')->limit(30)->get();
+        $phones = Phone::where('units_rem', '!=', 0)->where('sold', '==' , 0)->where(function($query) {
+            $query->where('type', '')
+                ->orWhereNull('type');
+        })->orderByRaw('RAND()')->limit(30)->get();
         foreach ($phones as $phone){
             if(number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '') != 0)
                 $phone->rating = number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
