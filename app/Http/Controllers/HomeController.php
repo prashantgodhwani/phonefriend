@@ -32,23 +32,8 @@ class HomeController extends Controller
     }
     public function index()
     {
-
-        /*  $response = Curl::to('http://103.8.127.46/vendorsms/pushsms.aspx')
-                    ->withData( array( 'user' => 'pra.godh', 'password' => 'R@dhasoami30', 'msisdn' =>'8299639330','sid' => 'PHNFRN' , 'msg' => 'Dear customer your order has been successfully placed for return/replacement.for more info call 7465828888','fl'=>'0','gwid'=>'2') )
-                    ->asJson()
-                    ->get(); */
-
-        // $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(15)->orderBy('price', 'asc')->get();
-        //        $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(5)->orderBy('price', 'asc')->get();
-
-
-        $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->limit(18)->get();
+        $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->where('type','!=','BEST_SELLING')->where('type','!=','DEAL_OF_THE_DAY')->orderByRaw('RAND()')->limit(30)->get();
         foreach ($phones as $phone){
-            if(number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '') != 0)
-                $phone->rating = number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
-        }
-        $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
-        foreach ($certified as $phone){
             if(number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '') != 0)
                 $phone->rating = number_format(DB::table('comments')->where('comments.phone_id',$phone->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
         }
@@ -61,44 +46,9 @@ class HomeController extends Controller
         $deal =  Phone::where('units_rem', '!=', 0)->where('type','DEAL_OF_THE_DAY')->where('sold', '==' , 0)->first();
             if(number_format(DB::table('comments')->where('comments.phone_id',$deal->id)->where('comments.status',1)->avg('rating'), 1, '.', '') != 0)
                 $deal->rating = number_format(DB::table('comments')->where('comments.phone_id',$deal->id)->where('comments.status',1)->avg('rating'), 1, '.', '');
-        return view('home',compact('phones','certified','bestseller', 'brands', 'deal'));
+        return view('home',compact('phones','bestseller', 'brands', 'deal'));
     }
 
-    public function home2()
-    {
-
-        /*  $response = Curl::to('http://103.8.127.46/vendorsms/pushsms.aspx')
-                    ->withData( array( 'user' => 'pra.godh', 'password' => 'R@dhasoami30', 'msisdn' =>'8299639330','sid' => 'PHNFRN' , 'msg' => 'Dear customer your order has been successfully placed for return/replacement.for more info call 7465828888','fl'=>'0','gwid'=>'2') )
-                    ->asJson()
-                    ->get(); */
-
-        // $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(15)->orderBy('price', 'asc')->get();
-        //        $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(5)->orderBy('price', 'asc')->get();
-
-
-        $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
-        $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
-        $bestseller = Phone::where('units_rem', '!=', 0)->where('mostselling','Yes')->where('sold', '!=' , 2)->orderBy('price', 'asc') ->limit(5)->get();
-        return view('home2',compact('phones','certified','bestseller'));
-    }
-
-    public function home1()
-    {
-
-        /*  $response = Curl::to('http://103.8.127.46/vendorsms/pushsms.aspx')
-                    ->withData( array( 'user' => 'pra.godh', 'password' => 'R@dhasoami30', 'msisdn' =>'8299639330','sid' => 'PHNFRN' , 'msg' => 'Dear customer your order has been successfully placed for return/replacement.for more info call 7465828888','fl'=>'0','gwid'=>'2') )
-                    ->asJson()
-                    ->get(); */
-
-        // $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(15)->orderBy('price', 'asc')->get();
-        //        $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->take(5)->orderBy('price', 'asc')->get();
-
-
-        $phones = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
-        $certified = Phone::where('units_rem', '!=', 0)->where('sold', '!=' , 2)->orderBy('price', 'asc')->get();
-        $bestseller = Phone::where('units_rem', '!=', 0)->where('mostselling','Yes')->where('sold', '!=' , 2)->orderBy('price', 'asc') ->limit(5)->get();
-        return view('home1',compact('phones','certified','bestseller'));
-    }
     public function filterPhones(Request $request)
     {
         $brands = $request->brands;
