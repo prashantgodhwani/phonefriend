@@ -11,6 +11,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 use Ixudra\Curl\Facades\Curl;
+use Mockery\Exception;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class SendOrderConfirmationEmail implements ShouldQueue
 {
@@ -32,8 +34,13 @@ class SendOrderConfirmationEmail implements ShouldQueue
      */
     public function handle(OrderConfirmed $event)
     {
-       // echo "Order by ".User::find($event->order->user_id)->role." successfull";
-        Mail::to(Order::find($event->order)->deliver_email)->send(new OrderConfirmedMail($event->order));
-        
+        \Log::warning("Order by ".Order::find($event->order->id)->deliver_email);
+        Mail::to(Order::findOrFail($event->order->id)->deliver_email)->send(new OrderConfirmedMail($event->order));
+
+    }
+
+    public function failed(OrderConfirmed $event, $exception)
+    {
+        throw new Exception("Exception is queue for SendEmail : " . $exception->getMessage());
     }
 }
